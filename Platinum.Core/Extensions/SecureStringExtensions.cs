@@ -3,7 +3,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     /// <summary> Secure string utilities. </summary>
     public static class SecureStringExtensions

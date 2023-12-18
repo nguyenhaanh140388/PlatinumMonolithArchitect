@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Anhny010920.Core.DataAnnotations.ValidationAttributes
+namespace Platinum.Core.DataAnnotations.ValidationAttributes
 {
     [AttributeUsage(
         AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter,

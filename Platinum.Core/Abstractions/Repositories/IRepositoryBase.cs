@@ -2,12 +2,12 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-using Anhny010920.Core.Abstractions.Dapper;
-using Anhny010920.Core.Abstractions.Queries;
 using Anhny010920.Core.Enums;
+using Platinum.Core.Abstractions.Dapper;
+using Platinum.Core.Abstractions.Queries;
 using System;
 
-namespace Anhny010920.Core.Abstractions.Repositories
+namespace Platinum.Core.Abstractions.Repositories
 {
     /// <summary>
     /// BaseRepository interface.

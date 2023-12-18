@@ -2,12 +2,12 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-using Anhny010920.Core.Abstractions.Models.Response;
 using Anhny010920.Core.Domain.Common;
 using Anhny010920.Core.Enums;
 using Anhny010920.Core.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Platinum.Core.Abstractions.Models.Response;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -18,7 +18,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Z.BulkOperations;
 
-namespace Anhny010920.Core.Abstractions.Queries
+namespace Platinum.Core.Abstractions.Queries
 {
     public interface IEntityDao<TEntity> where TEntity : EntityBase, new()
     {
@@ -29,7 +29,7 @@ namespace Anhny010920.Core.Abstractions.Queries
         DbSet<TEntity> Table { get; }
         public DatabaseFacade Database { get; }
 
-       // (string Schema, string TableName) TableSchemaAndName { get; }
+        // (string Schema, string TableName) TableSchemaAndName { get; }
 
         Task<DbContext> AddToContext(DbContextOptions dbContextOptions, TEntity entity, int count, int commitCount, bool recreateContext);
         Task<BulkOperationResultModel> BulkSaveChangesAsync(BulkTypes bulkTypes, bool persist = false, int batchTimeout = 120, CancellationToken cancellationToken = default);

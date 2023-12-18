@@ -22,7 +22,7 @@ THE SOFTWARE.*/
 using System.ComponentModel;
 using System.Net;
 
-namespace Utilities.Web
+namespace Platinum.Core.Extensions
 {
     /// <summary>
     /// Extensions related to IP addresses

@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     /// <summary>
     /// Provides extensions for <see cref="StringBuilder"/>

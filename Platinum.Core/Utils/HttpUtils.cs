@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
     /// <summary>
     /// Simple HTTP request helper to let you retrieve data from a Web

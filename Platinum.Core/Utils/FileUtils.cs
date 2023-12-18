@@ -42,7 +42,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
     /// <summary>
     /// wwUtils class which contains a set of common utility classes for 
@@ -602,7 +602,7 @@ namespace Anhny010920.Core.Utilities
             if (additionalChars != null)
                 invalids.Concat(additionalChars);
 
-            return (!string.IsNullOrEmpty(path) && path.IndexOfAny(invalids) >= 0);
+            return !string.IsNullOrEmpty(path) && path.IndexOfAny(invalids) >= 0;
         }
         #endregion
 

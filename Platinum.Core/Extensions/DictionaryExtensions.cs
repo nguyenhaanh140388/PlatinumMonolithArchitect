@@ -1,6 +1,8 @@
-﻿using Anhny010920.Core.Attributes;
-using Anhny010920.Core.Utilities;
+﻿using Anhny010920.Core.Extensions;
 using Newtonsoft.Json.Linq;
+using Platinum.Core.Attributes;
+using Platinum.Core.Extensions;
+using Platinum.Core.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,10 +14,10 @@ using System.Text;
 using System.Xml.Linq;
 using Utilities.Web;
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     public static class DictionaryExtensions
-    {   
+    {
         /// <summary>
         /// Converts a dictionary instance to a NameValueCollection.
         /// </summary>
@@ -49,7 +51,7 @@ namespace Anhny010920.Core.Extensions
             var descriptionAttributes =
             enumMember == null
             ? new List<EnumContentAttribute>()
-            : enumMember.GetCustomAttributes(typeof(EnumContentAttribute),true).Select(a => (EnumContentAttribute)a);
+            : enumMember.GetCustomAttributes(typeof(EnumContentAttribute), true).Select(a => (EnumContentAttribute)a);
             return
             descriptionAttributes == null
             ? null

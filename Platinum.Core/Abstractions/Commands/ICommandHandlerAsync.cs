@@ -3,9 +3,8 @@
 // </copyright>
 
 using System.Threading.Tasks;
-using Anhny010920.Core.Abstractions.Queries;
 
-namespace Anhny010920.Core.Abstractions.Commands
+namespace Platinum.Core.Abstractions.Commands
 {
     /// <summary>
     /// ICommandHandlerAsync.

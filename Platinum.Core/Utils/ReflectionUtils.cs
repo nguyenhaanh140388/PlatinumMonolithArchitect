@@ -41,7 +41,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
     /// <summary>
     /// Collection of Reflection and type conversion related utility functions
@@ -265,26 +265,26 @@ namespace Anhny010920.Core.Utilities
             object result;
             if (targetType == typeof(string))
                 result = sourceString;
-            else if (targetType == typeof(Int32) || targetType == typeof(int))
+            else if (targetType == typeof(int) || targetType == typeof(int))
             {
                 if (isEmpty)
                     result = 0;
                 else
-                    result = Int32.Parse(sourceString, NumberStyles.Any, culture.NumberFormat);
+                    result = int.Parse(sourceString, NumberStyles.Any, culture.NumberFormat);
             }
-            else if (targetType == typeof(Int64))
+            else if (targetType == typeof(long))
             {
                 if (isEmpty)
-                    result = (Int64)0;
+                    result = (long)0;
                 else
-                    result = Int64.Parse(sourceString, NumberStyles.Any, culture.NumberFormat);
+                    result = long.Parse(sourceString, NumberStyles.Any, culture.NumberFormat);
             }
-            else if (targetType == typeof(Int16))
+            else if (targetType == typeof(short))
             {
                 if (isEmpty)
-                    result = (Int16)0;
+                    result = (short)0;
                 else
-                    result = Int16.Parse(sourceString, NumberStyles.Any, culture.NumberFormat);
+                    result = short.Parse(sourceString, NumberStyles.Any, culture.NumberFormat);
             }
             else if (targetType == typeof(decimal))
             {
@@ -312,14 +312,14 @@ namespace Anhny010920.Core.Utilities
                 if (isEmpty)
                     result = 0F;
                 else
-                    result = Double.Parse(sourceString, NumberStyles.Any, culture.NumberFormat);
+                    result = double.Parse(sourceString, NumberStyles.Any, culture.NumberFormat);
             }
-            else if (targetType == typeof(Single))
+            else if (targetType == typeof(float))
             {
                 if (isEmpty)
                     result = 0F;
                 else
-                    result = Single.Parse(sourceString, NumberStyles.Any, culture.NumberFormat);
+                    result = float.Parse(sourceString, NumberStyles.Any, culture.NumberFormat);
             }
             else if (targetType == typeof(bool))
             {
@@ -368,7 +368,7 @@ namespace Anhny010920.Core.Utilities
                 {
                     Debug.Assert(false, string.Format("Type Conversion not handled in StringToTypedValue for {0} {1}",
                         targetType.Name, sourceString));
-                    throw (new InvalidCastException("Type Conversion failed for: " + targetType.Name));
+                    throw new InvalidCastException("Type Conversion failed for: " + targetType.Name);
                 }
             }
 
@@ -412,11 +412,11 @@ namespace Anhny010920.Core.Utilities
             if (valueType == typeof(string))
                 returnValue = rawValue as string;
             else if (valueType == typeof(int) || valueType == typeof(decimal) ||
-                     valueType == typeof(double) || valueType == typeof(float) || valueType == typeof(Single))
+                     valueType == typeof(double) || valueType == typeof(float) || valueType == typeof(float))
                 returnValue = string.Format(culture.NumberFormat, "{0}", rawValue);
             else if (valueType == typeof(DateTime))
                 returnValue = string.Format(culture.DateTimeFormat, "{0}", rawValue);
-            else if (valueType == typeof(bool) || valueType == typeof(Byte) || valueType.IsEnum)
+            else if (valueType == typeof(bool) || valueType == typeof(byte) || valueType.IsEnum)
                 returnValue = rawValue.ToString();
             else if (valueType == typeof(Guid?))
             {
@@ -464,10 +464,10 @@ namespace Anhny010920.Core.Utilities
             if (parameterTypes == null && parms.Length > 0)
                 // Call without explicit parameter types - might cause problems with overloads    
                 // occurs when null parameters were passed and we couldn't figure out the parm type
-                return instance.GetType().GetMethod(method, ReflectionUtils.MemberAccess | BindingFlags.InvokeMethod).Invoke(instance, parms);
+                return instance.GetType().GetMethod(method, MemberAccess | BindingFlags.InvokeMethod).Invoke(instance, parms);
             else
                 // Call with parameter types - works only if no null values were passed
-                return instance.GetType().GetMethod(method, ReflectionUtils.MemberAccess | BindingFlags.InvokeMethod, null, parameterTypes, null).Invoke(instance, parms);
+                return instance.GetType().GetMethod(method, MemberAccess | BindingFlags.InvokeMethod, null, parameterTypes, null).Invoke(instance, parms);
         }
 
         /// <summary>
@@ -517,8 +517,8 @@ namespace Anhny010920.Core.Utilities
         {
             MulticastDelegate del =
                 (MulticastDelegate)instance?.GetType().GetField(eventName,
-                    System.Reflection.BindingFlags.Instance |
-                    System.Reflection.BindingFlags.NonPublic)?.GetValue(instance);
+                    BindingFlags.Instance |
+                    BindingFlags.NonPublic)?.GetValue(instance);
 
             if (del == null)
                 return;
@@ -577,7 +577,7 @@ namespace Anhny010920.Core.Utilities
             else
             {
                 // Get the member
-                MemberInfo member = Parent.GetType().GetMember(pureProperty, ReflectionUtils.MemberAccess)[0];
+                MemberInfo member = Parent.GetType().GetMember(pureProperty, MemberAccess)[0];
                 if (member.MemberType == MemberTypes.Property)
                     result = ((PropertyInfo)member).GetValue(Parent, null);
                 else
@@ -632,7 +632,7 @@ namespace Anhny010920.Core.Utilities
                 propertyName = Property.Substring(0, Property.IndexOf("["));
 
             // Get the member
-            return Parent.GetType().GetProperty(propertyName, ReflectionUtils.MemberAccess);
+            return Parent.GetType().GetProperty(propertyName, MemberAccess);
         }
 
         /// <summary>
@@ -644,7 +644,7 @@ namespace Anhny010920.Core.Utilities
         /// <returns></returns>
         public static object GetField(object Object, string Property)
         {
-            return Object.GetType().GetField(Property, ReflectionUtils.MemberAccess | BindingFlags.GetField).GetValue(Object);
+            return Object.GetType().GetField(Property, MemberAccess | BindingFlags.GetField).GetValue(Object);
         }
 
 
@@ -657,7 +657,7 @@ namespace Anhny010920.Core.Utilities
         /// <param name="value">value to set it to</param>
         public static void SetProperty(object obj, string property, object value)
         {
-            obj.GetType().GetProperty(property, ReflectionUtils.MemberAccess).SetValue(obj, value, null);
+            obj.GetType().GetProperty(property, MemberAccess).SetValue(obj, value, null);
         }
 
         /// <summary>
@@ -687,7 +687,7 @@ namespace Anhny010920.Core.Utilities
             if (!IsArrayOrCollection)
             {
                 // Get the member
-                MemberInfo Member = Parent.GetType().GetMember(PureProperty, ReflectionUtils.MemberAccess)[0];
+                MemberInfo Member = Parent.GetType().GetMember(PureProperty, MemberAccess)[0];
                 if (Member.MemberType == MemberTypes.Property)
                 {
                     var prop = (PropertyInfo)Member;
@@ -702,7 +702,7 @@ namespace Anhny010920.Core.Utilities
             else
             {
                 // Get the member
-                MemberInfo Member = Parent.GetType().GetMember(PureProperty, ReflectionUtils.MemberAccess)[0];
+                MemberInfo Member = Parent.GetType().GetMember(PureProperty, MemberAccess)[0];
                 if (Member.MemberType == MemberTypes.Property)
                 {
                     var prop = (PropertyInfo)Member;
@@ -750,7 +750,7 @@ namespace Anhny010920.Core.Utilities
         /// <param name="value">value to set it to</param>
         public static void SetField(object obj, string property, object value)
         {
-            obj.GetType().GetField(property, ReflectionUtils.MemberAccess).SetValue(obj, value);
+            obj.GetType().GetField(property, MemberAccess).SetValue(obj, value);
         }
 
 
@@ -799,7 +799,7 @@ namespace Anhny010920.Core.Utilities
             int lnAt = method.IndexOf(".");
             if (lnAt < 0)
             {
-                return ReflectionUtils.CallMethod(parent, method, parms);
+                return CallMethod(parent, method, parms);
             }
 
             // Walk the . syntax
@@ -991,7 +991,7 @@ namespace Anhny010920.Core.Utilities
         /// <returns></returns>
         public static object GetPropertyCom(object instance, string property)
         {
-            return instance.GetType().InvokeMember(property, ReflectionUtils.MemberAccessCom | BindingFlags.GetProperty, null,
+            return instance.GetType().InvokeMember(property, MemberAccessCom | BindingFlags.GetProperty, null,
                                                 instance, null);
         }
 
@@ -1014,7 +1014,7 @@ namespace Anhny010920.Core.Utilities
                     return parent;
 
                 // Get the member
-                return parent.GetType().InvokeMember(property, ReflectionUtils.MemberAccessCom | BindingFlags.GetProperty, null,
+                return parent.GetType().InvokeMember(property, MemberAccessCom | BindingFlags.GetProperty, null,
                     parent, null);
             }
 
@@ -1022,11 +1022,11 @@ namespace Anhny010920.Core.Utilities
             string Main = property.Substring(0, lnAt);
             string Subs = property.Substring(lnAt + 1);
 
-            object Sub = parent.GetType().InvokeMember(Main, ReflectionUtils.MemberAccessCom | BindingFlags.GetProperty, null,
+            object Sub = parent.GetType().InvokeMember(Main, MemberAccessCom | BindingFlags.GetProperty, null,
                 parent, null);
 
             // Recurse further into the sub-properties (Subs)
-            return ReflectionUtils.GetPropertyExCom(Sub, Subs);
+            return GetPropertyExCom(Sub, Subs);
         }
 
         /// <summary>
@@ -1037,7 +1037,7 @@ namespace Anhny010920.Core.Utilities
         /// <param name="Value">value to set it to</param>
         public static void SetPropertyCom(object inst, string Property, object Value)
         {
-            inst.GetType().InvokeMember(Property, ReflectionUtils.MemberAccessCom | BindingFlags.SetProperty, null, inst, new object[1] { Value });
+            inst.GetType().InvokeMember(Property, MemberAccessCom | BindingFlags.SetProperty, null, inst, new object[1] { Value });
         }
 
         /// <summary>
@@ -1067,7 +1067,7 @@ namespace Anhny010920.Core.Utilities
             if (lnAt < 0)
             {
                 // Set the member
-                parent.GetType().InvokeMember(property, ReflectionUtils.MemberAccessCom | BindingFlags.SetProperty, null,
+                parent.GetType().InvokeMember(property, MemberAccessCom | BindingFlags.SetProperty, null,
                     parent, new object[1] { value });
 
                 return null;
@@ -1078,7 +1078,7 @@ namespace Anhny010920.Core.Utilities
             string Subs = property.Substring(lnAt + 1);
 
 
-            object Sub = parent.GetType().InvokeMember(Main, ReflectionUtils.MemberAccessCom | BindingFlags.GetProperty, null,
+            object Sub = parent.GetType().InvokeMember(Main, MemberAccessCom | BindingFlags.GetProperty, null,
                 parent, null);
 
             return SetPropertyExCom(Sub, Subs, value);
@@ -1095,7 +1095,7 @@ namespace Anhny010920.Core.Utilities
         /// <returns></returns>
         public static object CallMethodCom(object instance, string method, params object[] parms)
         {
-            return instance.GetType().InvokeMember(method, ReflectionUtils.MemberAccessCom | BindingFlags.InvokeMethod, null, instance, parms);
+            return instance.GetType().InvokeMember(method, MemberAccessCom | BindingFlags.InvokeMethod, null, instance, parms);
         }
 
         /// <summary>
@@ -1113,14 +1113,14 @@ namespace Anhny010920.Core.Utilities
             int at = method.IndexOf(".");
             if (at < 0)
             {
-                return ReflectionUtils.CallMethodCom(parent, method, parms);
+                return CallMethodCom(parent, method, parms);
             }
 
             // Walk the . syntax - split into current object (Main) and further parsed objects (Subs)
             string Main = method.Substring(0, at);
             string Subs = method.Substring(at + 1);
 
-            object Sub = parent.GetType().InvokeMember(Main, ReflectionUtils.MemberAccessCom | BindingFlags.GetProperty, null,
+            object Sub = parent.GetType().InvokeMember(Main, MemberAccessCom | BindingFlags.GetProperty, null,
                 parent, null);
 
             // Recurse until we get the lowest ref

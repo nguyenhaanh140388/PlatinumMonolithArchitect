@@ -42,8 +42,10 @@ using SystemDataCommon = System.Data.Common;
 using System.IO;
 using Anhny010920.Core.Properties;
 using System.Data;
+using Anhny010920.Core.Utilities;
+using Platinum.Core.AAA;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
     /// <summary>
     /// Utility library for common data operations.
@@ -84,7 +86,7 @@ namespace Anhny010920.Core.Utilities
 
             foreach (byte b in Guid.NewGuid().ToByteArray())
             {
-                result.Append(chars[b % (chars.Length)]);
+                result.Append(chars[b % chars.Length]);
                 count++;
                 if (count >= stringSize)
                     break;
@@ -259,7 +261,7 @@ namespace Anhny010920.Core.Utilities
         /// </summary>
         /// <param name="row">Data row with values to fill from</param>
         /// <param name="targetObject">Object to file values from data row</param>
-        public static void CopyObjectFromDataRow(SystemData.DataRow row, object targetObject, MemberInfo[] cachedMemberInfo = null)
+        public static void CopyObjectFromDataRow(DataRow row, object targetObject, MemberInfo[] cachedMemberInfo = null)
         {
             if (cachedMemberInfo == null)
             {
@@ -353,7 +355,7 @@ namespace Anhny010920.Core.Utilities
         /// </summary>
         /// <param name="source"></param>
         /// <param name="target"></param>
-        public static void CopyObjectData(object source, Object target)
+        public static void CopyObjectData(object source, object target)
         {
             CopyObjectData(source, target, MemberAccess);
         }
@@ -364,7 +366,7 @@ namespace Anhny010920.Core.Utilities
         /// <param name="source"></param>
         /// <param name="target"></param>
         /// <param name="memberAccess"></param>
-        public static void CopyObjectData(object source, Object target, BindingFlags memberAccess)
+        public static void CopyObjectData(object source, object target, BindingFlags memberAccess)
         {
             CopyObjectData(source, target, null, memberAccess);
         }
@@ -375,7 +377,7 @@ namespace Anhny010920.Core.Utilities
         /// <param name="source"></param>
         /// <param name="target"></param>
         /// <param name="excludedProperties"></param>
-        public static void CopyObjectData(object source, Object target, string excludedProperties)
+        public static void CopyObjectData(object source, object target, string excludedProperties)
         {
             CopyObjectData(source, target, excludedProperties, MemberAccess);
         }
@@ -625,7 +627,7 @@ namespace Anhny010920.Core.Utilities
                         continue;
 
                     // find writable properties and assign
-                    if ((prop != null) && prop.CanWrite)
+                    if (prop != null && prop.CanWrite)
                     {
                         var val = reader.GetValue(index);
 
@@ -686,7 +688,7 @@ namespace Anhny010920.Core.Utilities
                 else if (lcRowType == "Boolean")
                     row[x] = false;
                 else if (lcRowType == "DateTime")
-                    row[x] = DataUtils.MinimumSqlDate;
+                    row[x] = MinimumSqlDate;
 
                 // Everything else isn't handled explicitly and left alone
                 // Byte[] most specifically

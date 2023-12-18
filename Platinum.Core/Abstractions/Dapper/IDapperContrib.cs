@@ -5,7 +5,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Anhny010920.Core.Abstractions.Dapper
+namespace Platinum.Core.Abstractions.Dapper
 {
     /// <summary>
     /// IDapperContrib.

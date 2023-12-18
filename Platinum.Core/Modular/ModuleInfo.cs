@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Reflection;
 
-namespace Anhny010920.Core.Modular
+namespace Platinum.Core.Modular
 {
     public class ModuleInfo
     {

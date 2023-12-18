@@ -6,7 +6,7 @@ using Anhny010920.Core.Enums;
 using System;
 using System.Collections.Generic;
 
-namespace Anhny010920.Core.Abstractions.Models.Response
+namespace Platinum.Core.Abstractions.Models.Response
 {
     /// <summary>
     /// 

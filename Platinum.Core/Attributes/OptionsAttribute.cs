@@ -1,4 +1,4 @@
-﻿namespace Anhny010920.Core.Attributes
+﻿namespace Platinum.Core.Attributes
 {
     using System;
     using System.Collections.Generic;
@@ -21,24 +21,24 @@
         public OptionsAttribute(bool ignoreCase, params string[] availableOptions)
             : base(errorMessage: "The {0} field value must be one of the following options: {1}.")
         {
-            this._availableOptions = availableOptions;
-            this._ignoreCase = ignoreCase;
+            _availableOptions = availableOptions;
+            _ignoreCase = ignoreCase;
         }
 
         public override string FormatErrorMessage(string name)
         {
             return string.Format(
                 CultureInfo.CurrentCulture,
-                base.ErrorMessageString,
+                ErrorMessageString,
                 name,
-                string.Join(", ", this._availableOptions));
+                string.Join(", ", _availableOptions));
         }
 
         public override bool IsValid(object value)
         {
-            return this._availableOptions.Contains(
+            return _availableOptions.Contains(
                 value.ToString(),
-                (this._ignoreCase) ?
+                _ignoreCase ?
                     StringComparer.InvariantCultureIgnoreCase :
                     StringComparer.InvariantCulture);
         }

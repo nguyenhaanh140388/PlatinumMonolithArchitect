@@ -39,7 +39,7 @@ using System.Net;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
 
     /// <summary>
@@ -60,7 +60,7 @@ namespace Anhny010920.Core.Utilities
                 return false;
 
             if (Directory.Exists(filename))
-                ShellUtils.GoUrl(filename);
+                GoUrl(filename);
             else
             {
                 // required as command Explorer command line doesn't allow mixed slashes

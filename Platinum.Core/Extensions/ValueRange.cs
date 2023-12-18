@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     /// <summary>
     /// Provides validation between a minimum and maximum of a value.
@@ -52,7 +52,7 @@ namespace Anhny010920.Core.Extensions
         /// <returns>True if the value is inside Range, else false</returns>
         public bool ContainsValue(T value)
         {
-            return Minimum.CompareTo(value) <= 0 && (value.CompareTo(Maximum) <= 0);
+            return Minimum.CompareTo(value) <= 0 && value.CompareTo(Maximum) <= 0;
         }
 
         /// <summary>

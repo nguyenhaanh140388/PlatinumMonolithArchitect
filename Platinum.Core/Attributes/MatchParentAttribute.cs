@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Anhny010920.Core.Attributes
+namespace Platinum.Core.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class MatchParentAttribute : Attribute

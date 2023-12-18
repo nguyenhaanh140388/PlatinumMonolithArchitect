@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Abstractions.EntityFramework
+namespace Platinum.Core.Abstractions.EntityFramework
 {
     public interface IDbContext
     {

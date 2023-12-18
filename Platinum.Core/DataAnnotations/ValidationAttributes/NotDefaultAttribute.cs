@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Anhny010920.Core.DataAnnotations.ValidationAttributes
+namespace Platinum.Core.DataAnnotations.ValidationAttributes
 {
     public class NotDefaultAttribute : ValidationAttribute
     {

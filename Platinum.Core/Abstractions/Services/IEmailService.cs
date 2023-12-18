@@ -1,7 +1,7 @@
-﻿using Anhny010920.Core.Abstractions.Dtos;
+﻿using Platinum.Core.Abstractions.Dtos;
 using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Abstractions.Services
+namespace Platinum.Core.Abstractions.Services
 {
     public interface IEmailService
     {

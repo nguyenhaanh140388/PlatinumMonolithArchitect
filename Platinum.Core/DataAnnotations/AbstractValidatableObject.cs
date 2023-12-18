@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Anhny010920.Core.DataAnnotations
+namespace Platinum.Core.DataAnnotations
 {
     public abstract class AbstractValidatableObject : IValidatableObject
     {

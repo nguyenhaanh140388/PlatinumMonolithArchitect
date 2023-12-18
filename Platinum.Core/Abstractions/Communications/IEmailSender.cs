@@ -5,7 +5,7 @@
 using Anhny010920.Core.Domain.Identity;
 using Anhny010920.Core.Entities.Admin;
 
-namespace Anhny010920.Core.Abstractions.Communications
+namespace Platinum.Core.Abstractions.Communications
 {
     /// <summary>
     /// IEmailSender.

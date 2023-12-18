@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
     public static class HtmlUtils
     {

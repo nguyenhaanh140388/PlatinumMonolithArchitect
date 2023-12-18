@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     public static class TaskExtensions
     {

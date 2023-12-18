@@ -1,4 +1,4 @@
-﻿namespace Anhny010920.Core.Attributes
+﻿namespace Platinum.Core.Attributes
 {
     using System;
     using System.Collections.Generic;
@@ -14,23 +14,23 @@
         public MinimumAttribute(int minimum) :
             base(errorMessage: "The {0} field value must be minimum {1}.")
         {
-            this._minimumValue = minimum;
+            _minimumValue = minimum;
         }
 
         public override string FormatErrorMessage(string name)
         {
             return string.Format(
                 CultureInfo.CurrentCulture,
-                base.ErrorMessageString,
+                ErrorMessageString,
                 name,
-                this._minimumValue);
+                _minimumValue);
         }
 
         public override bool IsValid(object value)
         {
             if (value != null && int.TryParse(value.ToString(), out int intValue))
             {
-                return (intValue >= this._minimumValue);
+                return intValue >= _minimumValue;
             }
 
             return false;

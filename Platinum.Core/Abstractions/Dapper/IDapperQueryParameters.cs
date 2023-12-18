@@ -5,10 +5,10 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using Anhny010920.Expressions.Queries;
 using DapperExtensions;
+using Platinum.Core.Abstractions.Expressions.Queries;
 
-namespace Anhny010920.Core.Abstractions.Dapper
+namespace Platinum.Core.Abstractions.Dapper
 {
     /// <summary>
     /// 

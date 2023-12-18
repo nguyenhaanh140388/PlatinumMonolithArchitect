@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     public static class ExpressionHelper
     {

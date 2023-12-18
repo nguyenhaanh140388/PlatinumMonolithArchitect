@@ -2,11 +2,11 @@
 using System.Data.SqlClient;
 using System.Reflection;
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     public static class SqlBulkCopyExtension
     {
-        const String _rowsCopiedFieldName = "_rowsCopied";
+        const string _rowsCopiedFieldName = "_rowsCopied";
         static FieldInfo _rowsCopiedField = null;
 
         public static int RowsCopiedCount(this SqlBulkCopy bulkCopy)

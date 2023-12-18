@@ -4,7 +4,7 @@
 
 using Microsoft.EntityFrameworkCore;
 
-namespace Anhny010920.Core.Abstractions.Modules
+namespace Platinum.Core.Abstractions.Modules
 {
     /// <summary>
     /// ICustomModelBuilder.

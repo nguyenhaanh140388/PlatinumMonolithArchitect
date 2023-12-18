@@ -9,13 +9,16 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using Anhny010920.Core.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage;
+using Platinum.Core.AAA;
+using Platinum.Core.Extensions;
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     /// <summary>
     /// DatabaseExtensions.

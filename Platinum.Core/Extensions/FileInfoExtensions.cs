@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     /// <summary>
-    /// Provides extensions for the <see cref="System.IO.FileInfo" /> class.
+    /// Provides extensions for the <see cref="FileInfo" /> class.
     /// </summary>
     public static class FileInfoExtensions
     {

@@ -2,7 +2,7 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
     using System;
     using System.Security.Principal;

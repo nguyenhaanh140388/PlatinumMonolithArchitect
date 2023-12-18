@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Abstractions.AzureService
+namespace Platinum.Core.Abstractions.AzureService
 {
     public interface IMessageBusFactory
     {

@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Abstractions.Modules
+namespace Platinum.Core.Abstractions.Modules
 {
     /// <summary>
     /// IModuleInitializer.

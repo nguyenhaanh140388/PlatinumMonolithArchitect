@@ -2,9 +2,7 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-using Anhny010920.Core.Abstractions.Queries;
-
-namespace Anhny010920.Core.Abstractions.Commands
+namespace Platinum.Core.Abstractions.Commands
 {
     /// <summary>
     ///   <br />

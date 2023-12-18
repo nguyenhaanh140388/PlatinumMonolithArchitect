@@ -1,4 +1,4 @@
-﻿namespace Anhny010920.Core.Extensions
+﻿namespace Platinum.Core.Extensions
 {
     /// <summary>
     /// An enumeration of the types of masking styles for the Mask() extension method

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     /// <summary>
     /// Represents a singleton instance of a class

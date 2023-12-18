@@ -2,7 +2,7 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-namespace Anhny010920.Core.Abstractions.State
+namespace Platinum.Core.Abstractions.State
 {
     public interface IMemoryCacheManager
     {

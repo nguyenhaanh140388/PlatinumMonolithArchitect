@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace Anhny010920.Core.Exceptions
+namespace Platinum.Core.Exceptions
 {
     public class ApiException : Exception
     {
@@ -12,7 +12,7 @@ namespace Anhny010920.Core.Exceptions
         public ApiException(string message) : base(message) { }
 
         public ApiException(string message, params object[] args)
-            : base(String.Format(CultureInfo.CurrentCulture, message, args))
+            : base(string.Format(CultureInfo.CurrentCulture, message, args))
         {
         }
     }

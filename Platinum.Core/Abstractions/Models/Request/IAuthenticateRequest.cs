@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Anhny010920.Core.Abstractions.Models.Response
+namespace Platinum.Core.Abstractions.Models.Request
 {
     public interface IAuthenticateRequest
     { /// <summary>

@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Serilog;
 using Serilog.Events;
 
-namespace Anhny010920.Core.Exceptions
+namespace Platinum.Core.Exceptions
 {
     /// <summary>
     /// WebApiExceptionFilter.
@@ -59,7 +59,7 @@ namespace Anhny010920.Core.Exceptions
                     var ex = context.Exception as WebApiException;
                     context.Exception = null;
                     context.HttpContext.Response.StatusCode = (int)ex.StatusCode;
-                    this.logger.Write(LogEventLevel.Error, $"MyWallet API thrown error: {ex.Message}", ex);
+                    logger.Write(LogEventLevel.Error, $"MyWallet API thrown error: {ex.Message}", ex);
                 }
                 else if (context.Exception is UnauthorizedAccessException)
                 {
@@ -85,7 +85,7 @@ namespace Anhny010920.Core.Exceptions
                     context.HttpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
 
                     // handle logging here
-                    this.logger.Write(LogEventLevel.Error, context.Exception, msg);
+                    logger.Write(LogEventLevel.Error, context.Exception, msg);
                 }
 
                 // always return a JSON result

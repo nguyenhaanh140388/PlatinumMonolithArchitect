@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Abstractions.AzureService
+namespace Platinum.Core.Abstractions.AzureService
 {
     public interface IAzureStorage
     {

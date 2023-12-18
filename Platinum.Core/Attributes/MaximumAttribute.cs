@@ -1,4 +1,4 @@
-﻿namespace Anhny010920.Core.Attributes
+﻿namespace Platinum.Core.Attributes
 {
     using System;
     using System.Collections.Generic;
@@ -14,23 +14,23 @@
         public MaximumAttribute(int maximum) :
             base(errorMessage: "The {0} field value must be maximum {1}.")
         {
-            this._maximumValue = maximum;
+            _maximumValue = maximum;
         }
 
         public override string FormatErrorMessage(string name)
         {
             return string.Format(
                 CultureInfo.CurrentCulture,
-                base.ErrorMessageString,
+                ErrorMessageString,
                 name,
-                this._maximumValue);
+                _maximumValue);
         }
 
         public override bool IsValid(object value)
         {
             if (value != null && int.TryParse(value.ToString(), out int intValue))
             {
-                return (intValue <= this._maximumValue);
+                return intValue <= _maximumValue;
             }
 
             return false;

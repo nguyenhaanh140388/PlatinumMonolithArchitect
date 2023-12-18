@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Identitys
+namespace Platinum.Core.Abstractions.Identitys
 {
     public interface IAppUserManager
     {

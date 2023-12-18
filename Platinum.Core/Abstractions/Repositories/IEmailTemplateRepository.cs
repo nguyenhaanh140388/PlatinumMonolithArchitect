@@ -4,7 +4,7 @@
 
 using Anhny010920.Core.Domain.Template;
 
-namespace Anhny010920.Core.Abstractions.Repositories
+namespace Platinum.Core.Abstractions.Repositories
 {
     public interface IEmailTemplateRepository : IBaseRepository<EmailTemplate>
     {

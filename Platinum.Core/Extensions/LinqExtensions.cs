@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Anhny010920.Core.Utilities.Linq
+namespace Platinum.Core.Extensions
 {
     public static class LinqExtensions
     {

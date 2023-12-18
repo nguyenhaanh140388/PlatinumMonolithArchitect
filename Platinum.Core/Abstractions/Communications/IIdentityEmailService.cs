@@ -2,7 +2,7 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-namespace Anhny010920.Core.Abstractions.Communications
+namespace Platinum.Core.Abstractions.Communications
 {
     using System.Threading.Tasks;
     using Anhny010920.Entities.Models.Admin;

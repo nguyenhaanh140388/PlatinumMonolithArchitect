@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Abstractions.UnitOfWork
+namespace Platinum.Core.Abstractions.UnitOfWork
 {
     public interface IUnitOfWork : IDisposable //<U> where U : DbContext, IDisposable
     {

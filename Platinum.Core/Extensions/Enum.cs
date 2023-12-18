@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Anhny010920.Core.Extensions;
+using Platinum.Core.AAA;
+using Platinum.Core.Extensions;
 // ReSharper disable UnusedMember.Global
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     /// <summary>
     /// Provides strongly typed methods for working with <see cref="Enum"/>.

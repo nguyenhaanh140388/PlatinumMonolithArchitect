@@ -35,7 +35,7 @@ using Anhny010920.Core.Properties;
 using System;
 using System.Globalization;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
     /// <summary>
     /// Time Utilities class provides date and time related routines.
@@ -53,7 +53,7 @@ namespace Anhny010920.Core.Utilities
         /// <returns>Today,Yesterday,Day of week or a string day (Jul 15, 2008)</returns>
         public static string FriendlyDateString(DateTime date, bool showTime = false, string timeSeparator = "-")
         {
-            if (date < TimeUtils.MIN_DATE_VALUE)
+            if (date < MIN_DATE_VALUE)
                 return string.Empty;
 
             string FormattedDate;
@@ -83,7 +83,7 @@ namespace Anhny010920.Core.Utilities
         /// <returns></returns>
         public static string ShortDateString(DateTime date, bool showTime = false, string separator = "-")
         {
-            if (date < TimeUtils.MIN_DATE_VALUE)
+            if (date < MIN_DATE_VALUE)
                 return string.Empty;
 
             string dateString = date.ToString("MMM dd, yyyy");
@@ -134,12 +134,12 @@ namespace Anhny010920.Core.Utilities
                 return "just now";
 
             if (milliSeconds < 60000)
-                return ((int)(milliSeconds / 1000)).ToString() + "s ago"; ;
+                return (milliSeconds / 1000).ToString() + "s ago"; ;
 
             if (milliSeconds < 3600000)
-                return ((int)(milliSeconds / 60000)).ToString() + "m ago";
+                return (milliSeconds / 60000).ToString() + "m ago";
 
-            return ((int)(milliSeconds / 3600000)).ToString() + "h ago";
+            return (milliSeconds / 3600000).ToString() + "h ago";
         }
 
         /// <summary>
@@ -218,8 +218,8 @@ namespace Anhny010920.Core.Utilities
             if (minuteInterval == 0)
                 return time;
 
-            decimal interval = (decimal)minuteInterval;
-            decimal actMinute = (decimal)time.Minute;
+            decimal interval = minuteInterval;
+            decimal actMinute = time.Minute;
 
             if (actMinute == 0.00M)
                 return time;
@@ -289,7 +289,7 @@ namespace Anhny010920.Core.Utilities
             sOffset += Offset.Minutes.ToString().PadLeft(2, '0');
 
             return "Date: " + Time.ToString("ddd, dd MMM yyyy HH:mm:ss",
-                                                          System.Globalization.CultureInfo.InvariantCulture) +
+                                                          CultureInfo.InvariantCulture) +
                                                           " " + sOffset;
         }
 

@@ -3,7 +3,7 @@ using System.Dynamic;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
 
     /// <summary>

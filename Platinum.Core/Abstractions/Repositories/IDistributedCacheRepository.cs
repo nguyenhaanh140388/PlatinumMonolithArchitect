@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Anhny010920.Core.Abstractions.Repositories
+namespace Platinum.Core.Abstractions.Repositories
 {
     public interface IDistributedCacheRepository : IRepositoryBase<DistributeCacheProductTable>
     {

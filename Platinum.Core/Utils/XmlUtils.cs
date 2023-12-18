@@ -37,7 +37,7 @@ using System.Text;
 using System.Xml;
 
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
     /// <summary>
     /// String utility class that provides a host of string related operations
@@ -290,11 +290,11 @@ namespace Anhny010920.Core.Utilities
 
             if (type == typeof(string) || type == typeof(char))
                 return "string";
-            if (type == typeof(int) || type == typeof(Int32))
+            if (type == typeof(int) || type == typeof(int))
                 return "integer";
-            if (type == typeof(Int16) || type == typeof(byte))
+            if (type == typeof(short) || type == typeof(byte))
                 return "short";
-            if (type == typeof(long) || type == typeof(Int64))
+            if (type == typeof(long) || type == typeof(long))
                 return "long";
             if (type == typeof(bool))
                 return "boolean";
@@ -307,7 +307,7 @@ namespace Anhny010920.Core.Utilities
                 return "decimal";
             if (type == typeof(double))
                 return "double";
-            if (type == typeof(Single))
+            if (type == typeof(float))
                 return "single";
 
             if (type == typeof(byte))
@@ -342,9 +342,9 @@ namespace Anhny010920.Core.Utilities
             if (xmlType == "decimal")
                 return typeof(decimal);
             if (xmlType == "double")
-                return typeof(Double);
+                return typeof(double);
             if (xmlType == "single")
-                return typeof(Single);
+                return typeof(float);
 
             if (xmlType == "byte")
                 return typeof(byte);

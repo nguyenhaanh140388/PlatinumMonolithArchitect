@@ -7,8 +7,11 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Anhny010920.Core.Extensions;
+using Platinum.Core.AAA;
+using Platinum.Core.Extensions;
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     public static class SqlConnectionExtension
     {
@@ -85,7 +88,7 @@ namespace Anhny010920.Core.Extensions
         {
             using (command)
             {
-                if (command.Connection.State == System.Data.ConnectionState.Closed)
+                if (command.Connection.State == ConnectionState.Closed)
                     await command.Connection.OpenAsync();
                 try
                 {
@@ -96,7 +99,7 @@ namespace Anhny010920.Core.Extensions
                 }
                 catch (Exception e)
                 {
-                    throw (e);
+                    throw e;
                 }
             }
         }
@@ -105,7 +108,7 @@ namespace Anhny010920.Core.Extensions
         {
             using (command)
             {
-                if (command.Connection.State == System.Data.ConnectionState.Closed)
+                if (command.Connection.State == ConnectionState.Closed)
                     await command.Connection.OpenAsync();
                 try
                 {
@@ -113,7 +116,7 @@ namespace Anhny010920.Core.Extensions
                 }
                 catch (Exception e)
                 {
-                    throw (e);
+                    throw e;
                 }
             }
         }
@@ -122,7 +125,7 @@ namespace Anhny010920.Core.Extensions
         {
             using (command)
             {
-                if (command.Connection.State == System.Data.ConnectionState.Closed)
+                if (command.Connection.State == ConnectionState.Closed)
                     await command.Connection.OpenAsync();
                 try
                 {
@@ -133,7 +136,7 @@ namespace Anhny010920.Core.Extensions
                 }
                 catch (Exception e)
                 {
-                    throw (e);
+                    throw e;
                 }
             }
         }

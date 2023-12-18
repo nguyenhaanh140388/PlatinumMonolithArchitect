@@ -11,7 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Anhny010920.Core.Attributes.Filters
+namespace Platinum.Core.Attributes.Filters
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class AppAuthorizedAttribute : Attribute, IAuthorizationFilter
@@ -27,7 +27,7 @@ namespace Anhny010920.Core.Attributes.Filters
         {
             var currentUser = (ApplicationUser)context.HttpContext.Items["User"];
             var userRoles = (List<string>)context.HttpContext.Items["Roles"];
-            if (currentUser == null || (_roles.Any() && !_roles.Any(x => userRoles.Contains(x.ToString()))))
+            if (currentUser == null || _roles.Any() && !_roles.Any(x => userRoles.Contains(x.ToString())))
             {
                 // not logged in or role not authorized
                 context.Result = new JsonResult(new { message = "Unauthorized" }) { StatusCode = StatusCodes.Status401Unauthorized };

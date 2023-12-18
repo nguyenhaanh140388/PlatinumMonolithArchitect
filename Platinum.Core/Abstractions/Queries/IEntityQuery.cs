@@ -2,9 +2,9 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-using Anhny010920.Core.Abstractions.Models.Response;
 using Anhny010920.Core.Domain.Common;
 using Anhny010920.Core.Enums;
+using Platinum.Core.Abstractions.Models.Response;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -14,7 +14,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Abstractions.Queries
+namespace Platinum.Core.Abstractions.Queries
 {
     /// <summary>
     /// IEntityQuery.

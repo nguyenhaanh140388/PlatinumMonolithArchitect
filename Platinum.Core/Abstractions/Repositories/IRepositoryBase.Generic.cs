@@ -1,7 +1,7 @@
-﻿using Anhny010920.Core.Abstractions.Queries;
-using Anhny010920.Core.Domain.Common;
+﻿using Anhny010920.Core.Domain.Common;
+using Platinum.Core.Abstractions.Queries;
 
-namespace Anhny010920.Core.Abstractions.Repositories
+namespace Platinum.Core.Abstractions.Repositories
 {
     public interface IBaseRepository<TEntity> : IEntityDao<TEntity> where TEntity : EntityBase, new()
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Linq;
 using System.Reflection;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
     public static class EmbeddedResourceUtils
     {
@@ -91,7 +91,7 @@ namespace Anhny010920.Core.Utilities
             {
                 return GetString(name, @namespace, assembly);
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 //If cannot find the resource then return empty string
                 return string.Empty;

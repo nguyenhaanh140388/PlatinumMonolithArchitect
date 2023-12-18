@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     /// <summary> Version comparer extensions. </summary>
     public static class VersionComparerExtensions

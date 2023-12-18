@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Anhny010920.Core.Helpers
+namespace Platinum.Core.Helpers
 {
     class MimeExtensionHelper
     {

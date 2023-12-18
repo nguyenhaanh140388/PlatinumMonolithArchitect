@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
     public static class SerializeUtils
     {        /// <summary>

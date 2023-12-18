@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Handfires
+namespace Platinum.Core.Handfires
 {
     public class BackgroundJob : JobBase
     {

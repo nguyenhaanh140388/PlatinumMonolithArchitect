@@ -2,7 +2,7 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-namespace Anhny010920.Core.Exceptions
+namespace Platinum.Core.Exceptions
 {
     /// <summary>
     ///
@@ -40,7 +40,7 @@ namespace Anhny010920.Core.Exceptions
         public WebAPIError(string message)
         {
             this.message = message;
-            this.isError = true;
+            isError = true;
         }
     }
 }

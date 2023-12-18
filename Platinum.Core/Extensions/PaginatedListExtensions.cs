@@ -1,9 +1,9 @@
-﻿using Anhny010920.Core.Abstractions.Models.Response;
-using Anhny010920.Core.Domain.Common;
+﻿using Anhny010920.Core.Domain.Common;
 using Anhny010920.Core.Wrappers;
+using Platinum.Core.Abstractions.Models.Response;
 using System.Collections.Generic;
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     /// <summary>
     /// PaginatedListExtensions.

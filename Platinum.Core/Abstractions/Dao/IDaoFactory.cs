@@ -2,11 +2,11 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-using Anhny010920.Core.Abstractions.Dapper;
-using Anhny010920.Core.Abstractions.Queries;
 using Anhny010920.Core.Enums;
+using Platinum.Core.Abstractions.Dapper;
+using Platinum.Core.Abstractions.Queries;
 
-namespace Anhny010920.Core.Abstractions.Dao
+namespace Platinum.Core.Abstractions.Dao
 {
     /// <summary>
     /// IDaoFactory.

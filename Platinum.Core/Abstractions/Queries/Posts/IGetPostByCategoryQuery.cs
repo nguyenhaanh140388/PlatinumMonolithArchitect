@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Abstractions.Queries.Posts
+namespace Platinum.Core.Abstractions.Queries.Posts
 {
-    public interface IGetPostByCategoryQuery<T> : 
+    public interface IGetPostByCategoryQuery<T> :
         IQueryHandler<IEnumerable<Post>>, IQueryHandlerAsync<IEnumerable<Post>>
     {
         string Category { get; set; }

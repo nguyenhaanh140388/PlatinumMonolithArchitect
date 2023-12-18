@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
     public static class EpplusUtils
     {

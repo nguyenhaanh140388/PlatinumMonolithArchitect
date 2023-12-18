@@ -1,12 +1,12 @@
-﻿using Anhny010920.Core.Abstractions.Modules;
-using Autofac;
+﻿using Autofac;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Platinum.Core.Abstractions.Modules;
 using System;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Modular
+namespace Platinum.Core.Modular
 {
     /// <summary>
     /// ModuleBase.
@@ -35,7 +35,7 @@ namespace Anhny010920.Core.Modular
             IConfiguration config)
         {
             RegisterServices(serviceCollection,
-             container,config
+             container, config
              );
         }
 

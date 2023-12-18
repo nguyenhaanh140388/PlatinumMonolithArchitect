@@ -10,7 +10,7 @@ using System.Xml.Linq;
 
 // ReSharper disable UnusedMember.Global
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     /// <summary>
     /// Provides extensions for <see cref="string"/>
@@ -97,7 +97,7 @@ namespace Anhny010920.Core.Extensions
         /// </remarks>
         /// <param name="source"> The string to convert to title case. </param>
         /// <returns> The new title case string. </returns>
-        public static string ToTitleCase(this string source) => ToTitleCase(source.ToLower(), CultureInfo.CurrentCulture);
+        public static string ToTitleCase(this string source) => source.ToLower().ToTitleCase(CultureInfo.CurrentCulture);
 
         /// <summary>
         ///     Converts a string to title case, meaning every word delimited by space have its first character in uppercase and
@@ -533,7 +533,7 @@ namespace Anhny010920.Core.Extensions
         /// <returns>The masked account number.</returns>
         public static string Mask(this string sourceValue, char maskChar, int numExposed)
         {
-            return Mask(sourceValue, maskChar, numExposed, StringMaskStyle.All);
+            return sourceValue.Mask(maskChar, numExposed, StringMaskStyle.All);
         }
 
         /// <summary>
@@ -544,7 +544,7 @@ namespace Anhny010920.Core.Extensions
         /// <returns>The masked account number.</returns>
         public static string Mask(this string sourceValue, char maskChar)
         {
-            return Mask(sourceValue, maskChar, 0, StringMaskStyle.All);
+            return sourceValue.Mask(maskChar, 0, StringMaskStyle.All);
         }
 
         /// <summary>
@@ -555,7 +555,7 @@ namespace Anhny010920.Core.Extensions
         /// <returns>The masked account number.</returns>
         public static string Mask(this string sourceValue, int numExposed)
         {
-            return Mask(sourceValue, '*', numExposed, StringMaskStyle.All);
+            return sourceValue.Mask('*', numExposed, StringMaskStyle.All);
         }
 
         /// <summary>
@@ -565,7 +565,7 @@ namespace Anhny010920.Core.Extensions
         /// <returns>The masked account number.</returns>
         public static string Mask(this string sourceValue)
         {
-            return Mask(sourceValue, '*', 0, StringMaskStyle.All);
+            return sourceValue.Mask('*', 0, StringMaskStyle.All);
         }
 
         /// <summary>
@@ -577,7 +577,7 @@ namespace Anhny010920.Core.Extensions
         /// <returns>The masked account number.</returns>
         public static string Mask(this string sourceValue, char maskChar, StringMaskStyle style)
         {
-            return Mask(sourceValue, maskChar, 0, style);
+            return sourceValue.Mask(maskChar, 0, style);
         }
 
         /// <summary>
@@ -589,7 +589,7 @@ namespace Anhny010920.Core.Extensions
         /// <returns>The masked account number.</returns>
         public static string Mask(this string sourceValue, int numExposed, StringMaskStyle style)
         {
-            return Mask(sourceValue, '*', numExposed, style);
+            return sourceValue.Mask('*', numExposed, style);
         }
 
         /// <summary>
@@ -600,7 +600,7 @@ namespace Anhny010920.Core.Extensions
         /// <returns>The masked account number.</returns>
         public static string Mask(this string sourceValue, StringMaskStyle style)
         {
-            return Mask(sourceValue, '*', 0, style);
+            return sourceValue.Mask('*', 0, style);
         }
 
         /// <summary>
@@ -783,7 +783,7 @@ namespace Anhny010920.Core.Extensions
 
             return bool.TryParse(input, out bool buffer)
                 ? buffer
-                : (bool?)null;
+                : null;
         }
 
         /// <summary>
@@ -798,7 +798,7 @@ namespace Anhny010920.Core.Extensions
 
             return short.TryParse(input, out short buffer)
                 ? buffer
-                : (short?)null;
+                : null;
         }
 
         /// <summary>
@@ -813,7 +813,7 @@ namespace Anhny010920.Core.Extensions
 
             return int.TryParse(input, out int buffer)
                 ? buffer
-                : (int?)null;
+                : null;
         }
 
         /// <summary>
@@ -828,7 +828,7 @@ namespace Anhny010920.Core.Extensions
 
             return long.TryParse(input, out long buffer)
                 ? buffer
-                : (long?)null;
+                : null;
         }
 
         /// <summary>
@@ -843,7 +843,7 @@ namespace Anhny010920.Core.Extensions
 
             return DateTime.TryParse(input, out DateTime buffer)
                 ? buffer
-                : (DateTime?)null;
+                : null;
         }
 
         /// <summary>
@@ -858,7 +858,7 @@ namespace Anhny010920.Core.Extensions
 
             return DateTimeOffset.TryParse(input, out DateTimeOffset buffer)
                 ? buffer
-                : (DateTimeOffset?)null;
+                : null;
         }
 
         /// <summary>
@@ -873,7 +873,7 @@ namespace Anhny010920.Core.Extensions
 
             return double.TryParse(input, out double buffer)
                 ? buffer
-                : (double?)null;
+                : null;
         }
 
         /// <summary>
@@ -888,7 +888,7 @@ namespace Anhny010920.Core.Extensions
 
             return decimal.TryParse(input, out decimal buffer)
                 ? buffer
-                : (decimal?)null;
+                : null;
         }
 
         /// <summary>
@@ -903,7 +903,7 @@ namespace Anhny010920.Core.Extensions
 
             return TimeSpan.TryParse(input, out TimeSpan buffer)
                 ? buffer
-                : (TimeSpan?)null;
+                : null;
         }
 
         /// <summary>
@@ -932,7 +932,7 @@ namespace Anhny010920.Core.Extensions
 
             return Guid.TryParse(input, out Guid buffer)
                 ? buffer
-                : (Guid?)null;
+                : null;
         }
 
         /// <summary>
@@ -947,7 +947,7 @@ namespace Anhny010920.Core.Extensions
 
             return float.TryParse(input, out float buffer)
                 ? buffer
-                : (float?)null;
+                : null;
         }
 
         /// <summary>

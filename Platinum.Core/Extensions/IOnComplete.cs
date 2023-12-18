@@ -1,4 +1,4 @@
-﻿namespace Anhny010920.Core.Extensions
+﻿namespace Platinum.Core.Extensions
 {
     /// <summary>
     /// Interface for objects which may implement a completion method.

@@ -35,7 +35,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
     /// <summary>
     /// DebugUtils class contains various utility methods

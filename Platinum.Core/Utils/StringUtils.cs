@@ -32,6 +32,7 @@
 #endregion
 
 using Anhny010920.Core.Properties;
+using Platinum.Core.Utils;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -41,7 +42,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
     /// <summary>
     /// String utility class that provides a host of string related operations
@@ -64,7 +65,7 @@ namespace Anhny010920.Core.Utilities
                 string match = text.Substring(0, textToTrim.Length);
 
                 if (match == textToTrim ||
-                    (caseInsensitive && match.ToLower() == textToTrim.ToLower()))
+                    caseInsensitive && match.ToLower() == textToTrim.ToLower())
                 {
                     if (text.Length <= match.Length)
                         text = "";
@@ -315,7 +316,7 @@ namespace Anhny010920.Core.Utilities
             {
                 if (!first &&
                     lastChar != ' ' && !char.IsSymbol(lastChar) && !char.IsPunctuation(lastChar) &&
-                    ((char.IsUpper(ch) && !char.IsUpper(lastChar)) ||
+                    (char.IsUpper(ch) && !char.IsUpper(lastChar) ||
                      char.IsDigit(ch) && !char.IsDigit(lastChar)))
                     sb.Append(' ');
 
@@ -493,7 +494,7 @@ namespace Anhny010920.Core.Utilities
 
             // linebreaks to spaces
             StringBuilder sb = new StringBuilder(text.Length);
-            foreach (var s in GetLines(text))
+            foreach (var s in text.GetLines())
                 sb.Append(s.Trim() + " ");
             return sb.ToString().Trim();
         }
@@ -870,14 +871,14 @@ namespace Anhny010920.Core.Utilities
         public static byte[] BinHexToBinary(string hex)
         {
             int offset = hex.StartsWith("0x") ? 2 : 0;
-            if ((hex.Length % 2) != 0)
-                throw new ArgumentException(String.Format(Resources.InvalidHexStringLength, hex.Length));
+            if (hex.Length % 2 != 0)
+                throw new ArgumentException(string.Format(Resources.InvalidHexStringLength, hex.Length));
 
             byte[] ret = new byte[(hex.Length - offset) / 2];
 
             for (int i = 0; i < ret.Length; i++)
             {
-                ret[i] = (byte)((ParseHexChar(hex[offset]) << 4)
+                ret[i] = (byte)(ParseHexChar(hex[offset]) << 4
                                 | ParseHexChar(hex[offset + 1]));
                 offset += 2;
             }
@@ -1070,12 +1071,12 @@ namespace Anhny010920.Core.Utilities
                 minPadding = count;
             }
 
-            string strip = new String(' ', minPadding);
+            string strip = new string(' ', minPadding);
 
             StringBuilder sb = new StringBuilder();
             foreach (var line in lines)
             {
-                sb.AppendLine(StringUtils.ReplaceStringInstance(line, strip, "", 1, false));
+                sb.AppendLine(ReplaceStringInstance(line, strip, "", 1, false));
             }
 
             return sb.ToString();
@@ -1130,7 +1131,7 @@ namespace Anhny010920.Core.Utilities
         /// <returns></returns>
         public static string GetProperty(string propertyString, string key)
         {
-            return StringUtils.ExtractString(propertyString, "<" + key + ">", "</" + key + ">");
+            return propertyString.ExtractString("<" + key + ">", "</" + key + ">");
         }
 
 
@@ -1144,7 +1145,7 @@ namespace Anhny010920.Core.Utilities
         /// <returns></returns>
         public static string SetProperty(string propertyString, string key, string value)
         {
-            string extract = StringUtils.ExtractString(propertyString, "<" + key + ">", "</" + key + ">");
+            string extract = propertyString.ExtractString("<" + key + ">", "</" + key + ">");
 
             if (string.IsNullOrEmpty(value) && extract != string.Empty)
             {

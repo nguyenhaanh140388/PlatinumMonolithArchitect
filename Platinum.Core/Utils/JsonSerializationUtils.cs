@@ -8,7 +8,7 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
     /// <summary>
     /// JSON Serialization helper class that uses JSON.NET.
@@ -26,7 +26,7 @@ namespace Anhny010920.Core.Utilities
         //capture reused type instances
         private static JsonSerializer JsonNet = null;
 
-        private static readonly object SyncLock = new Object();
+        private static readonly object SyncLock = new object();
 
 
 

@@ -1,7 +1,7 @@
 using System;
 using System.Net;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
     /// <summary>
     /// Customized version of WebClient that provides access
@@ -84,7 +84,7 @@ namespace Anhny010920.Core.Utilities
             return Response;
         }
 
-        protected override WebResponse GetWebResponse(WebRequest request, System.IAsyncResult result)
+        protected override WebResponse GetWebResponse(WebRequest request, IAsyncResult result)
         {
             Response = base.GetWebResponse(request, result) as HttpWebResponse;
             return Response;

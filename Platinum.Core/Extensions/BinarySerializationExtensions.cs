@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 using System.Xml;
 // ReSharper disable UnusedMember.Global
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     /// <summary>
     /// Provides a serializer which can write an instance of an object to binary.
@@ -11,7 +11,7 @@ namespace Anhny010920.Core.Extensions
     public static class BinarySerializationExtensions
     {
         /// <summary>
-        /// Serializes an instance of an object to a <see cref="System.IO.Stream"/>.
+        /// Serializes an instance of an object to a <see cref="Stream"/>.
         /// </summary>
         /// <remarks>
         /// Uses DataContractSerializer for serialization.

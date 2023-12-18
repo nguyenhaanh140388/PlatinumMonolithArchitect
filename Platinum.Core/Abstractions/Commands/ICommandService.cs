@@ -4,7 +4,7 @@
 
 using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Abstractions.Commands
+namespace Platinum.Core.Abstractions.Commands
 {
     /// <summary>
     /// ICommandFactory.

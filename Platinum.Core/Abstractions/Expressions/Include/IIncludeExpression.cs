@@ -5,7 +5,7 @@
 using System;
 using System.Linq.Expressions;
 
-namespace Anhny010920.Expressions.Queries
+namespace Platinum.Core.Abstractions.Expressions.Include
 {
     public interface IIncludeExpression<TEntity>
     {

@@ -2,7 +2,7 @@
 using System;
 using Microsoft.Win32;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
 
     /// <summary>
@@ -161,11 +161,11 @@ namespace Anhny010920.Core.Utilities
                 DotnetVersion = "4.6.1";
             else if (releaseKey >= 393295)
                 DotnetVersion = "4.6";
-            else if ((releaseKey >= 379893))
+            else if (releaseKey >= 379893)
                 DotnetVersion = "4.5.2";
-            else if ((releaseKey >= 378675))
+            else if (releaseKey >= 378675)
                 DotnetVersion = "4.5.1";
-            else if ((releaseKey >= 378389))
+            else if (releaseKey >= 378389)
                 DotnetVersion = "4.5";
 
             // This line should never execute. A non-null release key should mean 

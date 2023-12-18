@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
     public static class ObjectUtils
     {  /// <summary>
@@ -22,7 +22,7 @@ namespace Anhny010920.Core.Utilities
             {
                 Type type = self.GetType();
                 List<string> ignoreList = new List<string>(ignore);
-                foreach (PropertyInfo pi in type.GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance))
+                foreach (PropertyInfo pi in type.GetProperties(BindingFlags.Public | BindingFlags.Instance))
                 {
                     if (!ignoreList.Contains(pi.Name))
                     {

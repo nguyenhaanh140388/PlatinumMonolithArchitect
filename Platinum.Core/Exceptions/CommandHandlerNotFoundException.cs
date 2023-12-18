@@ -4,7 +4,7 @@
 
 using System;
 
-namespace Anhny010920.Core.Exceptions
+namespace Platinum.Core.Exceptions
 {
     public class CommandHandlerNotFoundException : Exception
     {

@@ -2,12 +2,12 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-namespace Anhny010920.Core.Helpers
+namespace Platinum.Core.Helpers
 {
-    using Anhny010920.Core.Utilities;
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Primitives;
     using Microsoft.Net.Http.Headers;
+    using Platinum.Core.Utils;
     using System;
     using System.Collections.Generic;
     using System.Linq;

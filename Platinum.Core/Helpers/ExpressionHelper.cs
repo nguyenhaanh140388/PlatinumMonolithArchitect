@@ -2,7 +2,7 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-namespace Anhny010920.Core.Helpers
+namespace Platinum.Core.Helpers
 {
     using System;
     using System.Collections.Generic;
@@ -28,7 +28,7 @@ namespace Anhny010920.Core.Helpers
 
         public override Expression Visit(Expression node)
         {
-            return node == this.from ? this.to : base.Visit(node);
+            return node == from ? to : base.Visit(node);
         }
     }
 

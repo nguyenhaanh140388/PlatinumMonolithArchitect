@@ -8,7 +8,7 @@ using System.Data;
 using System.Data.Common;
 using global::Dapper;
 
-namespace Anhny010920.Core.Abstractions.Dapper
+namespace Platinum.Core.Abstractions.Dapper
 {
     /// <summary>
     /// 

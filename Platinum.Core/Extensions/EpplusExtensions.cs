@@ -1,7 +1,8 @@
 ﻿using OfficeOpenXml;
+using Platinum.Core.Extensions;
 using System.Text.RegularExpressions;
 
-namespace Anhny010920.Utils.Extensions
+namespace Platinum.Core.Extensions
 {
     public static class EpplusExtensions
     {

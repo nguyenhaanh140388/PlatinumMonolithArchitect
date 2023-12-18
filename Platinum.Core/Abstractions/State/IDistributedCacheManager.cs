@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Distributed;
 
-namespace Anhny010920.Core.Abstractions.State
+namespace Platinum.Core.Abstractions.State
 {
     /// <summary>
     /// IDistributedCacheManager.

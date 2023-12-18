@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Abstractions.Queries.Users
+namespace Platinum.Core.Abstractions.Queries.Users
 {
     public interface IGetUserByAuthenticationQuery<T> :
         IQueryHandler<User>, IQueryHandlerAsync<User>

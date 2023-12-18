@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Anhny010920.Core.Attributes
+namespace Platinum.Core.Attributes
 {
     [AttributeUsage(AttributeTargets.Enum | AttributeTargets.Field, AllowMultiple = true, Inherited = true)]
     public class EnumContentAttribute : Attribute

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
     public static class StackTraceUtils
     {        /// <summary>

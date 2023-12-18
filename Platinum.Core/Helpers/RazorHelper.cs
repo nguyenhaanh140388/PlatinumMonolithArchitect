@@ -4,7 +4,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Helpers
+namespace Platinum.Core.Helpers
 {
     public static class RazorHelper
     {

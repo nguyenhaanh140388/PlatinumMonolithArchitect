@@ -1,15 +1,14 @@
 ﻿using Anhny010920.Core.Abstractions.Services;
-using Anhny010920.Core.Attributes;
 using AutoMapper;
 using System.Reflection;
-using Anhny010920.Core.Extensions;
 using System.Collections.Generic;
 using System;
 using System.Runtime.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Platinum.Core.Attributes;
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     public static class ObjectExtensions
     {

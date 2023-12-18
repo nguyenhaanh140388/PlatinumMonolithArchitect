@@ -4,8 +4,8 @@
 
 using Anhny010920.Core.Abstractions.Commands;
 using Anhny010920.Core.Abstractions.Queries;
-using Anhny010920.Core.Exceptions;
 using Autofac;
+using Platinum.Core.Exceptions;
 using System.Threading.Tasks;
 
 namespace Platinum.Core.Commands

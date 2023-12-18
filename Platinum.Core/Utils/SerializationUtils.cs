@@ -43,7 +43,7 @@ using System.Diagnostics;
 using System.Runtime.Serialization;
 using Microsoft.CodeAnalysis.Formatting;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utils
 {
 
     // Serialization specific code
@@ -217,7 +217,7 @@ namespace Anhny010920.Core.Utilities
             {
                 BinaryFormatter serializer = new BinaryFormatter();
                 ms = new MemoryStream();
-          
+
 #pragma warning disable SYSLIB0011
                 serializer.Serialize(ms, instance);
 #pragma warning restore SYSLIB0011

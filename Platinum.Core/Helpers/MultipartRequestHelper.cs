@@ -2,7 +2,7 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-namespace Anhny010920.Core.Helpers
+namespace Platinum.Core.Helpers
 {
     using System;
     using System.IO;

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Anhny010920.Core.Handfires
+namespace Platinum.Core.Handfires
 {
     public interface IJobBase
     {

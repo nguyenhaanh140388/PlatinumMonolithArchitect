@@ -3,7 +3,7 @@ using System.Text;
 
 // ReSharper disable UnusedMember.Global
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     /// <summary>
     /// Stream Extensions

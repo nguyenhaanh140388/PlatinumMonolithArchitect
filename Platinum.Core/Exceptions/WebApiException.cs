@@ -5,7 +5,7 @@
 using System;
 using System.Net;
 
-namespace Anhny010920.Core.Exceptions
+namespace Platinum.Core.Exceptions
 {
     /// <summary>
     ///
@@ -31,7 +31,7 @@ namespace Anhny010920.Core.Exceptions
                             HttpStatusCode statusCode = HttpStatusCode.InternalServerError)
             : base(message)
         {
-            this.StatusCode = statusCode;
+            StatusCode = statusCode;
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace Anhny010920.Core.Exceptions
         public WebApiException(Exception ex, HttpStatusCode statusCode = HttpStatusCode.InternalServerError)
             : base(ex.Message)
         {
-            this.StatusCode = statusCode;
+            StatusCode = statusCode;
         }
     }
 }

@@ -6,10 +6,10 @@ using System.Data.Common;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using Anhny010920.Core.Extensions;
 using Anhny010920.Core.Models;
+using Platinum.Core.Extensions;
 
-namespace Anhny010920.Core.Extensions
+namespace Platinum.Core.Extensions
 {
     public static class StoreProcedureExtensions
     {
@@ -18,7 +18,7 @@ namespace Anhny010920.Core.Extensions
         {
             var cmd = context.Database.GetDbConnection().CreateCommand();
             cmd.CommandText = storedProcName;
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandType = CommandType.StoredProcedure;
             return cmd;
         }
 
@@ -69,7 +69,7 @@ namespace Anhny010920.Core.Extensions
             return listObjects;
         }
 
-       
+
         public static IEnumerable<T> MapToList<T>(this DbDataReader dbDataReader, bool continueRead = false)
         {
             while (dbDataReader.Read())
@@ -94,7 +94,7 @@ namespace Anhny010920.Core.Extensions
         {
             using (command)
             {
-                if (command.Connection.State == System.Data.ConnectionState.Closed)
+                if (command.Connection.State == ConnectionState.Closed)
                     await command.Connection.OpenAsync();
                 try
                 {
@@ -102,7 +102,7 @@ namespace Anhny010920.Core.Extensions
                 }
                 catch (Exception e)
                 {
-                    throw (e);
+                    throw e;
                 }
                 finally
                 {
@@ -123,7 +123,7 @@ namespace Anhny010920.Core.Extensions
         {
             using (command)
             {
-                if (command.Connection.State == System.Data.ConnectionState.Closed)
+                if (command.Connection.State == ConnectionState.Closed)
                     await command.Connection.OpenAsync();
                 try
                 {
@@ -134,7 +134,7 @@ namespace Anhny010920.Core.Extensions
                 }
                 catch (Exception e)
                 {
-                    throw (e);
+                    throw e;
                 }
                 finally
                 {
@@ -147,7 +147,7 @@ namespace Anhny010920.Core.Extensions
         {
             using (command)
             {
-                if (command.Connection.State == System.Data.ConnectionState.Closed)
+                if (command.Connection.State == ConnectionState.Closed)
                     await command.Connection.OpenAsync();
                 try
                 {
@@ -156,7 +156,7 @@ namespace Anhny010920.Core.Extensions
                 }
                 catch (Exception e)
                 {
-                    throw (e);
+                    throw e;
                 }
                 finally
                 {
@@ -169,7 +169,7 @@ namespace Anhny010920.Core.Extensions
         {
             using (command)
             {
-                if (command.Connection.State == System.Data.ConnectionState.Closed)
+                if (command.Connection.State == ConnectionState.Closed)
                     await command.Connection.OpenAsync();
                 try
                 {
@@ -180,7 +180,7 @@ namespace Anhny010920.Core.Extensions
                 }
                 catch (Exception e)
                 {
-                    throw (e);
+                    throw e;
                 }
                 finally
                 {
@@ -193,7 +193,7 @@ namespace Anhny010920.Core.Extensions
         {
             using (command)
             {
-                if (command.Connection.State == System.Data.ConnectionState.Closed)
+                if (command.Connection.State == ConnectionState.Closed)
                     await command.Connection.OpenAsync();
                 try
                 {
@@ -201,7 +201,7 @@ namespace Anhny010920.Core.Extensions
                 }
                 catch (Exception e)
                 {
-                    throw (e);
+                    throw e;
                 }
                 finally
                 {
@@ -214,7 +214,7 @@ namespace Anhny010920.Core.Extensions
         {
             using (command)
             {
-                if (command.Connection.State == System.Data.ConnectionState.Closed)
+                if (command.Connection.State == ConnectionState.Closed)
                     await command.Connection.OpenAsync();
                 try
                 {
@@ -225,7 +225,7 @@ namespace Anhny010920.Core.Extensions
                 }
                 catch (Exception e)
                 {
-                    throw (e);
+                    throw e;
                 }
                 finally
                 {
