@@ -14,13 +14,11 @@ namespace Platinum.WebApiApplication.Extensions
 
                builderContainer.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
                               .Where(
-                                      c => c.FullName!.StartsWith("Anhny010920.Infrastructure") ||
-                                      c.FullName.StartsWith("Anhny010920.Core.Commands")
+                                      c => c.FullName!.StartsWith("Platinum.Infrastructure") ||
+                                      c.FullName.StartsWith("Platinum.Core.Commands")
                                      )
                               .AsImplementedInterfaces()
                .InstancePerLifetimeScope();
-
-
 
                //  builderContainer.Populate(services);
 
@@ -32,7 +30,6 @@ namespace Platinum.WebApiApplication.Extensions
                //.ToList();
 
                services.RegisterDependenciesInModules(builderContainer, config);
-
            });
 
 

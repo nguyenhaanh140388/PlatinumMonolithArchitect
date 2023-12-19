@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Platinum.Core.Abstractions.Modules;
 using Platinum.Core.Modular;
+using System.Reflection;
 
 namespace Platinum.WebApiApplication.Extensions
 {
@@ -10,6 +11,10 @@ namespace Platinum.WebApiApplication.Extensions
             ContainerBuilder builderContainer,
             IConfiguration config)
         {
+            Assembly.Load("Platinum.Infrastructure");
+            Assembly.Load("Platinum.Core");
+            Assembly.Load("Platinum.Catalog");
+
             var types = AppDomain.CurrentDomain
               .GetAssemblies()
               .SelectMany(x => x.GetTypes()
