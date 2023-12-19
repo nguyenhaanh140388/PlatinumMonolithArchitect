@@ -1,3 +1,5 @@
+using Platinum.WebApiApplication.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,14 +16,60 @@ var configuration = new ConfigurationBuilder()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//******** Filter ********//
+builder.Services.AddFilterExtension(configuration);
+
+builder.Services.AddResponseCaching();
+builder.Services.AddResponseCompression();
+
+//******** Json ********//.
+builder.Services.AddJsonConfiguration();
+
+//******** Serial log ********//.
+// Add services to the container.
+var connStr = builder.Configuration["ConnectionStrings:Seriallog"];
+builder.Services.AddSerialLog(configuration);
+
+//******** SignalR ********//
+//builder.Services.AddSignalR();
+
+//******** AutoMapper ********//
+//Assembly.Load("AngularMongo20230318.Infrastructure");
+//Assembly.Load("AngularMongo20230318.Core");
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+//******** IdentityAndAuthentication ********//
+builder.Services.RegisterIdentityAndAuthentication(configuration);
+
+//******** Cors ********//
+builder.Services.AddCorsExtension(configuration);
+
+//******** SharedServices ********//
+//builder.Services.RegisterSharedServices(configuration);
+
+//******** Autofac ********//
+builder.Host.AddAutofac(builder.Services, configuration);
 
 var app = builder.Build();
 
+app.UseCors("DefaultCor");
+
+//******** CultureInfo ********//
+app.UseCultureInfo();
+
+
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+//if (!app.Environment.IsDevelopment())
+//{
+//    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+//    app.UseHsts();
+//}
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
 {
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

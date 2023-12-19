@@ -5,8 +5,6 @@
 using Platinum.Core.Abstractions.Dapper;
 using Dapper.Contrib.Extensions;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 

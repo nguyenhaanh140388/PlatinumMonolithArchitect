@@ -2,7 +2,7 @@
 {
     public static class Constants
     {
-        public const string SolutionNameSpace = "Anhny010920";
+        public const string SolutionNameSpace = "Platinum";
 
         public static class ConnectionStringNames
         {

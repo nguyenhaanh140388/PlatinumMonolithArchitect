@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Platinum.Core.Settings
+﻿namespace Platinum.Core.Settings
 {
     public class MailSettings
     {

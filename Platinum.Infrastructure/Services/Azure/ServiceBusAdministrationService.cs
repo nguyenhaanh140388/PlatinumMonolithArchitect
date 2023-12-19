@@ -1,7 +1,6 @@
 ﻿
 
 using AzureAdministrator = Azure.Messaging.ServiceBus.Administration;
-using Azure.Storage.Queues.Models;
 using Platinum.Core.Abstractions.AzureService;
 using Azure;
 using Platinum.Core.Models.Azure;

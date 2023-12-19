@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Options;
 using Platinum.Core.Abstractions.Services;
 using Platinum.Core.Utils;
-using System;
 using static Platinum.Core.Utils.EncryptUtils;
 
 namespace Platinum.Infrastructure.Services

@@ -1,8 +1,6 @@
 ﻿using Platinum.Core.Abstractions.AzureService;
 using Azure;
 using Azure.Storage.Queues;
-
-using System.Threading.Tasks;
 using ServiceStack.Text;
 
 namespace Platinum.Infrastructure.Services.Azure

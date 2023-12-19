@@ -1,7 +1,5 @@
 ﻿using Microsoft.IdentityModel.Tokens;
-using System;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Platinum.Core.Settings
 {

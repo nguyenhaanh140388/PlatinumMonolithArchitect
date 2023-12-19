@@ -7,7 +7,6 @@ using Platinum.Core.Abstractions.Services;
 using Platinum.Core.Exceptions;
 using Platinum.Core.Settings;
 using Serilog;
-using System.Threading.Tasks;
 
 
 namespace Platinum.Infrastructure.Services

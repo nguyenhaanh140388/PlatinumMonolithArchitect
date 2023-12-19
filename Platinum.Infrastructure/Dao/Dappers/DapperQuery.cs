@@ -5,12 +5,9 @@
 using Platinum.Core.Abstractions.Dapper;
 using Dapper;
 using DapperExtensions;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
-using System.Linq;
 using static Dapper.SqlMapper;
 
 namespace Platinum.Infrastructure.Dao.Dappers
