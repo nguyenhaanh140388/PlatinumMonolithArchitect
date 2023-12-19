@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Platinum.Catalog.Core\Platinum.Catalog.Core.csproj" />
+    <ProjectReference Include="..\Platinum.Core\Platinum.Core.csproj" />
+  </ItemGroup>
+
 </Project>
