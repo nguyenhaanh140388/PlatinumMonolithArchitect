@@ -1,4 +1,7 @@
-﻿namespace Platinum.Core.Abstractions.AzureService
+﻿using Azure.Messaging.ServiceBus.Administration;
+using System.Threading.Tasks;
+
+namespace Platinum.Core.Abstractions.AzureService
 {
     public interface IQueueBus
     {

@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage;
+using Platinum.Core.Abstractions.EntityFramework;
+using Platinum.Core.Abstractions.UnitOfWork;
 using Platinum.Infrastructure.Garbage;
 
 namespace Platinum.Infrastructure.UnitOfWork

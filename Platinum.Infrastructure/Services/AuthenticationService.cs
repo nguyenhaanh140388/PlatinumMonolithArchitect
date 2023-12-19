@@ -2,10 +2,27 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
+using AutoMapper;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Options;
+using Platinum.Core.Abstractions.Authentication;
+using Platinum.Core.Abstractions.Models.Request;
+using Platinum.Core.Abstractions.Models.Response;
+using Platinum.Core.Abstractions.Services;
+using Platinum.Core.Enums;
+using Platinum.Core.Models;
+using Platinum.Core.Settings;
+using Platinum.Identity.Core.Entities;
 using Platinum.Infrastructure.Auth;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
+using Platinum.Core.Extensions;
+using Platinum.Core.Abstractions.Dtos;
+using Platinum.Core.Common;
+using Microsoft.AspNetCore.WebUtilities;
+using Platinum.Core.Exceptions;
+using Platinum.Core.Utils;
 
 namespace Platinum.Infrastructure.Services
 {

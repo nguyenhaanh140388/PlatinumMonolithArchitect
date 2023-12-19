@@ -6,6 +6,7 @@ using Platinum.Core.Abstractions.Commands;
 using Platinum.Core.Abstractions.Dtos;
 using Platinum.Core.Abstractions.Models.Request;
 using Platinum.Core.Abstractions.Models.Response;
+using Platinum.Core.Common;
 using Platinum.Core.Models;
 
 namespace Platinum.Core.Abstractions.Authentication

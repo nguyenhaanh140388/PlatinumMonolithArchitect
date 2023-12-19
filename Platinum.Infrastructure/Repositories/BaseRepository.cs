@@ -5,6 +5,7 @@
 using Platinum.Infrastructure.Data.Dapper;
 using System.Data;
 using System.Data.Common;
+using System.Data.SqlClient;
 
 namespace Platinum.Infrastructure.Repositories
 {

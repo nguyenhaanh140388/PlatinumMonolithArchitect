@@ -1,7 +1,6 @@
 ﻿// Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-using System;
 using AutoMapper;
 
 namespace Platinum.Core.Common

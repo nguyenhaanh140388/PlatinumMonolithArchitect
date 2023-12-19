@@ -1,11 +1,7 @@
-﻿using Anhny010920.Core.Domain.Identity;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Platinum.Identity.Core.Entities;
 using Serilog;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
 
 namespace Platinum.Core.Common
 {
@@ -42,14 +38,14 @@ namespace Platinum.Core.Common
 
         private string GetMIMEType(string fileName)
         {
-            var provider =
-                new Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider();
-            string contentType;
-            if (!provider.TryGetContentType(fileName, out contentType))
-            {
-                contentType = "application/octet-stream";
-            }
-            return contentType;
+            //var provider =
+            //    new Microsoft.AspNetCore.StaticFiles.FileExtensionContentTypeProvider();
+            //string contentType;
+            //if (!provider.TryGetContentType(fileName, out contentType))
+            //{
+            //    contentType = "application/octet-stream";
+            //}
+            return "application/octet-stream";
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Anhny010920.Core.Abstractions.Commands;
+﻿using Platinum.Core.Abstractions.Commands;
 
 namespace Platinum.Core.Common
 {

@@ -3,6 +3,12 @@
 // </copyright>
 
 using Microsoft.Extensions.Configuration;
+using Platinum.Core.Abstractions.Dao;
+using Platinum.Core.Abstractions.Dapper;
+using Platinum.Core.Abstractions.Queries;
+using Platinum.Core.Enums;
+using Platinum.Core.Utils;
+using Platinum.Infrastructure.Dao.Dappers;
 
 namespace Platinum.Infrastructure.Data.EntityFramework
 {

@@ -1,4 +1,6 @@
-﻿namespace Platinum.Core.Exceptions
+﻿using FluentValidation.Results;
+
+namespace Platinum.Core.Exceptions
 {
     public class ValidationException : Exception
     {

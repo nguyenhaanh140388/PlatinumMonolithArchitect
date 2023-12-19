@@ -1,16 +1,11 @@
-﻿using Anhny010920.Core.Attributes;
-using Anhny010920.Core.Domain.Identity;
-using Anhny010920.Core.Extensions;
-using Anhny010920.Core.Models;
+﻿using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
-using System;
-using System.Collections.Generic;
+using Platinum.Core.Attributes;
+using Platinum.Core.Extensions;
+using Platinum.Identity.Core.Entities;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Platinum.Core.Models
 {

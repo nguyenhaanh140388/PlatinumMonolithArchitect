@@ -3,6 +3,8 @@
 // </copyright>
 
 using Autofac;
+using Platinum.Core.Abstractions.Commands;
+using Platinum.Core.Abstractions.Queries;
 using Platinum.Core.Exceptions;
 
 namespace Platinum.Core.Commands

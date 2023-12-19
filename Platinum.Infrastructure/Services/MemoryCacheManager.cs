@@ -3,6 +3,7 @@
 // </copyright>
 
 using Microsoft.Extensions.Caching.Memory;
+using Platinum.Core.Abstractions.State;
 
 namespace Platinum.Infrastructure.Services
 {

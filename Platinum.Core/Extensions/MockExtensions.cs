@@ -1,4 +1,6 @@
-﻿namespace Platinum.Core.Extensions
+﻿using Moq;
+
+namespace Platinum.Core.Extensions
 {
     public static class MockExtensions
     {

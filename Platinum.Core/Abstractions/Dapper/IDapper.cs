@@ -2,6 +2,7 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
+using Dapper;
 using System.Data;
 using System.Data.Common;
 

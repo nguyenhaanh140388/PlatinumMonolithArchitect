@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
+using Platinum.Identity.Core.Entities;
+using Serilog;
 
 namespace Platinum.Infrastructure.Identity.Seeds
 {

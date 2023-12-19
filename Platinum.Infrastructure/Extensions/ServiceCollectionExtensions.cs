@@ -1,12 +1,16 @@
 ﻿using Autofac;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using Platinum.Infrastructure.Data.EntityFramework;
-using Platinum.Infrastructure.Extensions;
+using Platinum.Core.Abstractions.Modules;
+using Platinum.Core.Abstractions.Services;
+using Platinum.Core.Modular;
+using Platinum.Core.Settings;
 using Platinum.Infrastructure.Services;
+using System.Text;
 
 namespace Platinum.Infrastructure.Extensions
 {
@@ -140,29 +144,29 @@ namespace Platinum.Infrastructure.Extensions
 
         public static void RegisterIdentityAndAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
-            if (configuration.GetValue<bool>("UseInMemoryDatabase"))
-            {
-                services.AddDbContext<Anhny010920AdministratorContext>(options =>
-                    options.UseInMemoryDatabase("IdentityDb"));
-            }
-            else
-            {
-                services.AddDatabaseContext<Anhny010920AdministratorContext>(configuration.GetConnectionString("Anhny010920Administrator"));
-            }
+            //if (configuration.GetValue<bool>("UseInMemoryDatabase"))
+            //{
+            //    services.AddDbContext<Anhny010920AdministratorContext>(options =>
+            //        options.UseInMemoryDatabase("IdentityDb"));
+            //}
+            //else
+            //{
+            //    services.AddDatabaseContext<Anhny010920AdministratorContext>(configuration.GetConnectionString("Anhny010920Administrator"));
+            //}
 
-            services.AddIdentity<ApplicationUser, ApplicationRole>(
-                opts =>
-                {
-                    opts.Password.RequiredLength = 8;
-                    opts.Password.RequireDigit = false;
-                    opts.Password.RequireLowercase = false;
-                    opts.Password.RequireUppercase = false;
-                    opts.Password.RequireNonAlphanumeric = false;
-                    opts.SignIn.RequireConfirmedEmail = true;
-                })
-                .AddEntityFrameworkStores<Anhny010920AdministratorContext>()
-                .AddDefaultTokenProviders()
-                .AddUserManager<AppUserManager>();
+            //services.AddIdentity<ApplicationUser, ApplicationRole>(
+            //    opts =>
+            //    {
+            //        opts.Password.RequiredLength = 8;
+            //        opts.Password.RequireDigit = false;
+            //        opts.Password.RequireLowercase = false;
+            //        opts.Password.RequireUppercase = false;
+            //        opts.Password.RequireNonAlphanumeric = false;
+            //        opts.SignIn.RequireConfirmedEmail = true;
+            //    })
+            //    .AddEntityFrameworkStores<Anhny010920AdministratorContext>()
+            //    .AddDefaultTokenProviders()
+            //    .AddUserManager<AppUserManager>();
 
             services.Configure<PasswordHasherOptions>(options =>
             options.CompatibilityMode = PasswordHasherCompatibilityMode.IdentityV2);

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Platinum.Core.Models
+﻿namespace Platinum.Core.Models
 {
     public class MergingOutputModel
     {

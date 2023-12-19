@@ -36,6 +36,7 @@ using System.Reflection;
 using System.Text;
 using SystemDataCommon = System.Data.Common;
 using System.Data;
+using Anhny010920.Core.Properties;
 
 namespace Platinum.Core.Utils
 {

@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Data.Common;
 using System.Reflection;
+using Microsoft.Data.SqlClient;
 using Platinum.Core.Extensions;
 
 namespace Platinum.Core.Extensions

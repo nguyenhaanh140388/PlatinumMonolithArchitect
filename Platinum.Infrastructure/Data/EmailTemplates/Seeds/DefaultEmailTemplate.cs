@@ -1,4 +1,11 @@
-﻿namespace Platinum.Infrastructure.Data.EmailTemplates.Seeds
+﻿using Platinum.Core.Abstractions.Repositories;
+using Platinum.Core.Enums;
+using Platinum.Core.Template;
+using Platinum.Core.Utils;
+using static Platinum.Core.Common.Constants;
+using Platinum.Core.Extensions;
+
+namespace Platinum.Infrastructure.Data.EmailTemplates.Seeds
 {
     public static class DefaultEmailTemplate
     {

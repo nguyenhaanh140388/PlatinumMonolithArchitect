@@ -2,8 +2,9 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-using System.Data;
+using DapperExtensions;
 using Platinum.Core.Abstractions.Expressions.Queries;
+using System.Data;
 
 namespace Platinum.Core.Abstractions.Dapper
 {

@@ -3,7 +3,10 @@
 // </copyright>
 
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Platinum.Core.Enums;
+using Platinum.Identity.Core.Entities;
 
 namespace Platinum.Core.Attributes.Filters
 {

@@ -1,4 +1,6 @@
-﻿namespace Platinum.Core.Extensions
+﻿using Platinum.Core.Common;
+
+namespace Platinum.Core.Extensions
 {
     public static class ResponseExtensions
     {

@@ -2,6 +2,15 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
+using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using Platinum.Core.Abstractions.Authentication;
+using Platinum.Core.Abstractions.Dtos;
+using Platinum.Core.Common;
+using Platinum.Core.Enums;
+using Platinum.Core.Models;
+using Serilog;
+
 namespace Platinum.Infrastructure.Controller
 {
 #if DEBUG

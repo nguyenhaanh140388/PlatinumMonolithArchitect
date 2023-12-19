@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using Platinum.Infrastructure.Data.EmailTemplates.Seeds;
 using Platinum.Infrastructure.Identity.Seeds;
+using Serilog;
 
 namespace Platinum.Infrastructure.Extensions
 {

@@ -7,7 +7,34 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\EmailTemplates\Seeds\DefaultEmailTemplate.cs" />
+    <Compile Remove="Migrations\20220307041857_audit_schema_database_refactor.cs" />
+    <Compile Remove="Migrations\20220307041857_audit_schema_database_refactor.Designer.cs" />
+    <Compile Remove="Migrations\20220314085343_IdentityUser_update_schema.cs" />
+    <Compile Remove="Migrations\20220314085343_IdentityUser_update_schema.Designer.cs" />
+    <Compile Remove="Migrations\20220408040508_add_EmailTemplate.cs" />
+    <Compile Remove="Migrations\20220408040508_add_EmailTemplate.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.17.1" />
+    <PackageReference Include="Azure.Storage.Blobs" Version="12.19.1" />
+    <PackageReference Include="Dapper.Contrib" Version="2.0.78" />
+    <PackageReference Include="DapperExtensions.NetCore" Version="2.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.14" />
+    <PackageReference Include="MimeKit" Version="4.3.0" />
+    <PackageReference Include="ServiceStack" Version="8.0.0" />
+    <PackageReference Include="StackExchange.Redis" Version="2.7.10" />
+    <PackageReference Include="Z.EntityFramework.Extensions.EFCore" Version="7.101.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Platinum.Core\Platinum.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

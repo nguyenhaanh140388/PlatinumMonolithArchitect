@@ -4,6 +4,7 @@
 
 namespace Platinum.Core.Helpers
 {
+    using Newtonsoft.Json;
     using System.IO;
     using System.Xml.Serialization;
 

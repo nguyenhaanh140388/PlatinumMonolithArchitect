@@ -44,7 +44,7 @@ namespace Platinum.Core.Abstractions.Queries
         TEntity FindWithKey(params object[] para);
         Task<TEntity> FindWithKeyAsync(string includeReference = "", string includeCollection = "", params object[] para);
         Task<TEntity> FindWithKeyAsync(params object[] para);
-        Task<BulkOperationResultModel> FutureBulkAsync(List<TEntity> entities, BulkTypes bulkTypes, bool persist = false, int batchTimeout = 120, EFBulkOptions<TEntity>? efBulkOptions = null, CancellationToken cancellationToken = default);
+        //Task<BulkOperationResultModel> FutureBulkAsync(List<TEntity> entities, BulkTypes bulkTypes, bool persist = false, int batchTimeout = 120, EFBulkOptions<TEntity>? efBulkOptions = null, CancellationToken cancellationToken = default);
         IEnumerable<TEntity> GetAll();
         IQueryable<TEntity> GetAll(Expression<Func<TEntity, object>> orderBy);
         IEnumerable<TEntity> GetAllEntities();

@@ -1,8 +1,7 @@
-﻿using Anhny010920.Core.Abstractions.Services;
-using Anhny010920.Core.Attributes;
-using AutoMapper;
+﻿using AutoMapper;
 using System.Reflection;
-using System.Linq;
+using Platinum.Core.Abstractions.Services;
+using Platinum.Core.Attributes;
 
 namespace Platinum.Core.Common
 {

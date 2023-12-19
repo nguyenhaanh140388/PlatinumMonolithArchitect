@@ -1,7 +1,11 @@
 ﻿using Azure;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Platinum.Core.Abstractions.AzureService;
+using Platinum.Core.Dtos;
 
 namespace Platinum.Infrastructure.Services.Azure
 {

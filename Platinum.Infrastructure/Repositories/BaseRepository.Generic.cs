@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Platinum.Core.Abstractions.Identitys;
+using Platinum.Core.Abstractions.Repositories;
+using Platinum.Core.Common;
 using Platinum.Infrastructure.Dao.EF;
 
 namespace Platinum.Infrastructure.Repositories

@@ -2,6 +2,8 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
+using Platinum.Identity.Core.Entities;
+
 namespace Platinum.Core.Abstractions.SignInTwoFactor
 {
     /// <summary>

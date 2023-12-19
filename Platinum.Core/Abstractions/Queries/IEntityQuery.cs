@@ -2,6 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
+using Microsoft.Data.SqlClient;
 using Platinum.Core.Abstractions.Models.Response;
 using Platinum.Core.Common;
 using Platinum.Core.Enums;

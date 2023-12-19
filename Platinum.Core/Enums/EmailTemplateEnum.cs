@@ -1,4 +1,7 @@
-﻿namespace Platinum.Core.Enums
+﻿using Platinum.Core.Attributes;
+using static Platinum.Core.Common.Constants;
+
+namespace Platinum.Core.Enums
 {
     public enum EmailTemplateEnum
     {

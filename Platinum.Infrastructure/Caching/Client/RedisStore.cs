@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using DapperExtensions;
+using Microsoft.Extensions.Configuration;
 using StackExchange.Redis;
 
 namespace Platinum.Infrastructure.Caching.Client
@@ -27,6 +28,6 @@ namespace Platinum.Infrastructure.Caching.Client
 
         public static ConnectionMultiplexer Connection => LazyConnection.Value;
 
-        public static IDatabase RedisCache => Connection.GetDatabase();
+        public static StackExchange.Redis.IDatabase RedisCache => Connection.GetDatabase();
     }
 }

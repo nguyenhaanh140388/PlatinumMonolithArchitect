@@ -2,17 +2,20 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage;
 using Platinum.Core.Abstractions.Identitys;
+using Platinum.Core.Abstractions.Models.Response;
 using Platinum.Core.Abstractions.Queries;
 using Platinum.Core.Common;
 using Platinum.Core.Enums;
 using Platinum.Core.Extensions;
 using Platinum.Core.Models;
+using Platinum.Core.Utils;
 using System.Data;
 using System.Data.Common;
 using System.Linq.Expressions;
@@ -255,36 +258,44 @@ namespace Platinum.Infrastructure.Dao.EF
 
             return DbContext;
         }
-        private Action<BulkOperation<TEntity>> BulkOptionsDefault(ResultInfo resultInfo,
-            List<AuditEntry> auditEntries,
-            EFBulkOptions<TEntity> efBulkOptions,
-            BulkTypes bulkTypes,
-            int batchTimeout) => options =>
-        {
-            options.BatchTimeout = batchTimeout;
-            options.UseRowsAffected = true;
-            options.ResultInfo = resultInfo;
-            options.UseAudit = true;
-            options.AuditEntries = auditEntries;
+        //private Action<BulkOperation<TEntity>> BulkOptionsDefault(ResultInfo resultInfo,
+        //    List<AuditEntry> auditEntries,
+        //    EFBulkOptions<TEntity> efBulkOptions,
+        //    BulkTypes bulkTypes,
+        //    int batchTimeout)
+        //{
+        //    if (efBulkOptions is null)
+        //    {
+        //        throw new ArgumentNullException(nameof(efBulkOptions));
+        //    }
 
-            switch (bulkTypes)
-            {
-                case BulkTypes.Insert:
-                    options.CopyPropertiesFrom(efBulkOptions.BulkInsertOptions);
-                    break;
-                case BulkTypes.Update:
-                    options.CopyPropertiesFrom(efBulkOptions.BulkUpdateOptions);
-                    break;
-                case BulkTypes.Merge:
-                    options.CopyPropertiesFrom(efBulkOptions.BulkMergeOptions);
-                    break;
-                case BulkTypes.Synchronize:
-                    options.CopyPropertiesFrom(efBulkOptions.BulkSynchronizeOptions);
-                    break;
-                default:
-                    break;
-            }
-        };
+        //    return options =>
+        //{
+        //    options.BatchTimeout = batchTimeout;
+        //    options.UseRowsAffected = true;
+        //    options.ResultInfo = resultInfo;
+        //    options.UseAudit = true;
+        //    options.AuditEntries = auditEntries;
+
+        //    switch (bulkTypes)
+        //    {
+        //        case BulkTypes.Insert:
+        //            options.CopyPropertiesFrom(efBulkOptions.BulkInsertOptions);
+        //            break;
+        //        case BulkTypes.Update:
+        //            options.CopyPropertiesFrom(efBulkOptions.BulkUpdateOptions);
+        //            break;
+        //        case BulkTypes.Merge:
+        //            options.CopyPropertiesFrom(efBulkOptions.BulkMergeOptions);
+        //            break;
+        //        case BulkTypes.Synchronize:
+        //            options.CopyPropertiesFrom(efBulkOptions.BulkSynchronizeOptions);
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //};
+        //}
 
         private Action<TEntity> AuditBulk(BulkTypes bulkTypes) => i =>
         {
@@ -391,91 +402,91 @@ namespace Platinum.Infrastructure.Dao.EF
         /// <typeparam name="TEntity">The type of the entity.</typeparam>
         /// <param name="entities">The entities.</param>
         /// <param name="tableName">Name of the table.</param>
-        public async Task<BulkOperationResultModel> FutureBulkAsync(List<TEntity> entities,
-            BulkTypes bulkTypes,
-            bool persist = false,
-            int batchTimeout = 120,
-            EFBulkOptions<TEntity> efBulkOptions = null,
-            CancellationToken cancellationToken = default)
-        {
-            var resultInfo = new Z.BulkOperations.ResultInfo();
-            var auditEntries = new List<AuditEntry>();
-            var checkedBulkOptions = BulkOptionsDefault(resultInfo,
-                auditEntries,
-                efBulkOptions,
-                bulkTypes,
-                batchTimeout);
+        //public async Task<BulkOperationResultModel> FutureBulkAsync(List<TEntity> entities,
+        //    BulkTypes bulkTypes,
+        //    bool persist = false,
+        //    int batchTimeout = 120,
+        //    EFBulkOptions<TEntity> efBulkOptions = null,
+        //    CancellationToken cancellationToken = default)
+        //{
+        //    var resultInfo = new Z.BulkOperations.ResultInfo();
+        //    var auditEntries = new List<AuditEntry>();
+        //    var checkedBulkOptions = BulkOptionsDefault(resultInfo,
+        //        auditEntries,
+        //        efBulkOptions,
+        //        bulkTypes,
+        //        batchTimeout);
 
-            AuditBulk(bulkTypes);
+        //    AuditBulk(bulkTypes);
 
-            switch (bulkTypes)
-            {
-                case BulkTypes.Insert:
-                    //DbContext.FutureAction
-                    // (async x =>
-                    // {
-                    await DbContext.BulkInsertAsync(entities,
-                        checkedBulkOptions,
-                        cancellationToken);
-                    // });
+        //    switch (bulkTypes)
+        //    {
+        //        case BulkTypes.Insert:
+        //            //DbContext.FutureAction
+        //            // (async x =>
+        //            // {
+        //            await DbContext.BulkInsertAsync(entities,
+        //                checkedBulkOptions,
+        //                cancellationToken);
+        //            // });
 
-                    break;
-                case BulkTypes.Update:
-                    // DbContext.FutureAction
-                    // (async x =>
-                    // {
-                    await DbContext.BulkUpdateAsync(entities,
-                        checkedBulkOptions,
-                        cancellationToken);
-                    //  });
+        //            break;
+        //        case BulkTypes.Update:
+        //            // DbContext.FutureAction
+        //            // (async x =>
+        //            // {
+        //            await DbContext.BulkUpdateAsync(entities,
+        //                checkedBulkOptions,
+        //                cancellationToken);
+        //            //  });
 
-                    break;
-                case BulkTypes.SoftDelete:
-                case BulkTypes.Delete:
-                    // DbContext.FutureAction
-                    // (async x =>
-                    // {
-                    await DbContext.BulkDeleteAsync(entities,
-                        checkedBulkOptions,
-                        cancellationToken);
-                    //  });
+        //            break;
+        //        case BulkTypes.SoftDelete:
+        //        case BulkTypes.Delete:
+        //            // DbContext.FutureAction
+        //            // (async x =>
+        //            // {
+        //            await DbContext.BulkDeleteAsync(entities,
+        //                checkedBulkOptions,
+        //                cancellationToken);
+        //            //  });
 
-                    break;
-                case BulkTypes.Merge:
-                    // DbContext.FutureAction
-                    //  (async x =>
-                    //  {
-                    await DbContext.BulkMergeAsync(entities,
-                        checkedBulkOptions,
-                        cancellationToken);
-                    //  });
+        //            break;
+        //        case BulkTypes.Merge:
+        //            // DbContext.FutureAction
+        //            //  (async x =>
+        //            //  {
+        //            await DbContext.BulkMergeAsync(entities,
+        //                checkedBulkOptions,
+        //                cancellationToken);
+        //            //  });
 
-                    break;
-                case BulkTypes.Synchronize:
-                    // DbContext.FutureAction
-                    // (async x =>
-                    // {
-                    await DbContext.BulkSynchronizeAsync(entities,
-                        checkedBulkOptions,
-                        cancellationToken);
-                    // });
+        //            break;
+        //        case BulkTypes.Synchronize:
+        //            // DbContext.FutureAction
+        //            // (async x =>
+        //            // {
+        //            await DbContext.BulkSynchronizeAsync(entities,
+        //                checkedBulkOptions,
+        //                cancellationToken);
+        //            // });
 
-                    break;
-                default:
-                    break;
-            };
+        //            break;
+        //        default:
+        //            break;
+        //    };
 
-            if (persist)
-            {
-                //this.DbContext.ExecuteFutureAction(true);
-            }
+        //    if (persist)
+        //    {
+        //        //this.DbContext.ExecuteFutureAction(true);
+        //    }
 
-            return new BulkOperationResultModel()
-            {
-                AuditEntries = auditEntries,
-                ResultInfo = resultInfo
-            };
-        }
+        //    return new BulkOperationResultModel()
+        //    {
+        //        AuditEntries = auditEntries,
+        //        ResultInfo = resultInfo
+        //    };
+        //}
 
         public void ExecuteFuture()
         {

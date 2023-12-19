@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Platinum.Core.Common
+﻿namespace Platinum.Core.Common
 {
     public class PaginatedList<T> : List<T>
     {

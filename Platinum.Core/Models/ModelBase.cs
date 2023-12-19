@@ -1,5 +1,4 @@
-﻿using Anhny010920.Core.Domain.Common;
-using System;
+﻿using Platinum.Core.Common;
 
 namespace Platinum.Core.Models
 {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Platinum.Core.Models.Azure
+﻿namespace Platinum.Core.Models.Azure
 {
     public class MessageBaseRequest
     {

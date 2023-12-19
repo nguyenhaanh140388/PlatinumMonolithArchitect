@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Platinum.Core.Utils;
 
 namespace Platinum.Infrastructure.RestClients
 {

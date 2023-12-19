@@ -1,4 +1,6 @@
-﻿namespace Platinum.Infrastructure.Services
+﻿using Platinum.Core.Abstractions.Services;
+
+namespace Platinum.Infrastructure.Services
 {
     public class DateTimeService : IDateTimeService
     {

@@ -1,4 +1,9 @@
-﻿namespace Platinum.Infrastructure.Services
+﻿using Platinum.Core.Abstractions.Repositories;
+using Platinum.Core.Enums;
+using Platinum.Core.Helpers;
+using RazorEngine.Templating;
+
+namespace Platinum.Infrastructure.Services
 {
     public interface ITemplateService
     {

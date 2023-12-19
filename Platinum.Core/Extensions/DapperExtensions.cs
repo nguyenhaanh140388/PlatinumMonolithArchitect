@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using Dapper;
+using Platinum.Core.Models;
+using System.Data;
 using System.Data.Common;
 
 namespace Platinum.Core.Extensions

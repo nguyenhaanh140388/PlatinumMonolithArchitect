@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Net.Http.Headers;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;

@@ -2,9 +2,13 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Platinum.Core.Abstractions.Identitys;
+using Platinum.Identity.Core.Entities;
 using System.Security.Claims;
 
 namespace Platinum.Infrastructure.Services

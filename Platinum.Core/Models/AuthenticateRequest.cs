@@ -1,4 +1,4 @@
-﻿using Anhny010920.Core.Abstractions.Models.Response;
+﻿using Platinum.Core.Abstractions.Models.Request;
 
 namespace Platinum.Core.Models
 {

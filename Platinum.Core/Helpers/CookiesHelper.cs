@@ -6,6 +6,7 @@ namespace Platinum.Core.Helpers
 {
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Primitives;
+    using Microsoft.Net.Http.Headers;
     using Platinum.Core.Utils;
     using System;
     using System.Collections.Generic;

@@ -1,4 +1,7 @@
-﻿namespace Platinum.Core.Helpers
+﻿using RazorEngine;
+using RazorEngine.Templating;
+
+namespace Platinum.Core.Helpers
 {
     public static class RazorHelper
     {

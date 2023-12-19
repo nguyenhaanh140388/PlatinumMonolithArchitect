@@ -1,6 +1,5 @@
-﻿using Anhny010920.Core.Abstractions.Models.Response;
-using Anhny010920.Core.Utilities.Offices;
-using System.Collections.Generic;
+﻿using Platinum.Core.Abstractions.Models.Response;
+using Platinum.Core.Utils.Offices;
 
 namespace Platinum.Core.Models
 {

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Z.BulkOperations;
+﻿using Z.BulkOperations;
 
 namespace Platinum.Core.Models
 {

@@ -2,6 +2,10 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
+using Platinum.Core.Common;
+using Platinum.Core.Models;
+using Platinum.Identity.Core.Entities;
+
 namespace Platinum.Infrastructure.Data.Mapping
 {
     /// <summary>

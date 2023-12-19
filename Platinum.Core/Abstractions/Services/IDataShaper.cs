@@ -1,4 +1,6 @@
-﻿namespace Platinum.Core.Abstractions.Services
+﻿using Platinum.Core.Models;
+
+namespace Platinum.Core.Abstractions.Services
 {
     public interface IDataShaper<T>
     {

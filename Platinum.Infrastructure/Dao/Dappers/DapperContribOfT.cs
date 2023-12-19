@@ -2,8 +2,11 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
+using Dapper.Contrib.Extensions;
 using Microsoft.Extensions.Configuration;
+using Platinum.Core.Common;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace Platinum.Infrastructure.Dao.Dappers
 {

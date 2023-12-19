@@ -1,4 +1,7 @@
-﻿namespace Platinum.Infrastructure.Identity.Seeds
+﻿using Microsoft.AspNetCore.Identity;
+using Platinum.Identity.Core.Entities;
+
+namespace Platinum.Infrastructure.Identity.Seeds
 {
     public static class DefaultBasicUser
     {

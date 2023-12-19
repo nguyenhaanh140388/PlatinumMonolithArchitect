@@ -1,4 +1,14 @@
-﻿using Microsoft.Extensions.Options;
+﻿using MailKit.Net.Smtp;
+using MailKit.Security;
+using Microsoft.Extensions.Options;
+using MimeKit;
+using Platinum.Core.Abstractions.Dtos;
+using Platinum.Core.Abstractions.Services;
+using Platinum.Core.Exceptions;
+using Platinum.Core.Settings;
+using Serilog;
+using System.Threading.Tasks;
+
 
 namespace Platinum.Infrastructure.Services
 {

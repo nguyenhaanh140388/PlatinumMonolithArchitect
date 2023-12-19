@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Platinum.Core.Dtos;
 
 namespace Platinum.Core.Abstractions.AzureService
 {

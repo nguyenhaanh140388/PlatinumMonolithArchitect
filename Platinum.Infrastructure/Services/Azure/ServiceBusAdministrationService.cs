@@ -1,20 +1,26 @@
-﻿using Azure;
+﻿
+
+using AzureAdministrator = Azure.Messaging.ServiceBus.Administration;
+using Azure.Storage.Queues.Models;
+using Platinum.Core.Abstractions.AzureService;
+using Azure;
+using Platinum.Core.Models.Azure;
 
 namespace Platinum.Infrastructure.Services.Azure
 {
     public class ServiceBusAdministrationService : IQueueBus
     {
 
-        private readonly ServiceBusAdministrationClient _client;
+        private readonly AzureAdministrator.ServiceBusAdministrationClient _client;
 
-        public ServiceBusAdministrationService(ServiceBusAdministrationClient client)
+        public ServiceBusAdministrationService(AzureAdministrator.ServiceBusAdministrationClient client)
         {
             _client = client;
         }
 
-        public async Task<QueueProperties> CreateQueueAsync(string queueName, bool requiresSession = false)
+        public async Task<AzureAdministrator.QueueProperties> CreateQueueAsync(string queueName, bool requiresSession = false)
         {
-            var options = new CreateQueueOptions(queueName)
+            var options = new AzureAdministrator.CreateQueueOptions(queueName)
             {
                 DefaultMessageTimeToLive = TimeSpan.FromDays(2),
                 DuplicateDetectionHistoryTimeWindow = TimeSpan.FromMinutes(1),
@@ -42,7 +48,7 @@ namespace Platinum.Infrastructure.Services.Azure
             return await _client.GetQueueAsync(queueName);
         }
 
-        public async Task<QueueProperties> GetQueueAsync(string queueName)
+        public async Task<AzureAdministrator.QueueProperties> GetQueueAsync(string queueName)
         {
             try
             {
@@ -64,9 +70,10 @@ namespace Platinum.Infrastructure.Services.Azure
             return new AzureResponse();
         }
 
-        public static IQueueBus Create(ServiceBusAdministrationClient client)
+        public static IQueueBus Create(AzureAdministrator.ServiceBusAdministrationClient client)
         {
             return new ServiceBusAdministrationService(client);
         }
+
     }
 }

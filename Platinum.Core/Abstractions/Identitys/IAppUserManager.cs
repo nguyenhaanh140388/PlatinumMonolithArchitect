@@ -2,6 +2,8 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
+using Microsoft.AspNetCore.Identity;
+using Platinum.Identity.Core.Entities;
 using System.Security.Claims;
 
 namespace Platinum.Core.Abstractions.Identitys

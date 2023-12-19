@@ -1,5 +1,4 @@
-﻿using Anhny010920.Core.Attributes;
-using Anhny010920.Core.ViewModels;
+﻿using Platinum.Core.Attributes;
 using System.ComponentModel;
 
 namespace Platinum.Core.Models

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Platinum.Core.Common
+﻿namespace Platinum.Core.Common
 {
     /// <summary>
     /// 

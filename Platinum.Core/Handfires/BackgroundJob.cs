@@ -1,4 +1,6 @@
-﻿namespace Platinum.Core.Handfires
+﻿using Hangfire;
+
+namespace Platinum.Core.Handfires
 {
     public class BackgroundJob : JobBase
     {

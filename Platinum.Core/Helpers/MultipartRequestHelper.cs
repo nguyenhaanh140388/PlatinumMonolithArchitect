@@ -6,6 +6,8 @@ namespace Platinum.Core.Helpers
 {
     using System;
     using System.IO;
+    using Microsoft.Net.Http.Headers;
+
 
     /// <summary>
     /// MultipartRequestHelper.

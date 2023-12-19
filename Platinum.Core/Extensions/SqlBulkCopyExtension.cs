@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using Microsoft.Data.SqlClient;
+using System.Reflection;
 
 namespace Platinum.Core.Extensions
 {

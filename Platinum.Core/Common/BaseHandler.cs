@@ -1,7 +1,6 @@
-﻿using Anhny010920.Core.Abstractions.UnitOfWork;
-using Anhny010920.Core.Identitys;
-using AutoMapper;
-using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Platinum.Core.Abstractions.Identitys;
+using Platinum.Core.Abstractions.UnitOfWork;
 using Serilog;
 
 namespace Platinum.Core.Common

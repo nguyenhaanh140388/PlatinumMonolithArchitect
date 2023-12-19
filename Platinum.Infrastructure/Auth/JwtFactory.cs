@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
+using Platinum.Core.Abstractions.Dtos;
+using Platinum.Core.Settings;
+using Platinum.Identity.Core.Entities;
 using Platinum.Infrastructure.Identity.Helpers;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
