@@ -32,11 +32,11 @@
 #endregion
 
 using Microsoft.Data.SqlClient;
+using Platinum.Core.Properties;
+using System.Data;
 using System.Reflection;
 using System.Text;
 using SystemDataCommon = System.Data.Common;
-using System.Data;
-using Anhny010920.Core.Properties;
 
 namespace Platinum.Core.Utils
 {
