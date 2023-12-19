@@ -2,10 +2,6 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-using System.Linq;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-
 namespace Platinum.Core.Extensions
 {
     /// <summary>

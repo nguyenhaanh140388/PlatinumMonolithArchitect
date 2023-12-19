@@ -2,11 +2,8 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using global::Dapper;
 
 namespace Platinum.Core.Abstractions.Dapper
 {

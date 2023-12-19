@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-
-namespace Platinum.Core.Extensions
+﻿namespace Platinum.Core.Extensions
 {
     /// <summary>
     /// Provides extensions for the <see cref="FileInfo" /> class.

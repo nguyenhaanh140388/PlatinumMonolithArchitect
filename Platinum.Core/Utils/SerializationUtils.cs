@@ -31,8 +31,6 @@
 */
 #endregion
 
-using System;
-using System.IO;
 using System.Text;
 using System.Reflection;
 
@@ -40,8 +38,6 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Diagnostics;
-using System.Runtime.Serialization;
-using Microsoft.CodeAnalysis.Formatting;
 
 namespace Platinum.Core.Utils
 {

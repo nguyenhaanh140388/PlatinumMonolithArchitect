@@ -1,16 +1,9 @@
-﻿using Anhny010920.Core.Domain.Common;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using Microsoft.EntityFrameworkCore.Storage;
-using Platinum.Core.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Platinum.Core.Common;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Platinum.Core.Extensions
 {

@@ -2,7 +2,6 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-using System;
 using System.Linq.Expressions;
 
 namespace Platinum.Core.Abstractions.Expressions.Queries

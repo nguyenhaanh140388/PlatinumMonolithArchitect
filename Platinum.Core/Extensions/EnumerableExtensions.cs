@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Anhny010920.Core.Extensions;
-using Platinum.Core.AAA;
-
-namespace Platinum.Core.Extensions
+﻿namespace Platinum.Core.Extensions
 {
     /// <summary>
     /// Provides extensions for <see cref="IEnumerable{T}"/>.

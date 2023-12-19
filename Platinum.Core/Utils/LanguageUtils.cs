@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Platinum.Core.Utils
+﻿namespace Platinum.Core.Utils
 {
 
     public static class LanguageUtils

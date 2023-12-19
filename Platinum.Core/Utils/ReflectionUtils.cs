@@ -31,15 +31,11 @@
 */
 #endregion
 
-using System;
 using System.Reflection;
 using System.Collections;
 using System.Globalization;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 
 namespace Platinum.Core.Utils
 {

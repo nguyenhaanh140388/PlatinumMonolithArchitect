@@ -2,9 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Platinum.Core.Abstractions.Modules;
-using System;
-using System.Reflection;
-using System.Threading.Tasks;
 
 namespace Platinum.Core.Modular
 {

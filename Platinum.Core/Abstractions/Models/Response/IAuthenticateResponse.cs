@@ -2,9 +2,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-using Anhny010920.Core.Enums;
-using System;
-using System.Collections.Generic;
+using Platinum.Core.Enums;
 
 namespace Platinum.Core.Abstractions.Models.Response
 {

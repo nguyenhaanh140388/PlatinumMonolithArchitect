@@ -1,12 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
-using Anhny010920.Core.Models;
 using Platinum.Core.Extensions;
 
 namespace Platinum.Core.Extensions

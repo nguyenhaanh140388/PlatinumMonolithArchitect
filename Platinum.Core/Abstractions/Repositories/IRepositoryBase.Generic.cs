@@ -1,5 +1,5 @@
-﻿using Anhny010920.Core.Domain.Common;
-using Platinum.Core.Abstractions.Queries;
+﻿using Platinum.Core.Abstractions.Queries;
+using Platinum.Core.Common;
 
 namespace Platinum.Core.Abstractions.Repositories
 {

@@ -2,12 +2,7 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-using System;
 using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
-using Serilog;
-using Serilog.Events;
 
 namespace Platinum.Core.Exceptions
 {

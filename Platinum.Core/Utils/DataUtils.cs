@@ -31,19 +31,11 @@
 */
 #endregion
 
-using System;
-using SystemData = System.Data;
-using System.Linq;
 using Microsoft.Data.SqlClient;
 using System.Reflection;
-using System.Collections.Generic;
 using System.Text;
 using SystemDataCommon = System.Data.Common;
-using System.IO;
-using Anhny010920.Core.Properties;
 using System.Data;
-using Anhny010920.Core.Utilities;
-using Platinum.Core.AAA;
 
 namespace Platinum.Core.Utils
 {

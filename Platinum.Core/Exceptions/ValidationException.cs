@@ -1,10 +1,4 @@
-﻿using FluentValidation.Results;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Platinum.Core.Exceptions
+﻿namespace Platinum.Core.Exceptions
 {
     public class ValidationException : Exception
     {

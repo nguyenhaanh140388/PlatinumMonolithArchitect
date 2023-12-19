@@ -1,7 +1,4 @@
-﻿using Anhny010920.Core.Models;
-using System.Collections.Generic;
-
-namespace Platinum.Core.Abstractions.Services
+﻿namespace Platinum.Core.Abstractions.Services
 {
     public interface IDataShaper<T>
     {

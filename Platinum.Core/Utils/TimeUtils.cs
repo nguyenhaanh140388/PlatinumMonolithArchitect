@@ -31,8 +31,6 @@
 */
 #endregion
 
-using Anhny010920.Core.Properties;
-using System;
 using System.Globalization;
 
 namespace Platinum.Core.Utils

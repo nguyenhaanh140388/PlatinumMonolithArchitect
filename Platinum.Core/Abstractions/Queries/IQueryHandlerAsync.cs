@@ -2,7 +2,6 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-using System.Threading.Tasks;
 using Platinum.Core.Abstractions.Commands;
 
 namespace Platinum.Core.Abstractions.Queries

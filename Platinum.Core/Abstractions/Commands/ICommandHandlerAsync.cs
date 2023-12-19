@@ -2,8 +2,6 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-using System.Threading.Tasks;
-
 namespace Platinum.Core.Abstractions.Commands
 {
     /// <summary>

@@ -1,6 +1,4 @@
-﻿using Hangfire;
-
-namespace Platinum.Core.Handfires
+﻿namespace Platinum.Core.Handfires
 {
     public class RecurringJobClient : JobBase
     {

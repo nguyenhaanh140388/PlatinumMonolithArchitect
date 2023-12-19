@@ -1,11 +1,5 @@
-﻿using Anhny010920.Core.Models;
-using Dapper;
-using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.Common;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Platinum.Core.Extensions
 {

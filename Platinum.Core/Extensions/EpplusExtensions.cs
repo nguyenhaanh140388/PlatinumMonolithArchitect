@@ -1,5 +1,4 @@
-﻿using OfficeOpenXml;
-using Platinum.Core.Extensions;
+﻿using Platinum.Core.Extensions;
 using System.Text.RegularExpressions;
 
 namespace Platinum.Core.Extensions

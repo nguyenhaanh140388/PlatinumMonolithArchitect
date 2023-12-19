@@ -1,11 +1,4 @@
-﻿using Hangfire.Client;
-using Hangfire.Common;
-using Hangfire.Logging;
-using Hangfire.Server;
-using Hangfire.States;
-using Hangfire.Storage;
-
-namespace Platinum.Core.Handfires
+﻿namespace Platinum.Core.Handfires
 {
     public class LogEverythingAttribute : JobFilterAttribute,
         IClientFilter, IServerFilter, IElectStateFilter, IApplyStateFilter

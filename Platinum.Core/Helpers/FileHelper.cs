@@ -13,9 +13,6 @@ namespace Platinum.Core.Helpers
     using System.Reflection;
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Mvc.ModelBinding;
-    using Microsoft.AspNetCore.WebUtilities;
-    using Microsoft.Net.Http.Headers;
 
     /// <summary>
     /// FileHelpers.

@@ -1,11 +1,4 @@
-﻿using Anhny010920.Core.Abstractions.Services;
-using AutoMapper;
-using System.Reflection;
-using System.Collections.Generic;
-using System;
-using System.Runtime.Serialization;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+﻿using System.Reflection;
 using Platinum.Core.Attributes;
 
 namespace Platinum.Core.Extensions

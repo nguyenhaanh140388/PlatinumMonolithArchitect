@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Anhny010920.Core.Utilities;
-using Platinum.Core.AAA;
-
-namespace Platinum.Core.Utils
+﻿namespace Platinum.Core.Utils
 {
     public static class GenericUtils
     {

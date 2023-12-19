@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Platinum.Core.Extensions
+﻿namespace Platinum.Core.Extensions
 {
     /// <summary>
     /// Provides validation between a minimum and maximum of a value.

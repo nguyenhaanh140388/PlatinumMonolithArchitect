@@ -1,10 +1,4 @@
-﻿using Hangfire;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Platinum.Core.Handfires
+﻿namespace Platinum.Core.Handfires
 {
     public class BackgroundJob : JobBase
     {

@@ -2,17 +2,11 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-using Anhny010920.Core.Domain.Common;
-using Anhny010920.Core.Enums;
 using Platinum.Core.Abstractions.Models.Response;
-using System;
-using System.Collections.Generic;
+using Platinum.Core.Common;
+using Platinum.Core.Enums;
 using System.Data.Common;
-using System.Data.SqlClient;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Platinum.Core.Abstractions.Queries
 {

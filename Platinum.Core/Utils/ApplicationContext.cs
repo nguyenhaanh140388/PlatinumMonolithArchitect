@@ -7,8 +7,6 @@ namespace Platinum.Core.Utils
     using System;
     using System.Security.Principal;
     using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Mvc.Infrastructure;
 
     /// <summary>
     /// ApplicationContext.

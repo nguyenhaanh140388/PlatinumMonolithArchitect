@@ -1,7 +1,4 @@
-﻿using Moq;
-using System.Linq;
-
-namespace Platinum.Core.Extensions
+﻿namespace Platinum.Core.Extensions
 {
     public static class MockExtensions
     {

@@ -2,21 +2,15 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-using Anhny010920.Core.Domain.Common;
-using Anhny010920.Core.Enums;
-using Anhny010920.Core.Models;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Platinum.Core.Abstractions.Models.Response;
-using System;
-using System.Collections.Generic;
+using Platinum.Core.Common;
+using Platinum.Core.Enums;
+using Platinum.Core.Models;
 using System.Data.Common;
-using System.Data.SqlClient;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Threading;
-using System.Threading.Tasks;
-using Z.BulkOperations;
 
 namespace Platinum.Core.Abstractions.Queries
 {
@@ -50,7 +44,7 @@ namespace Platinum.Core.Abstractions.Queries
         TEntity FindWithKey(params object[] para);
         Task<TEntity> FindWithKeyAsync(string includeReference = "", string includeCollection = "", params object[] para);
         Task<TEntity> FindWithKeyAsync(params object[] para);
-        Task<BulkOperationResultModel> FutureBulkAsync(List<TEntity> entities, BulkTypes bulkTypes, bool persist = false, int batchTimeout = 120, EFBulkOptions<TEntity> efBulkOptions = null, CancellationToken cancellationToken = default);
+        Task<BulkOperationResultModel> FutureBulkAsync(List<TEntity> entities, BulkTypes bulkTypes, bool persist = false, int batchTimeout = 120, EFBulkOptions<TEntity>? efBulkOptions = null, CancellationToken cancellationToken = default);
         IEnumerable<TEntity> GetAll();
         IQueryable<TEntity> GetAll(Expression<Func<TEntity, object>> orderBy);
         IEnumerable<TEntity> GetAllEntities();

@@ -2,11 +2,8 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-using Anhny010920.Core.Abstractions.Commands;
-using Anhny010920.Core.Abstractions.Queries;
 using Autofac;
 using Platinum.Core.Exceptions;
-using System.Threading.Tasks;
 
 namespace Platinum.Core.Commands
 {

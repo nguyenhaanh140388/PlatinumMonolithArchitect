@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.Common;
-using System.Data.SqlClient;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Anhny010920.Core.Extensions;
-using Platinum.Core.AAA;
 using Platinum.Core.Extensions;
 
 namespace Platinum.Core.Extensions

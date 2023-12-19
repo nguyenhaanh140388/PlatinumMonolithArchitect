@@ -1,9 +1,4 @@
-﻿using Anhny010920.Core.Abstractions.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Platinum.Core.Abstractions.Models.Response
+﻿namespace Platinum.Core.Abstractions.Models.Response
 {
     public interface IPaginatedViewModel<out T>
        where T : IViewModel

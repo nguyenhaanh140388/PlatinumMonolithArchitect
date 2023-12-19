@@ -1,10 +1,8 @@
 ﻿namespace Platinum.Core.Attributes
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Globalization;
-    using System.Text;
 
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
     public class MinimumAttribute : ValidationAttribute

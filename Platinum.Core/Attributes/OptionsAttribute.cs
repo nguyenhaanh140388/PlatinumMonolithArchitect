@@ -1,11 +1,9 @@
 ﻿namespace Platinum.Core.Attributes
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Globalization;
     using System.Linq;
-    using System.Text;
 
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
     public class OptionsAttribute : ValidationAttribute

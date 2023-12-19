@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace Platinum.Core.Handfires
+﻿namespace Platinum.Core.Handfires
 {
     public interface IJobBase
     {

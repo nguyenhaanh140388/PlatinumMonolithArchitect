@@ -2,8 +2,6 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-using System;
-
 namespace Platinum.Core.Exceptions
 {
     public class CommandHandlerNotFoundException : Exception

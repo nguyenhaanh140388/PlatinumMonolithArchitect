@@ -1,10 +1,4 @@
-﻿using RazorEngine;
-using RazorEngine.Templating;
-using System;
-using System.IO;
-using System.Threading.Tasks;
-
-namespace Platinum.Core.Helpers
+﻿namespace Platinum.Core.Helpers
 {
     public static class RazorHelper
     {

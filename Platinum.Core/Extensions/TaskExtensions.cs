@@ -1,5 +1,3 @@
-using System.Threading.Tasks;
-
 namespace Platinum.Core.Extensions
 {
     public static class TaskExtensions

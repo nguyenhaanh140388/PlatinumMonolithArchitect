@@ -2,10 +2,9 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-using Anhny010920.Core.Enums;
 using Platinum.Core.Abstractions.Dapper;
 using Platinum.Core.Abstractions.Queries;
-using System;
+using Platinum.Core.Enums;
 
 namespace Platinum.Core.Abstractions.Repositories
 {

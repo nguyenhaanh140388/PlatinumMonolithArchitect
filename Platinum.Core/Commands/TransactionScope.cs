@@ -2,8 +2,6 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-using System;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Storage;
 using Platinum.Core.Abstractions.Commands;
 

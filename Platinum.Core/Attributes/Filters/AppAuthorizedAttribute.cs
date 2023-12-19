@@ -2,14 +2,8 @@
 // Copyright (c) Anhny010920. All rights reserved.
 // </copyright>
 
-using Anhny010920.Core.Domain.Identity;
-using Anhny010920.Core.Enums;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Platinum.Core.Enums;
 
 namespace Platinum.Core.Attributes.Filters
 {

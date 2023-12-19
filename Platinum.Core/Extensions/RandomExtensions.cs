@@ -1,5 +1,4 @@
-﻿using System;
-// ReSharper disable UnusedMember.Global
+﻿// ReSharper disable UnusedMember.Global
 
 namespace Platinum.Core.Extensions
 {

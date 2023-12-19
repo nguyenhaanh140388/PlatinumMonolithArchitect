@@ -1,10 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Platinum.Core.Abstractions.Queries.Comments
+﻿namespace Platinum.Core.Abstractions.Queries.Comments
 {
     interface IGetCommentsByPostQuery<in T> :
         IQueryHandler<IEnumerable<Comment>>, IQueryHandlerAsync<IEnumerable<Comment>>

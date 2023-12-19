@@ -5,10 +5,7 @@
 namespace Platinum.Core.Abstractions.Communications
 {
     using System.Threading.Tasks;
-    using Anhny010920.Entities.Models.Admin;
     using Microsoft.AspNetCore.Http;
-    using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Routing;
 
     /// <summary>
     /// IIdentityEmailService.

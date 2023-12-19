@@ -1,7 +1,5 @@
-﻿using Anhny010920.Core.Domain.Common;
-using Anhny010920.Core.Wrappers;
-using Platinum.Core.Abstractions.Models.Response;
-using System.Collections.Generic;
+﻿using Platinum.Core.Abstractions.Models.Response;
+using Platinum.Core.Common;
 
 namespace Platinum.Core.Extensions
 {
