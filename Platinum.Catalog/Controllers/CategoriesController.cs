@@ -1,7 +1,11 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Platinum.Catalog.Core.Abstractions.Services;
+using Platinum.Core.Abstractions.Identitys;
 using Platinum.Core.Common;
+using Platinum.Identity.Core;
 using Serilog;
 
 namespace Platinum.Catalog.Controllers

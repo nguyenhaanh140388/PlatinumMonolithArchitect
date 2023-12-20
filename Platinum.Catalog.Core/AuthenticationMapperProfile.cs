@@ -3,8 +3,6 @@
 // </copyright>
 
 using Platinum.Core.Common;
-using Platinum.Core.Models;
-using Platinum.Identity.Core.Entities;
 
 namespace Platinum.Infrastructure.Data.Mapping
 {
@@ -20,7 +18,6 @@ namespace Platinum.Infrastructure.Data.Mapping
         protected override void CreateMappings()
         {
             base.CreateMappings();
-            this.CreateMap<AuthenticateRequest, ApplicationUser>();
         }
     }
 }

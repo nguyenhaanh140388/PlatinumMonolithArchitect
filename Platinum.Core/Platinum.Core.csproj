@@ -8,8 +8,15 @@
 
   <ItemGroup>
     <Compile Remove="AAA\**" />
+    <Compile Remove="Abstractions\SignInTwoFactor\**" />
     <EmbeddedResource Remove="AAA\**" />
+    <EmbeddedResource Remove="Abstractions\SignInTwoFactor\**" />
     <None Remove="AAA\**" />
+    <None Remove="Abstractions\SignInTwoFactor\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Abstractions\Identitys\IApplicationUser.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +32,8 @@
     <PackageReference Include="FluentValidation" Version="11.8.1" />
     <PackageReference Include="Hangfire.Core" Version="1.8.6" />
     <PackageReference Include="MailKit" Version="4.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.14" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Formatters.Json" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
@@ -48,13 +57,8 @@
   <ItemGroup>
     <Folder Include="Constants\" />
     <Folder Include="Entities\" />
-    <Folder Include="Features\" />
     <Folder Include="Models\" />
     <Folder Include="NewFolder\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Platinum.Identity.Core\Platinum.Identity.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -5,26 +5,28 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Options;
-using Platinum.Core.Abstractions.Authentication;
+using Platinum.Core.Abstractions.Dtos;
 using Platinum.Core.Abstractions.Models.Request;
 using Platinum.Core.Abstractions.Models.Response;
 using Platinum.Core.Abstractions.Services;
+using Platinum.Core.Common;
 using Platinum.Core.Enums;
+using Platinum.Core.Exceptions;
+using Platinum.Core.Extensions;
 using Platinum.Core.Models;
 using Platinum.Core.Settings;
+using Platinum.Core.Utils;
+using Platinum.Identity.Core.Abstractions.Authentication;
 using Platinum.Identity.Core.Entities;
-using Platinum.Infrastructure.Auth;
+using Platinum.Identity.Core.Models;
+using Platinum.Identity.Infrastructure.Auth;
+using Platinum.Infrastructure.Services;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
-using Platinum.Core.Extensions;
-using Platinum.Core.Abstractions.Dtos;
-using Platinum.Core.Common;
-using Microsoft.AspNetCore.WebUtilities;
-using Platinum.Core.Exceptions;
-using Platinum.Core.Utils;
 
-namespace Platinum.Infrastructure.Services
+namespace Platinum.Identity.Infrastructure.Services
 {
 
     /// <summary>
@@ -65,7 +67,7 @@ namespace Platinum.Infrastructure.Services
         /// The email service.
         /// </value>
         private readonly IEmailService emailService;
-        private readonly ITemplateService templateService;
+        //private readonly ITemplateService templateService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthenticationService"/> class.
@@ -82,12 +84,13 @@ namespace Platinum.Infrastructure.Services
             RoleManager<ApplicationRole> roleManager,
             IMapper mapper,
             IActionContextAccessor actionContextAccessor,
-            IEmailService emailService,
-            ITemplateService templateService)
+            IEmailService emailService
+            //ITemplateService templateService
+            )
         {
             this.mapper = mapper;
             this.emailService = emailService;
-            this.templateService = templateService;
+            //this.templateService = templateService;
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.roleManager = roleManager;
@@ -105,6 +108,7 @@ namespace Platinum.Infrastructure.Services
         /// </returns>
         public async Task<IAuthenticateResponse> Login(IAuthenticateRequest payload)
         {
+            ApplicationUser user = await userManager.FindByEmailAsync(payload.Email);
 
             if (user != null)
             {
@@ -205,6 +209,7 @@ namespace Platinum.Infrastructure.Services
             if (identityResult.Process(actionContextAccessor.ActionContext.ModelState))
             {
                 identityResult = await userManager.AddPasswordAsync(newUser, payload.Password);
+
                 if (identityResult.Process(actionContextAccessor.ActionContext.ModelState))
                 {
                     if (await roleManager.RoleExistsAsync(Roles.SuperAdmin.ToString()))
@@ -217,12 +222,12 @@ namespace Platinum.Infrastructure.Services
                         await userManager.AddToRoleAsync(newUser, Roles.User.ToString());
                     }
 
-                    var confirmEmailUrl = await SendVerificationEmail(newUser, origin);
+                    //var confirmEmailUrl = await SendVerificationEmail(newUser, origin);
                     //TODO: Attach Email Service here and configure it via appsettings
 
-                    var tempplate = await templateService.GetTemplateByCodeAsync(EmailTemplateEnum.ConfirmRegister, new ConfirmRegister() { ConfirmEmailUrl = confirmEmailUrl });
+                    //var tempplate = await templateService.GetTemplateByCodeAsync(EmailTemplateEnum.ConfirmRegister, new ConfirmRegister() { ConfirmEmailUrl = confirmEmailUrl });
 
-                    await emailService.SendAsync(new EmailRequest() { To = newUser.Email, Body = tempplate, Subject = "Confirm Registration" });
+                   // await emailService.SendAsync(new EmailRequest() { To = newUser.Email, Body = tempplate, Subject = "Confirm Registration" });
 
                     JwtSecurityToken jwtSecurityToken = await jwtFactory.GenerateJwtToken(newUser);
 
@@ -261,44 +266,56 @@ namespace Platinum.Infrastructure.Services
         {
             ApplicationUser userExist = await userManager.FindByEmailAsync(payload.Email);
 
-            if (userExist != null && await userManager.IsEmailConfirmedAsync(userExist))
+            if (userExist != null)
             {
-                return new AuthenticateResponse(userExist, null)
+                bool isConfirmedMail = await userManager.IsEmailConfirmedAsync(userExist);
+                if (!isConfirmedMail)
                 {
-                    RegisterStatus = RegisterStatus.SignUpConfirm,
-                };
+                    return new AuthenticateResponse(userExist, null)
+                    {
+                        RegisterStatus = RegisterStatus.SignUpConfirm,
+                    };
+                }
             }
 
             ApplicationUser newUser = mapper.Map<ApplicationUser>(payload);
 
-            IdentityResult identityResult = await userManager.CreateAsync(newUser);
+            IdentityResult identityResult = await userManager.CreateAsync(newUser, payload.PasswordHash);
 
-            if (identityResult.Process(ApplicationContext.ActionContext.ModelState))
+            if (identityResult.Process(actionContextAccessor.ActionContext.ModelState))
             {
                 identityResult = await userManager.AddPasswordAsync(newUser, payload.PasswordHash);
-                if (identityResult.Process(ApplicationContext.ActionContext.ModelState))
-                {
+
+                //if (identityResult.Process(actionContextAccessor.ActionContext.ModelState))
+                //{
                     if (await roleManager.RoleExistsAsync(Roles.User.ToString()))
                     {
                         await userManager.AddToRoleAsync(newUser, Roles.User.ToString());
                     }
 
+                    //var confirmEmailUrl = await SendVerificationEmail(newUser, origin);
+                    //TODO: Attach Email Service here and configure it via appsettings
+
+                    //var tempplate = await templateService.GetTemplateByCodeAsync(EmailTemplateEnum.ConfirmRegister, new ConfirmRegister() { ConfirmEmailUrl = confirmEmailUrl });
+
+                    // await emailService.SendAsync(new EmailRequest() { To = newUser.Email, Body = tempplate, Subject = "Confirm Registration" });
+
                     JwtSecurityToken jwtSecurityToken = await jwtFactory.GenerateJwtToken(newUser);
 
-                    return new AuthenticateResponse(userExist, null)
+                    return new AuthenticateResponse(newUser, null)
                     {
                         Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
                         RegisterStatus = RegisterStatus.SignUpConfirm,
                     };
-                }
-                else
-                {
-                    await userManager.DeleteAsync(newUser);
-                    return new AuthenticateResponse(userExist, null)
-                    {
-                        RegisterStatus = RegisterStatus.WrongPassword,
-                    };
-                }
+                //}
+                //else
+                //{
+                //    await userManager.DeleteAsync(newUser);
+                //    return new AuthenticateResponse(userExist, null)
+                //    {
+                //        RegisterStatus = RegisterStatus.WrongPassword,
+                //    };
+                //}
             }
             else
             {

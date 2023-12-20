@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Platinum.Identity.Core.Entities;
+using Platinum.Core.Abstractions.Identitys;
 using Serilog;
 
 namespace Platinum.Core.Common
@@ -17,15 +17,15 @@ namespace Platinum.Core.Common
         }
 
         // returns the current authenticated account (null if not logged in)
-        public ApplicationUser AppUserManager => (ApplicationUser)HttpContext.Items["User"];
-        public List<string> UserRoles => (List<string>)HttpContext.Items["Roles"];
+        public IApplicationUserManager AppUserManager => (IApplicationUserManager)HttpContext.Items["User"]!;
+        public List<string> UserRoles => (List<string>)HttpContext.Items["Roles"]!;
 
         protected string GenerateIPAddress()
         {
             if (Request.Headers.ContainsKey("X-Forwarded-For"))
-                return Request.Headers["X-Forwarded-For"];
+                return Request.Headers["X-Forwarded-For"]!;
             else
-                return HttpContext.Connection.RemoteIpAddress.MapToIPv4().ToString();
+                return HttpContext.Connection.RemoteIpAddress!.MapToIPv4().ToString();
         }
 
         protected FileStreamResult GetFileStreamResult(Stream stream, string fileName)

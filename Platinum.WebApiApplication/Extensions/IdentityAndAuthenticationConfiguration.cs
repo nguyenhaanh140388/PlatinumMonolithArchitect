@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Platinum.Core.Settings;
+using Platinum.Identity.Core;
+using Platinum.Identity.Core.Entities;
+using Platinum.Identity.Infrastructure.Persistence;
 using System.Text;
 
 namespace Platinum.WebApiApplication.Extensions
@@ -11,29 +14,29 @@ namespace Platinum.WebApiApplication.Extensions
     {
         public static void RegisterIdentityAndAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
-            //if (configuration.GetValue<bool>("UseInMemoryDatabase"))
-            //{
-            //    services.AddDbContext<Anhny010920AdministratorContext>(options =>
-            //        options.UseInMemoryDatabase("IdentityDb"));
-            //}
-            //else
-            //{
-            //    services.AddDatabaseContext<Anhny010920AdministratorContext>(configuration.GetConnectionString("Anhny010920Administrator"));
-            //}
+            if (configuration.GetValue<bool>("UseInMemoryDatabase"))
+            {
+                services.AddDbContext<PlatinumIdentityDbContext>(options =>
+                    options.UseInMemoryDatabase("IdentityDb"));
+            }
+            else
+            {
+                services.AddDatabaseContext<PlatinumIdentityDbContext>(configuration.GetConnectionString("Anhny010920Administrator"));
+            }
 
-            //services.AddIdentity<ApplicationUser, ApplicationRole>(
-            //    opts =>
-            //    {
-            //        opts.Password.RequiredLength = 8;
-            //        opts.Password.RequireDigit = false;
-            //        opts.Password.RequireLowercase = false;
-            //        opts.Password.RequireUppercase = false;
-            //        opts.Password.RequireNonAlphanumeric = false;
-            //        opts.SignIn.RequireConfirmedEmail = true;
-            //    })
-            //    .AddEntityFrameworkStores<Anhny010920AdministratorContext>()
-            //    .AddDefaultTokenProviders()
-            //    .AddUserManager<AppUserManager>();
+            services.AddIdentity<ApplicationUser, ApplicationRole>(
+                opts =>
+                {
+                    opts.Password.RequiredLength = 8;
+                    opts.Password.RequireDigit = false;
+                    opts.Password.RequireLowercase = false;
+                    opts.Password.RequireUppercase = false;
+                    opts.Password.RequireNonAlphanumeric = false;
+                    opts.SignIn.RequireConfirmedEmail = true;
+                })
+                .AddEntityFrameworkStores<PlatinumIdentityDbContext>()
+                .AddDefaultTokenProviders()
+                .AddUserManager<ApplicationUserManager>();
 
             services.Configure<PasswordHasherOptions>(options =>
             options.CompatibilityMode = PasswordHasherCompatibilityMode.IdentityV2);

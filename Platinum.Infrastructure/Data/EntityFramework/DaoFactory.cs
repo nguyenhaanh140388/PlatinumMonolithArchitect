@@ -25,7 +25,7 @@ namespace Platinum.Infrastructure.Data.EntityFramework
         /// <value>
         /// The configuration.
         /// </value>
-        public IConfiguration Configuration => (IConfiguration)ApplicationContext.GetService(typeof(IConfiguration));
+        public IConfiguration Configuration => (IConfiguration)ApplicationHttpContext.GetService(typeof(IConfiguration));
 
         /// <summary>
         /// Gets the dapper DAO.

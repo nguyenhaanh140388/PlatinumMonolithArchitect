@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Platinum.Core.Utils;
 using Platinum.WebApiApplication.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -44,6 +46,8 @@ builder.Services.RegisterIdentityAndAuthentication(configuration);
 //******** Cors ********//
 builder.Services.AddCorsExtension(configuration);
 
+
+
 //******** SharedServices ********//
 //builder.Services.RegisterSharedServices(configuration);
 
@@ -51,6 +55,8 @@ builder.Services.AddCorsExtension(configuration);
 builder.Host.AddAutofac(builder.Services, configuration);
 
 var app = builder.Build();
+
+ApplicationHttpContext.Configure(app.Services.GetRequiredService<IHttpContextAccessor>(), app.Services.GetRequiredService<IActionContextAccessor>());
 
 app.UseCors("DefaultCor");
 

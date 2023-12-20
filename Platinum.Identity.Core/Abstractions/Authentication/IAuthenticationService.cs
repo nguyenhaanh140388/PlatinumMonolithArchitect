@@ -7,9 +7,9 @@ using Platinum.Core.Abstractions.Dtos;
 using Platinum.Core.Abstractions.Models.Request;
 using Platinum.Core.Abstractions.Models.Response;
 using Platinum.Core.Common;
-using Platinum.Core.Models;
+using Platinum.Identity.Core.Models;
 
-namespace Platinum.Core.Abstractions.Authentication
+namespace Platinum.Identity.Core.Abstractions.Authentication
 {
     /// <summary>
     /// IAuthenticationCommand.

@@ -9,7 +9,7 @@ namespace Platinum.Infrastructure.RestClients
         () => new ApiClient(),
         LazyThreadSafetyMode.ExecutionAndPublication);
 
-        public static IConfiguration Configuration => (IConfiguration)ApplicationContext.GetService(typeof(IConfiguration));
+        public static IConfiguration Configuration => (IConfiguration)ApplicationHttpContext.GetService(typeof(IConfiguration));
 
         static ApiClientFactory()
         {

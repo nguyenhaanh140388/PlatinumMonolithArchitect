@@ -5,8 +5,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Platinum.Core.Abstractions.Identitys;
 using Platinum.Core.Enums;
-using Platinum.Identity.Core.Entities;
 
 namespace Platinum.Core.Attributes.Filters
 {
@@ -22,7 +22,7 @@ namespace Platinum.Core.Attributes.Filters
 
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            var currentUser = (ApplicationUser)context.HttpContext.Items["User"];
+            var currentUser = (IApplicationUserManager)context.HttpContext.Items["User"];
             var userRoles = (List<string>)context.HttpContext.Items["Roles"];
             if (currentUser == null || _roles.Any() && !_roles.Any(x => userRoles.Contains(x.ToString())))
             {

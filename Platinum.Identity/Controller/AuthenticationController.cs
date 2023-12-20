@@ -4,14 +4,15 @@
 
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Platinum.Core.Abstractions.Authentication;
 using Platinum.Core.Abstractions.Dtos;
 using Platinum.Core.Common;
 using Platinum.Core.Enums;
 using Platinum.Core.Models;
+using Platinum.Identity.Core.Abstractions.Authentication;
+using Platinum.Identity.Core.Models;
 using Serilog;
 
-namespace Platinum.Infrastructure.Controller
+namespace Platinum.Identity.Controller
 {
 #if DEBUG
     //[AllowAnonymous]
@@ -74,9 +75,9 @@ namespace Platinum.Infrastructure.Controller
         [Route("register")]
         public async Task<IActionResult> Register([FromBody] AuthenticateRequest payload)
         {
-            if (!this.ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                return this.BadRequest(this.ModelState);
+                return BadRequest(ModelState);
             }
             var origin = @"http://localhost:57572";
             var response = await authenticationService.Register(payload, origin);
@@ -91,7 +92,7 @@ namespace Platinum.Infrastructure.Controller
             //    return this.BadRequest(this.ModelState);
             //}
 
-            return this.Ok(new RegistrationResponseResult()
+            return Ok(new RegistrationResponseResult()
             {
                 Success = true,
                 Token = response.Token,
@@ -102,9 +103,9 @@ namespace Platinum.Infrastructure.Controller
         [Route("register-admin")]
         public async Task<IActionResult> RegisterAdmin(AuthenticateRequest payload)
         {
-            if (!this.ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                return this.BadRequest(this.ModelState);
+                return BadRequest(ModelState);
             }
             var origin = @"http://localhost:57572";
             var response = await authenticationService.RegisterAdmin(payload, origin);
@@ -119,7 +120,7 @@ namespace Platinum.Infrastructure.Controller
             //    return this.BadRequest(this.ModelState);
             //}
 
-            return this.Ok(new RegistrationResponseResult()
+            return Ok(new RegistrationResponseResult()
             {
                 Success = true,
                 Token = response.Token,
@@ -152,9 +153,9 @@ namespace Platinum.Infrastructure.Controller
         [Route("login")]
         public async Task<IActionResult> Login(AuthenticateRequest payload)
         {
-            if (!this.ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                return this.BadRequest(this.ModelState);
+                return BadRequest(ModelState);
             }
 
             payload.IpAddress = GenerateIPAddress();
@@ -163,19 +164,19 @@ namespace Platinum.Infrastructure.Controller
             switch (response.LoginStatus)
             {
                 case LoginStatus.EmailConfirmed:
-                    this.ModelState.AddModelError("message", "Email not confirmed yet.");
+                    ModelState.AddModelError("message", "Email not confirmed yet.");
                     break;
                 case LoginStatus.IsLockedOut:
-                    this.ModelState.AddModelError("message", "AccountLocked.");
+                    ModelState.AddModelError("message", "AccountLocked.");
                     break;
                 case LoginStatus.SignInFailed:
-                    this.ModelState.AddModelError("message", "Sign In Failed.");
+                    ModelState.AddModelError("message", "Sign In Failed.");
                     break;
                 case LoginStatus.NoExist:
-                    this.ModelState.AddModelError("message", "User not exist.");
+                    ModelState.AddModelError("message", "User not exist.");
                     break;
                 case LoginStatus.WrongPassword:
-                    this.ModelState.AddModelError("message", "Invalid credentials.");
+                    ModelState.AddModelError("message", "Invalid credentials.");
                     break;
                 default:
                     break;
@@ -183,10 +184,10 @@ namespace Platinum.Infrastructure.Controller
 
             if (response.LoginStatus != LoginStatus.Succeeded)
             {
-                return this.BadRequest(this.ModelState);
+                return BadRequest(ModelState);
             }
 
-            return this.Ok(new RegistrationResponseResult()
+            return Ok(new RegistrationResponseResult()
             {
                 Success = true,
                 Token = response.Token,

@@ -17,14 +17,14 @@ namespace Platinum.Infrastructure.Services
     /// Custom UserManager to override Authenticator Token generation behavior (encrypt/decrypt).
     /// </summary>
     /// <seealso cref="UserManager{ApplicationUser}" />
-    public class AppUserManager : UserManager<ApplicationUser>, IAppUserManager
+    public class AppUserManager : UserManager<IApplicationUser>, IAppUserManager
     {
         /// <summary>
         /// The configuration.
         /// </summary>
         private readonly IConfiguration configuration;
         private readonly IActionContextAccessor actionContextAccessor;
-        private readonly ILogger<UserManager<ApplicationUser>> logger;
+        private readonly ILogger<UserManager<IApplicationUser>> logger;
         /// <summary>
         /// Initializes a new instance of the <see cref="AppUserManager" /> class.
         /// </summary>
@@ -39,11 +39,11 @@ namespace Platinum.Infrastructure.Services
         /// <param name="logger">The logger.</param>
         /// <param name="configuration">The configuration.</param>
         public AppUserManager(
-            IUserStore<ApplicationUser> store,
+            IUserStore<IApplicationUser> store,
             IOptions<IdentityOptions> optionsAccessor,
-            IPasswordHasher<ApplicationUser> passwordHasher,
-            IEnumerable<IUserValidator<ApplicationUser>> userValidators,
-            IEnumerable<IPasswordValidator<ApplicationUser>> passwordValidators,
+            IPasswordHasher<IApplicationUser> passwordHasher,
+            IEnumerable<IUserValidator<IApplicationUser>> userValidators,
+            IEnumerable<IPasswordValidator<IApplicationUser>> passwordValidators,
             ILookupNormalizer keyNormalizer,
             IdentityErrorDescriber errors,
             IServiceProvider services,

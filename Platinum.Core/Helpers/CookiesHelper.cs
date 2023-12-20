@@ -42,7 +42,7 @@ namespace Platinum.Core.Helpers
                 option.Expires = DateTime.Now.AddMilliseconds(10);
             }
 
-            ApplicationContext.HttpContext.Response.Cookies.Append(key, value, option);
+            ApplicationHttpContext.HttpContext.Response.Cookies.Append(key, value, option);
         }
 
         /// <summary>

@@ -13,7 +13,7 @@ namespace Platinum.Core.Utils
     /// <summary>
     /// ApplicationContext.
     /// </summary>
-    public static class ApplicationContext
+    public static class ApplicationHttpContext
     {
         /// <summary>
         /// The HTTP context accessor.
@@ -56,8 +56,8 @@ namespace Platinum.Core.Utils
         /// <param name="actionContextAccessor">The action context accessor.</param>
         public static void Configure(IHttpContextAccessor httpContextAccessor, IActionContextAccessor actionContextAccessor)
         {
-            ApplicationContext.httpContextAccessor = httpContextAccessor;
-            ApplicationContext.actionContextAccessor = actionContextAccessor;
+            ApplicationHttpContext.httpContextAccessor = httpContextAccessor;
+            ApplicationHttpContext.actionContextAccessor = actionContextAccessor;
         }
 
         public static object GetService(Type type)

@@ -1,14 +1,14 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Platinum.Core.Abstractions.Dtos;
+using Platinum.Core.Helpers;
 using Platinum.Core.Settings;
 using Platinum.Identity.Core.Entities;
-using Platinum.Infrastructure.Identity.Helpers;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 
-namespace Platinum.Infrastructure.Auth
+namespace Platinum.Identity.Infrastructure.Auth
 {
     public interface IJwtFactory
     {

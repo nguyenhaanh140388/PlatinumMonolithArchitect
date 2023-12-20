@@ -6,7 +6,7 @@ using Platinum.Core.Abstractions.Models.Response;
 using Platinum.Core.Enums;
 using Platinum.Identity.Core.Entities;
 
-namespace Platinum.Core.Models
+namespace Platinum.Identity.Core.Models
 {
     /// <summary>
     /// 

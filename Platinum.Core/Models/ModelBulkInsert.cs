@@ -2,16 +2,16 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
+using Platinum.Core.Abstractions.Identitys;
 using Platinum.Core.Attributes;
 using Platinum.Core.Extensions;
-using Platinum.Identity.Core.Entities;
 using System.Data;
 
 namespace Platinum.Core.Models
 {
     public class ModelBulkOperation<T> where T : ModelBase
     {
-        private ApplicationUser applicationUser;
+        private IApplicationUserManager userManager;
 
         private ReflectionCache<T> reflectionCache;
         private SqlTransaction sqlTransaction;
@@ -25,11 +25,11 @@ namespace Platinum.Core.Models
         public string MergedPrimaryKeys { get => _mergedPrimaryKeys; set => _mergedPrimaryKeys = value; }
         public Dictionary<string, string> UpdateColumnMappings { get; set; }
 
-        public ModelBulkOperation(DatabaseFacade database, ApplicationUser applicationUser = null)
+        public ModelBulkOperation(DatabaseFacade database, IApplicationUserManager userManager = null)
         {
             sqlConnection = database.GetDbConnection() as SqlConnection;
             sqlTransaction = database.CurrentTransaction?.GetDbTransaction() as SqlTransaction;
-            this.applicationUser = applicationUser;
+            this.userManager = userManager;
         }
 
         public async Task Insert(IEnumerable<T> items,
@@ -184,8 +184,8 @@ namespace Platinum.Core.Models
                             modelBase.IsDeleted = false;
                             modelBase.ModifiedDate = DateTime.Now;
                             modelBase.CreatedDate = DateTime.Now;
-                            modelBase.CreatedBy = applicationUser?.Id;
-                            modelBase.ModifiedBy = applicationUser?.Id;
+                            modelBase.CreatedBy = userManager?.CurrentUserId;
+                            modelBase.ModifiedBy = userManager?.CurrentUserId;
                         }
 
                         var row = dataTable.NewRow();

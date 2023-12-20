@@ -7,17 +7,20 @@ namespace Platinum.Core.Common
 {
     public abstract class BaseHandler
     {
-        protected readonly IMapper mapper;
-        protected readonly ILogger logger;
-        protected readonly IAppUserManager userManager;
-        protected readonly IUnitOfWork unitOfWork;
+        protected readonly IMapper? mapper;
+        protected readonly ILogger? logger;
+        //protected readonly IApplicationUserManager?   userManager;
+        protected readonly IUnitOfWork? unitOfWork;
 
-        protected BaseHandler(IUnitOfWork unitOfWork = null, IAppUserManager userManager = null, IMapper mapper = null, ILogger logger = null)
+        protected BaseHandler(IUnitOfWork? unitOfWork = null,
+                             // IApplicationUserManager? userManager = null,
+                              IMapper? mapper = null,
+                              ILogger? logger = null)
         {
             this.mapper = mapper;
             this.logger = logger;
             this.unitOfWork = unitOfWork;
-            this.userManager = userManager;
+           // this.userManager = userManager;
         }
 
         //protected BaseHandler(IUnitOfWork unitOfWork, IMapper mapper = null, ILogger logger = null)

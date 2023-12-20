@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Platinum.Core.Utils;
 
 namespace Platinum.WebApiApplication.Extensions
 {
@@ -28,6 +29,8 @@ namespace Platinum.WebApiApplication.Extensions
                //.Where(g => g.Count() > 1)
                //.Select(y => y.Key)
                //.ToList();
+
+               
 
                services.RegisterDependenciesInModules(builderContainer, config);
            });

@@ -11,8 +11,9 @@ namespace Platinum.Infrastructure.Repositories
     {
         protected TDbContext _context;
 
-        public BaseRepository(TDbContext context, IAppUserManager appUserManager = null) :
-            base(context, appUserManager)
+        public BaseRepository(TDbContext context) :
+            //base(context, appUserManager)
+            base(context)
         {
             _context = context;
         }

@@ -24,8 +24,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Abstractions\Identitys\" />
     <Folder Include="Attributes\" />
     <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Platinum.Core\Platinum.Core.csproj" />
   </ItemGroup>
 
 </Project>

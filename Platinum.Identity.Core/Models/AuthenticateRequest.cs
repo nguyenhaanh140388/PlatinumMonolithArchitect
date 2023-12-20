@@ -1,9 +1,11 @@
 ﻿using Platinum.Core.Abstractions.Models.Request;
 
-namespace Platinum.Core.Models
+namespace Platinum.Identity.Core.Models
 {
     public class AuthenticateRequest : IAuthenticateRequest
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string Username { get; set; }
 
         public string Email { get; set; }

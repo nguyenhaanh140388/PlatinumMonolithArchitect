@@ -3,12 +3,19 @@
 namespace Platinum.Core.Abstractions.Models.Request
 {
     public interface IAuthenticateRequest
-    { /// <summary>
-      /// Gets or sets the username.
-      /// </summary>
-      /// <value>
-      /// The username.
-      /// </value>
+    {
+        [Required]
+        string FirstName { get; set; }
+
+        [Required]
+        string LastName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the username.
+        /// </summary>
+        /// <value>
+        /// The username.
+        /// </value>
         [Required]
         string Username { get; set; }
 

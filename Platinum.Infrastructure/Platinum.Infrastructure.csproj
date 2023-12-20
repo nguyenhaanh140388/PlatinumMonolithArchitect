@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Identity\**" />
+    <EmbeddedResource Remove="Identity\**" />
+    <None Remove="Identity\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Data\EmailTemplates\Seeds\DefaultEmailTemplate.cs" />
     <Compile Remove="Migrations\20220307041857_audit_schema_database_refactor.cs" />
     <Compile Remove="Migrations\20220307041857_audit_schema_database_refactor.Designer.cs" />
@@ -14,6 +20,8 @@
     <Compile Remove="Migrations\20220314085343_IdentityUser_update_schema.Designer.cs" />
     <Compile Remove="Migrations\20220408040508_add_EmailTemplate.cs" />
     <Compile Remove="Migrations\20220408040508_add_EmailTemplate.Designer.cs" />
+    <Compile Remove="Services\AppUserManager.cs" />
+    <Compile Remove="Services\AuthenticationService.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,7 +42,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\Mapping\" />
     <Folder Include="Migrations\" />
+    <Folder Include="Handlers\" />
   </ItemGroup>
 
 </Project>

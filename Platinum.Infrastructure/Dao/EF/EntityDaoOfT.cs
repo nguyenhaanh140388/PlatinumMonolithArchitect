@@ -39,7 +39,7 @@ namespace Platinum.Infrastructure.Dao.EF
         /// The is no tracking.
         /// </summary>
         private bool isNoTracking = false;
-        protected readonly IAppUserManager appUserManager;
+        //protected readonly IApplicationUserManager? userManager;
 
         public DbSet<TEntity> Table { get; }
 
@@ -47,7 +47,9 @@ namespace Platinum.Infrastructure.Dao.EF
         /// Initializes a new instance of the <see cref="EntityDao" /> class.
         /// </summary>
         /// <param name="dbContext">The database context.</param>
-        public EntityDao(DbContext dbContext, IAppUserManager appUserManager = null)
+        //public EntityDao(DbContext dbContext,
+        //                 IApplicationUserManager? userManager = null)
+         public EntityDao(DbContext dbContext)
             : base(dbContext)
         {
             // Using a constructor that requires optionsBuilder (EF Core) 
@@ -56,7 +58,7 @@ namespace Platinum.Infrastructure.Dao.EF
                 return dbContext;
             };
 
-            this.appUserManager = appUserManager;
+            //this.userManager = userManager;
             Table = dbContext.Set<TEntity>();
 
         }
@@ -299,7 +301,7 @@ namespace Platinum.Infrastructure.Dao.EF
 
         private Action<TEntity> AuditBulk(BulkTypes bulkTypes) => i =>
         {
-            var userAuditId = appUserManager?.CurrentUserId;
+            //var userAuditId = userManager?.CurrentUserId;
 
             switch (bulkTypes)
             {
@@ -311,7 +313,7 @@ namespace Platinum.Infrastructure.Dao.EF
                             foreach (var entity in (IEnumerable<TEntity>)obj)
                             {
                                 entity.CreatedDate = DateTime.Now;
-                                entity.CreatedBy = userAuditId;
+                                entity.CreatedBy = Guid.Empty; //userAuditId;
                             }
                         }
                     };
@@ -325,7 +327,7 @@ namespace Platinum.Infrastructure.Dao.EF
                             foreach (var entity in (IEnumerable<TEntity>)obj)
                             {
                                 entity.ModifiedDate = DateTime.Now;
-                                entity.ModifiedBy = userAuditId;
+                                entity.ModifiedBy = Guid.Empty; //userAuditId;
                             }
                         }
                     };
@@ -339,7 +341,7 @@ namespace Platinum.Infrastructure.Dao.EF
                         {
                             entity.IsDeleted = true;
                             entity.ModifiedDate = DateTime.Now;
-                            entity.ModifiedBy = userAuditId;
+                            entity.ModifiedBy = Guid.Empty; //userAuditId;
                         }
 
                         ctx.BulkUpdateAsync(list);
@@ -359,12 +361,12 @@ namespace Platinum.Infrastructure.Dao.EF
                                 if (entity.Id == Guid.Empty || entity.Id == null)
                                 {
                                     entity.CreatedDate = DateTime.Now;
-                                    entity.CreatedBy = userAuditId;
+                                    entity.CreatedBy = Guid.Empty; //userAuditId;
                                 }
                                 else
                                 {
                                     entity.ModifiedDate = DateTime.Now;
-                                    entity.ModifiedBy = userAuditId;
+                                    entity.ModifiedBy = Guid.Empty; //userAuditId;
                                 }
                             }
                         }
@@ -381,12 +383,12 @@ namespace Platinum.Infrastructure.Dao.EF
                             if (entity.State == EntityState.Added)
                             {
                                 entity.CurrentValues["CreatedDate"] = DateTime.Now;
-                                entity.CurrentValues["CreatedBy"] = userAuditId;
+                                entity.CurrentValues["CreatedBy"] = Guid.Empty; //userAuditId;
                             }
                             else if (entity.State == EntityState.Modified)
                             {
                                 entity.CurrentValues["ModifiedDate"] = DateTime.Now;
-                                entity.CurrentValues["ModifiedBy"] = userAuditId;
+                                entity.CurrentValues["ModifiedBy"] = Guid.Empty; //userAuditId;
                             }
                         }
                     };
@@ -505,7 +507,7 @@ namespace Platinum.Infrastructure.Dao.EF
                 options.UseAudit = true;
                 options.AuditEntries = auditEntries;
 
-                var userAuditId = appUserManager?.CurrentUserId;
+                //var userAuditId = userManager?.CurrentUserId;
                 EntityFrameworkManager.PreBulkSaveChanges = ctx =>
                 {
                     var modifiedEntities = ctx.ChangeTracker.Entries().ToList();
@@ -515,12 +517,12 @@ namespace Platinum.Infrastructure.Dao.EF
                         if (entity.State == EntityState.Added)
                         {
                             entity.CurrentValues["CreatedDate"] = DateTime.Now;
-                            entity.CurrentValues["CreatedBy"] = userAuditId;
+                            entity.CurrentValues["CreatedBy"] = Guid.Empty; //userAuditId;
                         }
                         else if (entity.State == EntityState.Modified)
                         {
                             entity.CurrentValues["ModifiedDate"] = DateTime.Now;
-                            entity.CurrentValues["ModifiedBy"] = userAuditId;
+                            entity.CurrentValues["ModifiedBy"] = Guid.Empty; //userAuditId;
                         }
                     }
                 };
@@ -563,13 +565,13 @@ namespace Platinum.Infrastructure.Dao.EF
             }
 
             TEntity entityDb = await dbSetEntity.FindAsync(keyValues);
-            var userAuditId = appUserManager?.CurrentUserId;
+            //var userAuditId = userManager?.CurrentUserId;
             if (entityDb == null)
             {
                 if (modifiedEntity is EntityBase entityBase)
                 {
-                    entityBase.CreatedBy = userAuditId;
-                    entityBase.ModifiedBy = userAuditId;
+                    entityBase.CreatedBy = Guid.Empty; //userAuditId;
+                    entityBase.ModifiedBy = Guid.Empty; //userAuditId;
                     entityBase.CreatedDate = DateTime.Now;
                     entityBase.ModifiedDate = DateTime.Now;
                 }
@@ -580,7 +582,7 @@ namespace Platinum.Infrastructure.Dao.EF
             {
                 if (modifiedEntity is EntityBase entityBase)
                 {
-                    entityBase.ModifiedBy = userAuditId;
+                    entityBase.ModifiedBy = Guid.Empty; //userAuditId;
                     entityBase.ModifiedDate = DateTime.Now;
                 }
 
@@ -606,17 +608,17 @@ namespace Platinum.Infrastructure.Dao.EF
 
             for (int i = 0; i < keyValues.Length; i++)
             {
-                keyValues[i] = primaryKey.Properties[i].GetGetter().GetClrValue(modifiedEntity);
+                keyValues[i] = primaryKey.Properties[i].GetGetter().GetClrValue(modifiedEntity)!;
             }
 
-            TEntity entityDb = dbSetEntity.Find(keyValues);
-            var userAuditId = appUserManager?.CurrentUserId;
+            TEntity entityDb = dbSetEntity.Find(keyValues)!;
+            //var userAuditId = userManager?.CurrentUserId;
             if (entityDb == null)
             {
                 if (modifiedEntity is EntityBase entityBase)
                 {
-                    entityBase.CreatedBy = userAuditId;
-                    entityBase.ModifiedBy = userAuditId;
+                    entityBase.CreatedBy = Guid.Empty; //userAuditId;
+                    entityBase.ModifiedBy = Guid.Empty; //userAuditId;
                     entityBase.CreatedDate = DateTime.Now;
                     entityBase.ModifiedDate = DateTime.Now;
                 }
@@ -627,7 +629,7 @@ namespace Platinum.Infrastructure.Dao.EF
             {
                 if (modifiedEntity is EntityBase entityBase)
                 {
-                    entityBase.ModifiedBy = userAuditId;
+                    entityBase.ModifiedBy = Guid.Empty; //userAuditId;
                     entityBase.ModifiedDate = DateTime.Now;
                 }
 
