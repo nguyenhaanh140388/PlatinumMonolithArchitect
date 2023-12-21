@@ -1,0 +1,19 @@
+﻿
+
+**********Migration Guide**********
+***********************************
+
+#####DbFirst
+Scaffold-DbContext "Server=123;Database=123;User Id= sa; Password=123;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -force
+
+#####Create migrate
+Add-migration <name migrate> -Context <context name> (if have multi contexts in project)
+
+#####Removing latest migration 
+Remove-migration
+
+#####Applying A Migration to DB
+Update-Database -Context <context name> (if have multi contexts in project)
+
+#####Reversing A Migration
+Update-Database <target migrated name > -Context <context name> (if have multi contexts in project)

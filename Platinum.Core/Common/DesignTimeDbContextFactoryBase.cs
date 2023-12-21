@@ -7,16 +7,20 @@ namespace Platinum.Core.Common
     public abstract class DesignTimeDbContextFactoryBase<TContext> :
             IDesignTimeDbContextFactory<TContext> where TContext : DbContext
     {
+        protected readonly string name = string.Empty;
+
+        public DesignTimeDbContextFactoryBase(string name)
+        {
+            this.name = name;
+        }
+
         public TContext CreateDbContext(string[] args)
         {
-            string connectionName = args[0];
-            return Create(connectionName,
+            //string connectionName = args[0];
+            return Create(name,
                 Directory.GetCurrentDirectory(),
                 Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")!);
         }
-
-        protected abstract TContext CreateNewInstance(
-            DbContextOptions<TContext> options);
 
         public TContext Create(string connectionName)
         {
@@ -44,8 +48,9 @@ namespace Platinum.Core.Common
             if (string.IsNullOrWhiteSpace(connstr))
             {
                 throw new InvalidOperationException(
-                    "Could not find a connection string named 'Default'.");
+                    $"Could not find a connection string named {connectionName}.");
             }
+
             return CreateFromConnectionString(connstr);
         }
 
@@ -63,7 +68,8 @@ namespace Platinum.Core.Common
             optionsBuilder.UseSqlServer(connectionString);
 
             var options = optionsBuilder.Options;
-            return CreateNewInstance(options);
+           
+            return (TContext)Activator.CreateInstance(typeof(TContext), optionsBuilder.Options)!;
         }
     }
 }

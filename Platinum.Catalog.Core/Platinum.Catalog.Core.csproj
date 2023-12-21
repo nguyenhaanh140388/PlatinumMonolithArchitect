@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Platinum.Core\Platinum.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>

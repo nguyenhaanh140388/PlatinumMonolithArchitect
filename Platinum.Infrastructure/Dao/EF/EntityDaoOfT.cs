@@ -24,6 +24,7 @@ using System.Runtime.ExceptionServices;
 using System.Text.RegularExpressions;
 using Z.BulkOperations;
 using Z.EntityFramework.Extensions;
+using AuditEntry = Z.BulkOperations.AuditEntry;
 
 namespace Platinum.Infrastructure.Dao.EF
 {
