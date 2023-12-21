@@ -1,11 +1,11 @@
-﻿// <copyright file="CustomAsyncResultFilter.cs" company="Anhny010920">
-// Copyright (c) Anhny010920. All rights reserved.
+﻿// <copyright file="CustomAsyncResultFilter.cs" company="Platinum">
+// Copyright (c) Platinum. All rights reserved.
 // </copyright>
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Anhny010920WebAppApi.Filters.ResultFilters
+namespace Platinum.WebApiApplication.Filters.ResultFilters
 {
     /// <summary>
     /// LoggingActionFilter.

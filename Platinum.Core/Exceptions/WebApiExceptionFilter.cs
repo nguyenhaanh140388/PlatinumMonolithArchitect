@@ -1,5 +1,5 @@
-﻿// <copyright file="WebApiExceptionFilter.cs" company="Anhny010920">
-// Copyright (c) Anhny010920. All rights reserved.
+﻿// <copyright file="WebApiExceptionFilter.cs" company="Platinum">
+// Copyright (c) Platinum. All rights reserved.
 // </copyright>
 
 using Microsoft.AspNetCore.Mvc;

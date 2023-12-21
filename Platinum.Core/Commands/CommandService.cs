@@ -1,5 +1,5 @@
-﻿// <copyright file="CommandService.cs" company="Anhny010920">
-// Copyright (c) Anhny010920. All rights reserved.
+﻿// <copyright file="CommandService.cs" company="Platinum">
+// Copyright (c) Platinum. All rights reserved.
 // </copyright>
 
 using Autofac;
@@ -14,7 +14,7 @@ namespace Platinum.Core.Commands
     /// </summary>
     /// <seealso cref="ICommandService" />
     /// <seealso cref="ICommandService" />
-    /// <seealso cref="Anhny010920.Interfaces.Commands.ICommandFactory" />
+    /// <seealso cref="Platinum.Interfaces.Commands.ICommandFactory" />
     public class CommandService : ICommandService
     {
         /// <summary>

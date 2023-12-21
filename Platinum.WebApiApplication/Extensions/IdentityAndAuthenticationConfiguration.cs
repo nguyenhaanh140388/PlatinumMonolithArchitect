@@ -21,7 +21,7 @@ namespace Platinum.WebApiApplication.Extensions
             }
             else
             {
-                services.AddDatabaseContext<PlatinumIdentityDbContext>(configuration.GetConnectionString("Anhny010920Administrator"));
+                services.AddDatabaseContext<PlatinumIdentityDbContext>(configuration.GetConnectionString("PlatinumIdentityDb"));
             }
 
             services.AddIdentity<ApplicationUser, ApplicationRole>(

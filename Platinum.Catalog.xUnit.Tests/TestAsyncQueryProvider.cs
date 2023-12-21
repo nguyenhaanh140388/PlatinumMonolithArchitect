@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
 using System.Linq.Expressions;
 
-namespace Anhny010920.Shop.xUnit.Tests
+namespace Platinum.Catalog.xUnit.Tests
 {
     /// <summary>
     /// From https://stackoverflow.com/questions/40476233/how-to-mock-an-async-repository-with-entity-framework-core#answer-40491640

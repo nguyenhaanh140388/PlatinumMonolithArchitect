@@ -1,11 +1,11 @@
-﻿// <copyright file="GenerateAntiforgeryTokenCookieAttribute.cs" company="Anhny010920">
-// Copyright (c) Anhny010920. All rights reserved.
+﻿// <copyright file="GenerateAntiforgeryTokenCookieAttribute.cs" company="Platinum">
+// Copyright (c) Platinum. All rights reserved.
 // </copyright>
 
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Anhny010920WebAppApi.Filters.ResultFilters
+namespace Platinum.WebApiApplication.Filters.ResultFilters
 {
     /// <summary>
     /// GenerateAntiforgeryTokenCookieAttribute.

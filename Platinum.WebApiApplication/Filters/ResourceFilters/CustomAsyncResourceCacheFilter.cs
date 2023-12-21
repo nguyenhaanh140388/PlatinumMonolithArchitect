@@ -1,5 +1,5 @@
-﻿// <copyright file="CustomAsyncResourceCacheFilter.cs" company="Anhny010920">
-// Copyright (c) Anhny010920. All rights reserved.
+﻿// <copyright file="CustomAsyncResourceCacheFilter.cs" company="Platinum">
+// Copyright (c) Platinum. All rights reserved.
 // </copyright>
 
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Caching.Memory;
 using ILogger = Serilog.ILogger;
 
-namespace Anhny010920WebAppApi.Filters.ResourceFilters
+namespace Platinum.WebApiApplication.Filters.ResourceFilters
 {
     /// <summary>
     /// LoggingActionFilter.

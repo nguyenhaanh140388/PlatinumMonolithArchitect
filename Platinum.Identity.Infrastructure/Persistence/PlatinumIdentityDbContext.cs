@@ -1,5 +1,5 @@
-﻿// <copyright file="Anhny010920AdministratorContext.cs" company="Anhny010920">
-// Copyright (c) Anhny010920. All rights reserved.
+﻿// <copyright file="PlatinumIdentityDbContext.cs" company="Platinum">
+// Copyright (c) Platinum. All rights reserved.
 // </copyright>
 
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -14,7 +14,7 @@ namespace Platinum.Identity.Infrastructure.Persistence
     }
 
     /// <summary>
-    /// Anhny010920AdministratorContext.
+    /// PlatinumIdentityDbContext.
     /// </summary>
     /// <seealso cref="IdentityDbContext" />
     /// <seealso cref="DbContext" />

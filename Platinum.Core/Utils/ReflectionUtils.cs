@@ -52,7 +52,7 @@ namespace Platinum.Core.Utils
         public static IEnumerable<Assembly> GetAssemblies()
         {
             var currentAssemblies = AppDomain.CurrentDomain.GetAssemblies();
-            return currentAssemblies.Where(a => a.FullName.Contains("Anhny010920."));
+            return currentAssemblies.Where(a => a.FullName.Contains("Platinum."));
         }
 
         /// <summary>

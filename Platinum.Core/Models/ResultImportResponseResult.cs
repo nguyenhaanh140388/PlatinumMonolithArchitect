@@ -6,7 +6,7 @@ namespace Platinum.Core.Models
     /// <summary>
     /// ResultImportViewModel.
     /// </summary>
-    /// <seealso cref="Anhny010920.Entities.Models.OperationResult" />
+    /// <seealso cref="Platinum.Entities.Models.OperationResult" />
     public class ResultImportResponseResult : OperationResult
     {
         /// <summary>

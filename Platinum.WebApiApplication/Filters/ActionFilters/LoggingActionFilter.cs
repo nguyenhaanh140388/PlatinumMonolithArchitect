@@ -1,12 +1,12 @@
-﻿// <copyright file="LoggingActionFilter.cs" company="Anhny010920">
-// Copyright (c) Anhny010920. All rights reserved.
+﻿// <copyright file="LoggingActionFilter.cs" company="Platinum">
+// Copyright (c) Platinum. All rights reserved.
 // </copyright>
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using ILogger = Serilog.ILogger;
 
-namespace Anhny010920WebAppApi.Filters.ActionFilters
+namespace Platinum.WebApiApplication.Filters.ActionFilters
 {
     /// <summary>
     /// LoggingActionFilter.

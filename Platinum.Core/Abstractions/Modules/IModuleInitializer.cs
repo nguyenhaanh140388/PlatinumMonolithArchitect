@@ -1,5 +1,5 @@
-﻿// <copyright file="IModuleInitializer.cs" company="Anhny010920">
-// Copyright (c) Anhny010920. All rights reserved.
+﻿// <copyright file="IModuleInitializer.cs" company="Platinum">
+// Copyright (c) Platinum. All rights reserved.
 // </copyright>
 
 using Autofac;

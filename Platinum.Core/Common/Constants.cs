@@ -6,8 +6,8 @@
 
         public static class ConnectionStringNames
         {
-            public const string Administrator = "Anhny010920Administrator";
-            public const string Catalog = "Anhny010920Catalog";
+            public const string Administrator = "PlatinumIdentityDb";
+            public const string Catalog = "PlatinumCatalog";
         }
         public static class KeyInfoProperties
         {
@@ -40,7 +40,7 @@
 
         public static class ResourceNameSpaces
         {
-            public const string Anhny010920CoreResource = "Anhny010920.Core.Resources";
+            public const string Anhny010920CoreResource = "Platinum.Core.Resources";
         }
 
         public static class ResourceFolders

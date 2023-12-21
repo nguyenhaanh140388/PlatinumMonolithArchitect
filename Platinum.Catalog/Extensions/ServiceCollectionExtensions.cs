@@ -15,8 +15,8 @@ namespace Platinum.Catalog.Extensions
         {
             //var servicesInternal = new ServiceCollection();
             //servicesInternal
-            //    .AddDbContext<Anhny010920CatalogContext>(options => options.UseSqlServer(config.GetConnectionString("Anhny010920Catalog")))
-            //    .AddScoped<IAnhny010920CatalogContext>(provider => provider.GetService<Anhny010920CatalogContext>());
+            //    .AddDbContext<PlatinumCatalogContext>(options => options.UseSqlServer(config.GetConnectionString("PlatinumCatalog")))
+            //    .AddScoped<IPlatinumCatalogContext>(provider => provider.GetService<PlatinumCatalogContext>());
 
             //builderContainer.Populate(servicesInternal);
 

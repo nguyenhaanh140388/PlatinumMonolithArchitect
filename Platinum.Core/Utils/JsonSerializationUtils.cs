@@ -14,7 +14,7 @@ namespace Platinum.Core.Utils
     /// </summary>
     /// <remarks>
     /// JSON.NET is loaded dynamically at runtime to avoid hard 
-    /// linking the Newtonsoft.Json.dll to Anhny010920.Core.Utilities.
+    /// linking the Newtonsoft.Json.dll to Platinum.Core.Utilities.
     /// Just make sure that your project includes a reference 
     /// to JSON.NET when using this class.
     /// </remarks>

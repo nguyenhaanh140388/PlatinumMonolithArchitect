@@ -97,7 +97,7 @@ namespace Platinum.Infrastructure.Extensions
         //        return;
         //    }
 
-        //    foreach (var file in moduleRootFolder.GetFileSystemInfos("Anhny010920.Shop.dll", SearchOption.AllDirectories))
+        //    foreach (var file in moduleRootFolder.GetFileSystemInfos("Platinum.Shop.dll", SearchOption.AllDirectories))
         //    {
         //        Assembly assembly = null;
         //        try
@@ -146,12 +146,12 @@ namespace Platinum.Infrastructure.Extensions
         {
             //if (configuration.GetValue<bool>("UseInMemoryDatabase"))
             //{
-            //    services.AddDbContext<Anhny010920AdministratorContext>(options =>
+            //    services.AddDbContext<PlatinumAdministratorContext>(options =>
             //        options.UseInMemoryDatabase("IdentityDb"));
             //}
             //else
             //{
-            //    services.AddDatabaseContext<Anhny010920AdministratorContext>(configuration.GetConnectionString("Anhny010920Administrator"));
+            //    services.AddDatabaseContext<PlatinumAdministratorContext>(configuration.GetConnectionString("PlatinumAdministrator"));
             //}
 
             //services.AddIdentity<ApplicationUser, ApplicationRole>(
@@ -164,7 +164,7 @@ namespace Platinum.Infrastructure.Extensions
             //        opts.Password.RequireNonAlphanumeric = false;
             //        opts.SignIn.RequireConfirmedEmail = true;
             //    })
-            //    .AddEntityFrameworkStores<Anhny010920AdministratorContext>()
+            //    .AddEntityFrameworkStores<PlatinumAdministratorContext>()
             //    .AddDefaultTokenProviders()
             //    .AddUserManager<AppUserManager>();
 

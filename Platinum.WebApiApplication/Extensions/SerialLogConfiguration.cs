@@ -17,7 +17,7 @@ namespace Platinum.WebApiApplication.Extensions
             {
                 return new LoggerConfiguration()
                 .MinimumLevel.Information()
-                .MinimumLevel.Override("Anhny010920", LogEventLevel.Information)
+                .MinimumLevel.Override("Platinum", LogEventLevel.Information)
                 .WriteTo.MSSqlServer(config.GetConnectionString(ConnectionStringNames.Catalog), SerilogProperties.TableName, columnOptions: columnOption)
                 .CreateLogger();
             });

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Moq;
 
-namespace Anhny010920.Shop.xUnit.Tests
+namespace Platinum.Catalog.xUnit.Tests
 {
     /// <summary>
     /// From http://dotnetliberty.com/index.php/2016/02/22/moq-on-net-core/

@@ -1,5 +1,5 @@
-﻿// <copyright file="DapperContrib.cs" company="Anhny010920">
-// Copyright (c) Anhny010920. All rights reserved.
+﻿// <copyright file="DapperContrib.cs" company="Platinum">
+// Copyright (c) Platinum. All rights reserved.
 // </copyright>
 
 using Platinum.Core.Abstractions.Dapper;
@@ -28,7 +28,7 @@ namespace Platinum.Infrastructure.Dao.Dappers
         /// <param name="configuration">The configuration.</param>
         public DapperContrib(IConfiguration configuration)
         {
-            connectionString = configuration.GetConnectionString("Anhny010920Catalog");
+            connectionString = configuration.GetConnectionString("PlatinumCatalog");
         }
 
         /// <summary>

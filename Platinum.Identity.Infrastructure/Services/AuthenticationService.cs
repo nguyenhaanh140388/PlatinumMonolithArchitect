@@ -32,8 +32,8 @@ namespace Platinum.Identity.Infrastructure.Services
     /// <summary>
     /// AuthenticationCommand.
     /// </summary>
-    /// <seealso cref="Anhny010920.Dao.Queries.ModelQueryBase" />
-    /// <seealso cref="Anhny010920.Interfaces.Authentication.IAuthenticationService" />
+    /// <seealso cref="Platinum.Dao.Queries.ModelQueryBase" />
+    /// <seealso cref="Platinum.Interfaces.Authentication.IAuthenticationService" />
     /// <seealso cref="IAuthenticationService" />
     /// <seealso cref="ModelQueryBase" />
     /// <seealso cref="ViewModels.Commands.Authentication.IAuthenticationCommand{ViewModels.Commands.Authentication.AuthenticationCommand}" />

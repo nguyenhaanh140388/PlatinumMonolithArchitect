@@ -1,5 +1,5 @@
-﻿// <copyright file="DaoFactory.cs" company="Anhny010920">
-// Copyright (c) Anhny010920. All rights reserved.
+﻿// <copyright file="DaoFactory.cs" company="Platinum">
+// Copyright (c) Platinum. All rights reserved.
 // </copyright>
 
 using Microsoft.Extensions.Configuration;
@@ -38,16 +38,16 @@ namespace Platinum.Infrastructure.Data.EntityFramework
             switch (dataContextNames)
             {
                 case DataContextNames.ProductSystem:
-                    connectString = Configuration.GetConnectionString("Anhny010920Catalog");
+                    connectString = Configuration.GetConnectionString("PlatinumCatalog");
                     break;
                 case DataContextNames.BlogSystem:
-                    connectString = Configuration.GetConnectionString("Anhny010920Blog");
+                    connectString = Configuration.GetConnectionString("PlatinumBlog");
                     break;
                 case DataContextNames.AdministratorSystem:
-                    connectString = Configuration.GetConnectionString("Anhny010920Administrator");
+                    connectString = Configuration.GetConnectionString("PlatinumAdministrator");
                     break;
                 default:
-                    connectString = Configuration.GetConnectionString("Anhny010920Catalog"); break;
+                    connectString = Configuration.GetConnectionString("PlatinumCatalog"); break;
             }
 
             return new DapperQuery(connectString);
@@ -66,11 +66,11 @@ namespace Platinum.Infrastructure.Data.EntityFramework
             //switch (dataContextNames)
             //{
             //case DataContextNames.ProductSystem:
-            //    return new Anhny010290Dao((Anhny010920ProductContext)ApplicationContext.GetService(typeof(Anhny010920ProductContext)));
+            //    return new PlatinumDao((PlatinumProductContext)ApplicationContext.GetService(typeof(PlatinumProductContext)));
             //case DataContextNames.BlogSystem:
-            //    return new Anhny010290Dao((Anhny010920BlogContext)ApplicationContext.GetService(typeof(Anhny010920BlogContext)));
+            //    return new PlatinumDao((PlatinumlogContext)ApplicationContext.GetService(typeof(PlatinumBlogContext)));
             //case DataContextNames.AdministratorSystem:
-            //    return new Anhny010290Dao((Anhny010920AdministratorContext)ApplicationContext.GetService(typeof(Anhny010920AdministratorContext)));
+            //    return new PlatinumDao((PlatinumAdministratorContext)ApplicationContext.GetService(typeof(PlatinumAdministratorContext)));
             //default:
             throw new KeyNotFoundException();
             //}

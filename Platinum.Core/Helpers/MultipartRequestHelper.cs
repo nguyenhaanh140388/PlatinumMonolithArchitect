@@ -1,5 +1,5 @@
-﻿// <copyright file="MultipartRequestHelper.cs" company="Anhny010920">
-// Copyright (c) Anhny010920. All rights reserved.
+﻿// <copyright file="MultipartRequestHelper.cs" company="Platinum">
+// Copyright (c) Platinum. All rights reserved.
 // </copyright>
 
 namespace Platinum.Core.Helpers

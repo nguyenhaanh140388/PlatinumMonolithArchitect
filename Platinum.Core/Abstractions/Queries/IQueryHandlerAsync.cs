@@ -1,5 +1,5 @@
-﻿// <copyright file="IQueryHandlerAsync.cs" company="Anhny010920">
-// Copyright (c) Anhny010920. All rights reserved.
+﻿// <copyright file="IQueryHandlerAsync.cs" company="Platinum">
+// Copyright (c) Platinum. All rights reserved.
 // </copyright>
 
 using Platinum.Core.Abstractions.Commands;

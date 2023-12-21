@@ -8,8 +8,8 @@ namespace Platinum.Infrastructure.Extensions
         {
             containerBuilder.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
                 .Where(c =>
-                c.FullName.StartsWith("Anhny010920.Infrastructure") ||
-                c.FullName.StartsWith("Anhny010920.Core.Commands"))
+                c.FullName!.StartsWith("Platinum.Infrastructure") ||
+                c.FullName.StartsWith("Platinum.Core.Commands"))
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();
 

@@ -1,4 +1,4 @@
-﻿// Copyright (c) Anhny010920. All rights reserved.
+﻿// Copyright (c) Platinum. All rights reserved.
 // </copyright>
 
 using AutoMapper;

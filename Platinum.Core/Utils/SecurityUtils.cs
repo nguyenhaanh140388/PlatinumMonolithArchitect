@@ -37,7 +37,7 @@ using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System;
 
-namespace Anhny010920.Core.Utilities
+namespace Platinum.Core.Utilities
 {
 
     /// <summary>

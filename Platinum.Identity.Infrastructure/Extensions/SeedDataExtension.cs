@@ -14,7 +14,7 @@ namespace Platinum.Identity.Infrastructure.Extensions
                 var services = scope.ServiceProvider;
                 try
                 {
-                    //var context = services.GetRequiredService<Anhny010920CatalogContext>();
+                    //var context = services.GetRequiredService<PlatinumCatalogContext>();
                     await IdentitytInitialize.Initialize(services);
 
                 }

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Net;
 
-namespace Anhny010920WebAppApi.Filters.ActionFilters
+namespace Platinum.WebApiApplication.Filters.ActionFilters
 {
     public class ClientIpCheckActionFilter : ActionFilterAttribute
     {

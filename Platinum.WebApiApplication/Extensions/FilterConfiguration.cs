@@ -1,9 +1,9 @@
-﻿using Anhny010920WebAppApi.Filters.ActionFilters;
-using Anhny010920WebAppApi.Filters.ResourceFilters;
-using Anhny010920WebAppApi.Filters.ResultFilters;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Platinum.Core.Exceptions;
+using Platinum.WebApiApplication.Filters.ActionFilters;
+using Platinum.WebApiApplication.Filters.ResourceFilters;
+using Platinum.WebApiApplication.Filters.ResultFilters;
 
 namespace Platinum.WebApiApplication.Extensions
 {

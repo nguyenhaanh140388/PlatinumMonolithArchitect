@@ -1,6 +1,6 @@
 ﻿using Hangfire.Dashboard;
 
-namespace Anhny010920WebAppApi.Filters.HangFires
+namespace Platinum.WebApiApplication.Filters.HangFires
 {
     public class HangireAuthorizationFilter : IDashboardAuthorizationFilter
     {

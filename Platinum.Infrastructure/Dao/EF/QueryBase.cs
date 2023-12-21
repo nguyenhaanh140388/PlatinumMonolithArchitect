@@ -1,5 +1,5 @@
-﻿// <copyright file="QueryBase.cs" company="Anhny010920">
-// Copyright (c) Anhny010920. All rights reserved.
+﻿// <copyright file="QueryBase.cs" company="Platinum">
+// Copyright (c) Platinum. All rights reserved.
 // </copyright>
 
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +13,7 @@ namespace Platinum.Infrastructure.Dao.EF
     public abstract class QueryBase : Disposable
     {
         /// <summary>
-        /// anhny010920BlogDbContext.
+        /// QueryBase.
         /// </summary>
         internal DbContext DbContext;
 

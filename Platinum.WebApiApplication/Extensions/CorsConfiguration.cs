@@ -13,7 +13,7 @@ namespace Platinum.WebApiApplication.Extensions
             {
                 //if (app.Environment.IsDevelopment())
                 //{
-                options.AddPolicy("Anhny010920WebAppApi",
+                options.AddPolicy("PlatinumWebAppApi",
                     builder =>
                     {
                         builder.WithOrigins(
