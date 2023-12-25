@@ -1,4 +1,4 @@
-﻿// <copyright file="Anhny010290Dao.cs" company="PlaceholderCompany">
+﻿// <copyright file="IEntityDao.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 

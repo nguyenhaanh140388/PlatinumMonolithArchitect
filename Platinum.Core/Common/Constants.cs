@@ -40,7 +40,7 @@
 
         public static class ResourceNameSpaces
         {
-            public const string Anhny010920CoreResource = "Platinum.Core.Resources";
+            public const string PlatinumCoreResource = "Platinum.Core.Resources";
         }
 
         public static class ResourceFolders

@@ -1,16 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
+﻿using Platinum.Core.Common;
 
 namespace Platinum.Identity.Infrastructure.Persistence
 {
-    public class PlatinumIdentityDbContextContextFactory : IDesignTimeDbContextFactory<PlatinumIdentityDbContext> //DesignTimeDbContextFactoryBase<Anhny010920CatalogContext> //
+    public class PlatinumIdentityDbContextContextFactory : DesignTimeDbContextFactoryBase<PlatinumIdentityDbContext>
     {
-        public PlatinumIdentityDbContext CreateDbContext(string[] args)
+        public PlatinumIdentityDbContextContextFactory() : base("PlatinumIdentityDb")
         {
-            var optionsBuilder = new DbContextOptionsBuilder<PlatinumIdentityDbContext>();
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-HEOSBPL\NGUYENHAANH2021;Database=PlatinumIdentityDb;User Id= sa;Password=HaAnh@!@@$#$@$@!;TrustServerCertificate=true");
-
-            return new PlatinumIdentityDbContext(optionsBuilder.Options);
         }
     }
 }
