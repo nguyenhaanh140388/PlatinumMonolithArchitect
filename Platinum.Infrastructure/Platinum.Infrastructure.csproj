@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Data\EmailTemplates\Seeds\DefaultEmailTemplate.cs" />
     <Compile Remove="Migrations\20220307041857_audit_schema_database_refactor.cs" />
     <Compile Remove="Migrations\20220307041857_audit_schema_database_refactor.Designer.cs" />
     <Compile Remove="Migrations\20220314085343_IdentityUser_update_schema.cs" />

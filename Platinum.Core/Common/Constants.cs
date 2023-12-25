@@ -41,6 +41,7 @@
         public static class ResourceNameSpaces
         {
             public const string PlatinumCoreResource = "Platinum.Core.Resources";
+            public const string PlatinumIdentityCoreResource = "Platinum.Identity.Core.Resources";
         }
 
         public static class ResourceFolders

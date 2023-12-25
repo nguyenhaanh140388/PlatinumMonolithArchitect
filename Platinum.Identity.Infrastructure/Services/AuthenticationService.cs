@@ -21,8 +21,8 @@ using Platinum.Core.Utils;
 using Platinum.Identity.Core.Abstractions.Authentication;
 using Platinum.Identity.Core.Entities;
 using Platinum.Identity.Core.Models;
+using Platinum.Identity.Core.ViewModels;
 using Platinum.Identity.Infrastructure.Auth;
-using Platinum.Infrastructure.Services;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 
@@ -67,7 +67,7 @@ namespace Platinum.Identity.Infrastructure.Services
         /// The email service.
         /// </value>
         private readonly IEmailService emailService;
-        //private readonly ITemplateService templateService;
+        private readonly ITemplateService templateService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthenticationService"/> class.
@@ -84,13 +84,13 @@ namespace Platinum.Identity.Infrastructure.Services
             RoleManager<ApplicationRole> roleManager,
             IMapper mapper,
             IActionContextAccessor actionContextAccessor,
-            IEmailService emailService
-            //ITemplateService templateService
+            IEmailService emailService,
+            ITemplateService templateService
             )
         {
             this.mapper = mapper;
             this.emailService = emailService;
-            //this.templateService = templateService;
+            this.templateService = templateService;
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.roleManager = roleManager;
@@ -222,12 +222,12 @@ namespace Platinum.Identity.Infrastructure.Services
                         await userManager.AddToRoleAsync(newUser, Roles.User.ToString());
                     }
 
-                    //var confirmEmailUrl = await SendVerificationEmail(newUser, origin);
+                    var confirmEmailUrl = await SendVerificationEmail(newUser, origin);
                     //TODO: Attach Email Service here and configure it via appsettings
 
-                    //var tempplate = await templateService.GetTemplateByCodeAsync(EmailTemplateEnum.ConfirmRegister, new ConfirmRegister() { ConfirmEmailUrl = confirmEmailUrl });
+                    var tempplate = await templateService.GetTemplateByCodeAsync(EmailTemplateEnum.ConfirmRegister, new ConfirmAccountEmailViewModel(confirmEmailUrl));
 
-                    // await emailService.SendAsync(new EmailRequest() { To = newUser.Email, Body = tempplate, Subject = "Confirm Registration" });
+                    await emailService.SendAsync(new EmailRequest() { To = newUser.Email, Body = tempplate, Subject = "Confirm Registration" });
 
                     JwtSecurityToken jwtSecurityToken = await jwtFactory.GenerateJwtToken(newUser);
 
@@ -282,7 +282,7 @@ namespace Platinum.Identity.Infrastructure.Services
 
             IdentityResult identityResult = await userManager.CreateAsync(newUser, payload.PasswordHash);
 
-            if (identityResult.Process(actionContextAccessor.ActionContext.ModelState))
+            if (identityResult.Process(actionContextAccessor.ActionContext!.ModelState))
             {
                 identityResult = await userManager.AddPasswordAsync(newUser, payload.PasswordHash);
 
@@ -293,12 +293,12 @@ namespace Platinum.Identity.Infrastructure.Services
                     await userManager.AddToRoleAsync(newUser, Roles.User.ToString());
                 }
 
-                //var confirmEmailUrl = await SendVerificationEmail(newUser, origin);
-                ////TODO: Attach Email Service here and configure it via appsettings
+                var confirmEmailUrl = await SendVerificationEmail(newUser, origin);
+                //TODO: Attach Email Service here and configure it via appsettings
 
-                //var tempplate = await templateService.GetTemplateByCodeAsync(EmailTemplateEnum.ConfirmRegister, new ConfirmRegister() { ConfirmEmailUrl = confirmEmailUrl });
+                var tempplate = await templateService.GetTemplateByCodeAsync(EmailTemplateEnum.ConfirmRegister, new ConfirmAccountEmailViewModel(confirmEmailUrl));
 
-                //await emailService.SendAsync(new EmailRequest() { To = newUser.Email, Body = tempplate, Subject = "Confirm Registration" });
+                await emailService.SendAsync(new EmailRequest() { To = newUser.Email, Body = tempplate, Subject = "Confirm Registration" });
 
                 JwtSecurityToken jwtSecurityToken = await jwtFactory.GenerateJwtToken(newUser);
 

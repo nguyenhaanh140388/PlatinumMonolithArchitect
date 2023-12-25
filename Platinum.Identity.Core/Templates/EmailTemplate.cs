@@ -2,15 +2,19 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Platinum.Core.Template
+namespace Platinum.Identity.Core.Templates
 {
-    [Table("EmailTemplate")]
     public class EmailTemplate : EntityBase
     {
-        public string Subject { get; set; }
+        [Required]
         public string TemplateName { get; set; }
         [Required]
+
+        public string Subject { get; set; }
+
+        [Required]
         public int TemplateCode { get; set; }
+
         [Required]
         [Column(TypeName = "ntext")]
         [MaxLength]

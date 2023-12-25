@@ -1,11 +1,11 @@
-﻿using Platinum.Core.Abstractions.Repositories;
-using Platinum.Core.Enums;
-using Platinum.Core.Template;
-using Platinum.Core.Utils;
-using static Platinum.Core.Common.Constants;
+﻿using Platinum.Core.Enums;
 using Platinum.Core.Extensions;
+using Platinum.Core.Utils;
+using Platinum.Identity.Core.Abstractions.Repositories;
+using Platinum.Identity.Core.Templates;
+using static Platinum.Core.Common.Constants;
 
-namespace Platinum.Infrastructure.Data.EmailTemplates.Seeds
+namespace Platinum.Identity.Infrastructure.Data.EmailTemplates.Seeds
 {
     public static class DefaultEmailTemplate
     {
@@ -28,7 +28,7 @@ namespace Platinum.Infrastructure.Data.EmailTemplates.Seeds
                         TemplateCode = (int)templateEnum,
                         TemplateBody = ResourceUtils.GetResourceContent(contents[EmailTemplateProperties.FileName],
                         ResourceFolders.ConfirmAccount,
-                        ResourceNameSpaces.Anhny010920CoreResource),
+                        ResourceNameSpaces.PlatinumIdentityCoreResource),
                         Subject = contents[EmailTemplateProperties.EmailSubject]
                     };
 

@@ -4,6 +4,7 @@
 
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Platinum.Core.Abstractions.Dtos;
 using Platinum.Core.Common;
 using Platinum.Core.Enums;
@@ -14,6 +15,7 @@ using Serilog;
 
 namespace Platinum.Identity.Controller
 {
+
 #if DEBUG
     //[AllowAnonymous]
 #else
@@ -46,6 +48,7 @@ namespace Platinum.Identity.Controller
         /// AuthenticationRepository.
         /// </summary>
         private readonly IAuthenticationService authenticationService;
+        public IConfiguration configuration;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountController" /> class.
@@ -57,10 +60,13 @@ namespace Platinum.Identity.Controller
         /// <param name="authenticationRepository">The authentication repository.</param>
         public AuthenticationController(IAuthenticationService authenticationService,
             IMapper mapper,
-            ILogger logger)
+            ILogger logger
+            )
            : base(mapper, logger)
         {
             this.authenticationService = authenticationService;
+            var builder = new ConfigurationBuilder().AddJsonFile(Path.Combine(Directory.GetCurrentDirectory(), "Properties", "launchSettings.json"));
+            configuration = builder.Build();
         }
 
         /// <summary>
@@ -79,7 +85,9 @@ namespace Platinum.Identity.Controller
             {
                 return BadRequest(ModelState);
             }
-            var origin = @"http://localhost:57572";
+            //var origin = @"http://localhost:7014";
+            var origin = configuration["profiles:Platinum.WebApiApplication:applicationUrl"];
+
             var response = await authenticationService.Register(payload, origin);
 
             //if (authenticationCommand.Errors != null && authenticationCommand.Errors.Count() > 0)
@@ -107,7 +115,7 @@ namespace Platinum.Identity.Controller
             {
                 return BadRequest(ModelState);
             }
-            var origin = @"http://localhost:57572";
+            var origin = @"http://localhost:7014";
             var response = await authenticationService.RegisterAdmin(payload, origin);
 
             //if (authenticationCommand.Errors != null && authenticationCommand.Errors.Count() > 0)

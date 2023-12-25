@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Platinum.Catalog.Core.Abstractions.Services;
 using Platinum.Catalog.Core.Features.Categories.Commands;
 using Platinum.Core.Common;
@@ -10,6 +11,7 @@ namespace Platinum.Catalog.Controllers
     public class CategoriesController : BaseController
     {
         private readonly ICategoryService categoryService;
+    
 
         public CategoriesController(ICategoryService categoryService,
             IMapper mapper,
@@ -17,7 +19,7 @@ namespace Platinum.Catalog.Controllers
             )
             : base(mapper, logger)
         {
-            this.categoryService = categoryService;
+    
         }
 
         [HttpGet]

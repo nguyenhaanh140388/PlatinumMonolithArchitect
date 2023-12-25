@@ -7,6 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\EmailTemplates\ConfirmAccount\ConfirmAccountEmail.cshtml" />
+    <None Remove="Resources\EmailTemplates\ConfirmAccount\EmailButton.cshtml" />
+    <None Remove="Resources\EmailTemplates\EmailLayout.cshtml" />
+    <None Remove="Resources\EmailTemplates\_ViewStart.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\EmailTemplates\ConfirmAccount\ConfirmAccountEmail.cshtml" />
+    <EmbeddedResource Include="Resources\EmailTemplates\ConfirmAccount\EmailButton.cshtml" />
+    <EmbeddedResource Include="Resources\EmailTemplates\EmailLayout.cshtml" />
+    <EmbeddedResource Include="Resources\EmailTemplates\_ViewStart.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.14" />
@@ -21,11 +35,14 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="7.0.14" />
+    <PackageReference Include="RazorLight" Version="2.3.1" />
+    <PackageReference Include="RazorLight.NetCore3" Version="3.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Abstractions\Identitys\" />
     <Folder Include="Attributes\" />
+    <Folder Include="Commons\" />
     <Folder Include="Properties\" />
   </ItemGroup>
 

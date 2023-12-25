@@ -1,7 +1,13 @@
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Platinum.Core.Utils;
+using Platinum.Identity.Infrastructure.Data.EmailTemplates.Seeds;
+using Platinum.Infrastructure.Services;
+using Platinum.WebApiApplication;
 using Platinum.WebApiApplication.Extensions;
 using Platinum.WebApiApplication.Middlewares;
+using RazorEngine;
+using RazorEngine.Configuration;
+using RazorEngine.Templating;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,7 +53,18 @@ builder.Services.RegisterIdentityAndAuthentication(configuration);
 //******** Cors ********//
 builder.Services.AddCorsExtension(configuration);
 
+builder.Services.RegisterSharedServices(configuration);
 
+var config = new TemplateServiceConfiguration();
+config.ReferenceResolver = new MyIReferenceResolver();
+config.Language = Language.CSharp; // VB.NET as template language.
+
+// .. configure the instance
+var service = RazorEngineService.Create(config);
+Engine.Razor = service;
+builder.Services.AddSingleton(service);
+
+builder.Services.AddScoped<IRazorViewToStringRenderer, RazorViewToStringRenderer>();
 
 //******** SharedServices ********//
 //builder.Services.RegisterSharedServices(configuration);
@@ -56,6 +73,13 @@ builder.Services.AddCorsExtension(configuration);
 builder.Host.AddAutofac(builder.Services, configuration);
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    EmailTemplateInitialize.Initialize(services);
+}
 
 ApplicationHttpContext.Configure(app.Services.GetRequiredService<IHttpContextAccessor>(), app.Services.GetRequiredService<IActionContextAccessor>());
 

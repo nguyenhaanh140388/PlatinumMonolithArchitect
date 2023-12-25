@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Platinum.Identity.Infrastructure.Persistence;
 
@@ -11,9 +12,11 @@ using Platinum.Identity.Infrastructure.Persistence;
 namespace Platinum.Identity.Infrastructure.Migrations
 {
     [DbContext(typeof(PlatinumIdentityDbContext))]
-    partial class PlatinumIdentityDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231225041933_create_email.template_schema")]
+    partial class create_emailtemplate_schema
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

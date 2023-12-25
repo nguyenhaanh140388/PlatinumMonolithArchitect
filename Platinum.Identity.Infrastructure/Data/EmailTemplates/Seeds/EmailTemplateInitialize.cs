@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Platinum.Core.Abstractions.Repositories;
+using Platinum.Identity.Core.Abstractions.Repositories;
 using Serilog;
 
-namespace Platinum.Infrastructure.Data.EmailTemplates.Seeds
+namespace Platinum.Identity.Infrastructure.Data.EmailTemplates.Seeds
 {
     public class EmailTemplateInitialize
     {
@@ -14,7 +14,7 @@ namespace Platinum.Infrastructure.Data.EmailTemplates.Seeds
                 var logger = services.GetRequiredService<ILogger>();
                 var emailTemplateRepository = services.GetRequiredService<IEmailTemplateRepository>();
 
-               // await DefaultEmailTemplate.SeedAsync(emailTemplateRepository);
+                await DefaultEmailTemplate.SeedAsync(emailTemplateRepository);
 
                 Log.Information("Finished Seeding Default Data");
             }

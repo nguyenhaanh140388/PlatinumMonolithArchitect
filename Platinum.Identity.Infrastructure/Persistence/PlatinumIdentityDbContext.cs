@@ -5,12 +5,13 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Platinum.Identity.Core.Entities;
+using Platinum.Identity.Core.Templates;
 
 namespace Platinum.Identity.Infrastructure.Persistence
 {
     public interface IPlatinumIdentityDbContext
     {
-       
+        DbSet<EmailTemplate> EmailTemplates { get; set; }
     }
 
     /// <summary>
@@ -27,7 +28,8 @@ namespace Platinum.Identity.Infrastructure.Persistence
         ApplicationRoleClaim,
         ApplicationUserToken>, IPlatinumIdentityDbContext
     {
-        #region identity
+        #region settings
+        public virtual DbSet<EmailTemplate> EmailTemplates { get; set; }
         #endregion
 
         /// <summary>

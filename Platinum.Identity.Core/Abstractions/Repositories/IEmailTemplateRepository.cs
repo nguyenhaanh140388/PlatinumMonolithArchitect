@@ -2,9 +2,10 @@
 // Copyright (c) Platinum. All rights reserved.
 // </copyright>
 
-using Platinum.Core.Template;
+using Platinum.Core.Abstractions.Repositories;
+using Platinum.Identity.Core.Templates;
 
-namespace Platinum.Core.Abstractions.Repositories
+namespace Platinum.Identity.Core.Abstractions.Repositories
 {
     public interface IEmailTemplateRepository : IBaseRepository<EmailTemplate>
     {
