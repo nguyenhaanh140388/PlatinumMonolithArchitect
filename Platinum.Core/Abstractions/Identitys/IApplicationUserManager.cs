@@ -9,6 +9,5 @@ namespace Platinum.Core.Abstractions.Identitys
         Guid? CurrentUserId { get; }
         string Email { get; }
         List<string> ListRoles { get; }
-        Task<IdentityUser> GetApplicationUser(Guid userID);
     }
 }

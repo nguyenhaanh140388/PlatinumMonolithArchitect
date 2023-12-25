@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Platinum.Catalog.Core\Platinum.Catalog.Core.csproj" />
     <ProjectReference Include="..\Platinum.Core\Platinum.Core.csproj" />
+    <ProjectReference Include="..\Platinum.Infrastructure\Platinum.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

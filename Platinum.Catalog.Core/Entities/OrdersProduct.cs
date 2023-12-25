@@ -21,6 +21,18 @@ public partial class OrdersProduct
 
     public int Productqty { get; set; }
 
+    public Guid? CreatedBy { get; set; }
+
+    public Guid? ModifiedBy { get; set; }
+
+    public bool IsDeleted { get; set; }
+
+    public DateTime? CreatedDate { get; set; }
+
+    public DateTime? ModifiedDate { get; set; }
+
+    public byte[] RowVersion { get; set; } = null!;
+
     public virtual Order? Order { get; set; }
 
     public virtual ICollection<OrderProductAttribute> OrderProductAttributes { get; set; } = new List<OrderProductAttribute>();

@@ -1,11 +1,8 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Platinum.Catalog.Core.Abstractions.Services;
-using Platinum.Core.Abstractions.Identitys;
+using Platinum.Catalog.Core.Features.Categories.Commands;
 using Platinum.Core.Common;
-using Platinum.Identity.Core;
 using Serilog;
 
 namespace Platinum.Catalog.Controllers
@@ -29,6 +26,24 @@ namespace Platinum.Catalog.Controllers
         {
             var result =  await this.categoryService.GetCategoriesNameQuery(payload);
             return Ok(result);
+        }
+
+        [HttpPost]
+        [Route("add-category")]
+        public async Task<IActionResult> AddCategory(CreateCategoryCommand payload)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var result = await categoryService.CreateCategoryHandler(payload);
+            if (!result.Succeeded)
+            {
+                return this.BadRequest(result);
+            }
+
+            return this.Ok(result);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Platinum.Core.Utils;
+using System.Reflection;
 
 namespace Platinum.WebApiApplication.Extensions
 {
@@ -12,6 +13,9 @@ namespace Platinum.WebApiApplication.Extensions
             var builderContainer = new Autofac.ContainerBuilder();
             builder.ConfigureContainer<ContainerBuilder>(builderContainer =>
            {
+               //Assembly.Load("Platinum.Infrastructure");
+               //Assembly.Load("Platinum.Core");
+               //Assembly.Load("Platinum.Catalog");
 
                builderContainer.RegisterAssemblyTypes(AppDomain.CurrentDomain.GetAssemblies())
                               .Where(

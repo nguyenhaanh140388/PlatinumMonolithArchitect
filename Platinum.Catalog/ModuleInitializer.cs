@@ -21,7 +21,7 @@ namespace Platinum.Catalog
             builderContainer.RegisterModule(new CatalogModule());
             serviceCollection
                .AddCore(config)
-               .AddShopInfrastructure(config, builderContainer);
+               .AddInfrastructure(config, builderContainer);
         }
 
         protected override async Task RegisterJobsAsync(IServiceProvider serviceProvider)

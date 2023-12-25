@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Platinum.Core.Common;
 
 namespace Platinum.Catalog.Core.Entities;
 
-public partial class Category
+public partial class Category : EntityBase
 {
-    public Guid Id { get; set; }
+    public Category()
+    {
+        Id = Guid.NewGuid();
+    }
 
     public string Name { get; set; } = null!;
 
@@ -14,8 +16,4 @@ public partial class Category
     public Guid? Parentcatid { get; set; }
 
     public int Order { get; set; }
-
-    public DateTime Addedon { get; set; }
-
-    public DateTime Modifiedon { get; set; }
 }

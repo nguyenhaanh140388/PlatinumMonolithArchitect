@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Platinum.Catalog.Core.Entities;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Platinum.Catalog.Infrastructure.Configurations
 {
@@ -32,6 +31,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Postalcode)
                     .HasMaxLength(10)
                     .HasColumnName("postalcode");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
                 entity.Property(e => e.State)
                     .HasMaxLength(50)
                     .HasColumnName("state");
@@ -44,6 +46,14 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                     .HasConstraintName("FK_AddressBook_Customers");
             });
 
+            modelBuilder.Entity<AuditLog>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
+            });
+
             modelBuilder.Entity<Cart>(entity =>
             {
                 entity.ToTable("Cart");
@@ -51,15 +61,15 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Id)
                     .ValueGeneratedNever()
                     .HasColumnName("id");
-                entity.Property(e => e.Addedon)
-                    .HasColumnType("datetime")
-                    .HasColumnName("addedon");
                 entity.Property(e => e.Customerid).HasColumnName("customerid");
                 entity.Property(e => e.Finalprice)
                     .HasColumnType("decimal(10, 2)")
                     .HasColumnName("finalprice");
                 entity.Property(e => e.Productid).HasColumnName("productid");
                 entity.Property(e => e.Qty).HasColumnName("qty");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
 
                 entity.HasOne(d => d.Customer).WithMany(p => p.Carts)
                     .HasForeignKey(d => d.Customerid)
@@ -79,6 +89,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Productid).HasColumnName("productid");
                 entity.Property(e => e.Productoptionid).HasColumnName("productoptionid");
                 entity.Property(e => e.Productoptionvalueid).HasColumnName("productoptionvalueid");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
 
                 entity.HasOne(d => d.Customer).WithMany(p => p.CartAttributes)
                     .HasForeignKey(d => d.Customerid)
@@ -102,20 +115,17 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Id)
                     .ValueGeneratedNever()
                     .HasColumnName("id");
-                entity.Property(e => e.Addedon)
-                    .HasColumnType("datetime")
-                    .HasColumnName("addedon");
                 entity.Property(e => e.Image)
                     .HasMaxLength(50)
                     .HasColumnName("image");
-                entity.Property(e => e.Modifiedon)
-                    .HasColumnType("datetime")
-                    .HasColumnName("modifiedon");
                 entity.Property(e => e.Name)
                     .HasMaxLength(50)
                     .HasColumnName("name");
                 entity.Property(e => e.Order).HasColumnName("order");
                 entity.Property(e => e.Parentcatid).HasColumnName("parentcatid");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
             });
 
             modelBuilder.Entity<Configuration>(entity =>
@@ -132,10 +142,10 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Key)
                     .HasMaxLength(65)
                     .HasColumnName("key");
-                entity.Property(e => e.ModifiedOn)
-                    .HasColumnType("datetime")
-                    .HasColumnName("modifiedOn");
                 entity.Property(e => e.Order).HasColumnName("order");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
                 entity.Property(e => e.Title)
                     .HasMaxLength(65)
                     .HasColumnName("title");
@@ -160,6 +170,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                     .HasMaxLength(255)
                     .HasColumnName("description");
                 entity.Property(e => e.Order).HasColumnName("order");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
                 entity.Property(e => e.Title)
                     .HasMaxLength(65)
                     .HasColumnName("title");
@@ -176,6 +189,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Name)
                     .HasMaxLength(65)
                     .HasColumnName("name");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
 
                 entity.HasOne(d => d.Currency).WithMany(p => p.Countries)
                     .HasForeignKey(d => d.Currencyid)
@@ -191,6 +207,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                     .HasMaxLength(5)
                     .IsFixedLength()
                     .HasColumnName("code");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
                 entity.Property(e => e.Symboleleft)
                     .HasMaxLength(15)
                     .HasColumnName("symboleleft");
@@ -232,6 +251,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Password)
                     .HasMaxLength(50)
                     .HasColumnName("password");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
                 entity.Property(e => e.Telephone)
                     .HasMaxLength(50)
                     .HasColumnName("telephone");
@@ -255,6 +277,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                     .HasColumnType("datetime")
                     .HasColumnName("lastmodifiedon");
                 entity.Property(e => e.Logoncount).HasColumnName("logoncount");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
 
                 entity.HasOne(d => d.Customer).WithMany(p => p.CustomerInfos)
                     .HasForeignKey(d => d.Customerid)
@@ -272,6 +297,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Name)
                     .HasMaxLength(50)
                     .HasColumnName("name");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
             });
 
             modelBuilder.Entity<ManufacturersInfo>(entity =>
@@ -281,10 +309,10 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Id)
                     .ValueGeneratedNever()
                     .HasColumnName("id");
-                entity.Property(e => e.Addedon)
-                    .HasColumnType("datetime")
-                    .HasColumnName("addedon");
                 entity.Property(e => e.Manufacturerid).HasColumnName("manufacturerid");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
                 entity.Property(e => e.Url)
                     .HasMaxLength(255)
                     .HasColumnName("url");
@@ -362,6 +390,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                     .HasMaxLength(10)
                     .HasColumnName("orderstatus");
                 entity.Property(e => e.Paymentmethodid).HasColumnName("paymentmethodid");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
                 entity.Property(e => e.Shipingmethodid).HasColumnName("shipingmethodid");
                 entity.Property(e => e.Shippingcost)
                     .HasColumnType("decimal(10, 2)")
@@ -393,6 +424,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Productoptions)
                     .HasMaxLength(50)
                     .HasColumnName("productoptions");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
 
                 entity.HasOne(d => d.Order).WithMany(p => p.OrderProductAttributes)
                     .HasForeignKey(d => d.Orderid)
@@ -423,6 +457,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Productstax)
                     .HasColumnType("decimal(9, 4)")
                     .HasColumnName("productstax");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
 
                 entity.HasOne(d => d.Order).WithMany(p => p.OrdersProducts)
                     .HasForeignKey(d => d.Orderid)
@@ -444,6 +481,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Name)
                     .HasMaxLength(50)
                     .HasColumnName("name");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -451,9 +491,6 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Id)
                     .ValueGeneratedNever()
                     .HasColumnName("id");
-                entity.Property(e => e.Addedon)
-                    .HasColumnType("datetime")
-                    .HasColumnName("addedon");
                 entity.Property(e => e.Image)
                     .HasMaxLength(65)
                     .HasColumnName("image");
@@ -461,13 +498,13 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Model)
                     .HasMaxLength(50)
                     .HasColumnName("model");
-                entity.Property(e => e.Modifiedon)
-                    .HasColumnType("datetime")
-                    .HasColumnName("modifiedon");
                 entity.Property(e => e.Price)
                     .HasColumnType("decimal(10, 2)")
                     .HasColumnName("price");
                 entity.Property(e => e.Qty).HasColumnName("qty");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
                 entity.Property(e => e.Status).HasColumnName("status");
                 entity.Property(e => e.Taxclassid).HasColumnName("taxclassid");
                 entity.Property(e => e.Weight)
@@ -491,6 +528,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                     .IsFixedLength()
                     .HasColumnName("price_prefix");
                 entity.Property(e => e.Productsid).HasColumnName("productsid");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
 
                 entity.HasOne(d => d.Options).WithMany(p => p.ProductsAttributes)
                     .HasForeignKey(d => d.Optionsid)
@@ -513,6 +553,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Name)
                     .HasMaxLength(50)
                     .HasColumnName("name");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
             });
 
             modelBuilder.Entity<ProductsOptionsValue>(entity =>
@@ -523,6 +566,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Name)
                     .HasMaxLength(65)
                     .HasColumnName("name");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
             });
 
             modelBuilder.Entity<ProductsOptionsValuesMapping>(entity =>
@@ -531,6 +577,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                     .ValueGeneratedNever()
                     .HasColumnName("id");
                 entity.Property(e => e.Optionsid).HasColumnName("optionsid");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
                 entity.Property(e => e.Valuesid).HasColumnName("valuesid");
 
                 entity.HasOne(d => d.Options).WithMany(p => p.ProductsOptionsValuesMappings)
@@ -554,6 +603,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                     .HasMaxLength(65)
                     .HasColumnName("name");
                 entity.Property(e => e.Productid).HasColumnName("productid");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
                 entity.Property(e => e.Url)
                     .HasMaxLength(255)
                     .HasColumnName("url");
@@ -569,18 +621,15 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Id)
                     .ValueGeneratedNever()
                     .HasColumnName("id");
-                entity.Property(e => e.Addedon)
-                    .HasColumnType("datetime")
-                    .HasColumnName("addedon");
                 entity.Property(e => e.Customerid).HasColumnName("customerid");
                 entity.Property(e => e.Customername)
                     .HasMaxLength(65)
                     .HasColumnName("customername");
-                entity.Property(e => e.Modifiedon)
-                    .HasColumnType("datetime")
-                    .HasColumnName("modifiedon");
                 entity.Property(e => e.Productid).HasColumnName("productid");
                 entity.Property(e => e.Rating).HasColumnName("rating");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
 
                 entity.HasOne(d => d.Product).WithMany(p => p.Reviews)
                     .HasForeignKey(d => d.Productid)
@@ -595,6 +644,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                     .ValueGeneratedNever()
                     .HasColumnName("id");
                 entity.Property(e => e.Reviewid).HasColumnName("reviewid");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
                 entity.Property(e => e.Text).HasColumnName("text");
 
                 entity.HasOne(d => d.Review).WithMany(p => p.ReviewsDetails)
@@ -618,6 +670,9 @@ namespace Platinum.Catalog.Infrastructure.Configurations
                 entity.Property(e => e.Lastpageurl)
                     .HasMaxLength(65)
                     .HasColumnName("lastpageurl");
+                entity.Property(e => e.RowVersion)
+                    .IsRowVersion()
+                    .IsConcurrencyToken();
                 entity.Property(e => e.Sessionid)
                     .HasMaxLength(255)
                     .HasColumnName("sessionid");

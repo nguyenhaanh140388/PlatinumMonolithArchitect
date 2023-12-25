@@ -5,7 +5,6 @@ using Platinum.Infrastructure.Garbage;
 
 namespace Platinum.Infrastructure.UnitOfWork
 {
-
     public abstract class UnitOfWorkBase : Disposable, IUnitOfWork
     {
         private IDbContextTransaction _transaction;

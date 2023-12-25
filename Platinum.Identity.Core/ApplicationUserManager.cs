@@ -13,13 +13,11 @@ using System.Security.Claims;
 
 namespace Platinum.Identity.Core
 {
-
-
     /// <summary>
     /// Custom UserManager to override Authenticator Token generation behavior (encrypt/decrypt).
     /// </summary>
     /// <seealso cref="UserManager{ApplicationUser}" />
-    public class ApplicationUserManager : UserManager<ApplicationUser>
+    public class ApplicationUserManager : UserManager<ApplicationUser>, IApplicationUserManager
     {
         /// <summary>
         /// The configuration.
@@ -60,7 +58,7 @@ namespace Platinum.Identity.Core
             this.actionContextAccessor = actionContextAccessor;
         }
 
-        public ClaimsPrincipal CurrentUser => actionContextAccessor?.ActionContext?.HttpContext?.User;
+        public ClaimsPrincipal CurrentUser => actionContextAccessor?.ActionContext?.HttpContext?.User!;
 
         public Guid? CurrentUserId
         {

@@ -11,6 +11,18 @@ public partial class ProductsOptionsValuesMapping
 
     public Guid? Valuesid { get; set; }
 
+    public Guid? CreatedBy { get; set; }
+
+    public Guid? ModifiedBy { get; set; }
+
+    public bool IsDeleted { get; set; }
+
+    public DateTime? CreatedDate { get; set; }
+
+    public DateTime? ModifiedDate { get; set; }
+
+    public byte[] RowVersion { get; set; } = null!;
+
     public virtual ProductsOption? Options { get; set; }
 
     public virtual ProductsOptionsValue? Values { get; set; }

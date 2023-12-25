@@ -9,18 +9,18 @@ namespace Platinum.Core.Common
     {
         protected readonly IMapper? mapper;
         protected readonly ILogger? logger;
-        //protected readonly IApplicationUserManager?   userManager;
+        protected readonly IApplicationUserManager? userManager;
         protected readonly IUnitOfWork? unitOfWork;
 
         protected BaseHandler(IUnitOfWork? unitOfWork = null,
-                             // IApplicationUserManager? userManager = null,
+                              IApplicationUserManager? userManager = null,
                               IMapper? mapper = null,
                               ILogger? logger = null)
         {
             this.mapper = mapper;
             this.logger = logger;
             this.unitOfWork = unitOfWork;
-           // this.userManager = userManager;
+            this.userManager = userManager;
         }
 
         //protected BaseHandler(IUnitOfWork unitOfWork, IMapper mapper = null, ILogger logger = null)

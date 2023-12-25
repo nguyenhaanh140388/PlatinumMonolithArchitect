@@ -11,7 +11,6 @@ namespace Platinum.Identity
         public ModuleInitializer()
             : base()
         {
-
         }
 
         protected override void RegisterServices(IServiceCollection serviceCollection, ContainerBuilder builderContainer, IConfiguration config)

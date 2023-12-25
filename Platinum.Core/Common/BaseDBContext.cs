@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Platinum.Core.Abstractions.Identitys;
 using Platinum.Core.Attributes;
 using Platinum.Core.Entities;
 using Platinum.Core.Enums;
@@ -10,6 +11,7 @@ namespace Platinum.Core.Common
     {
         protected static string connectionString = string.Empty;
         protected static string name = string.Empty;
+        protected  IApplicationUserManager userManager;
 
         public BaseDBContext()
         {
@@ -20,6 +22,14 @@ namespace Platinum.Core.Common
             ChangeTracker.StateChanged += ChangeTracker_StateChanged!;
             ChangeTracker.Tracked += ChangeTracker_Tracked!;
             connectionString = GetConnectionString(name);
+        }
+
+        public BaseDBContext(DbContextOptions<TDbContext> options, IApplicationUserManager userManager) : base(options)
+        {
+            ChangeTracker.StateChanged += ChangeTracker_StateChanged!;
+            ChangeTracker.Tracked += ChangeTracker_Tracked!;
+            connectionString = GetConnectionString(name);
+            this.userManager = userManager;
         }
 
         protected string GetConnectionString(string name)
@@ -35,16 +45,18 @@ namespace Platinum.Core.Common
 
         public async Task TrackingChanges(Guid UserId)
         {
+            //var userId = this.userManager.CurrentUserId;
+
             ChangeTracker.DetectChanges();
             var auditEntries = new List<AuditEntry>();
 
             foreach (var entry in ChangeTracker.Entries())
             {
-                var classAttribute = entry.Entity.GetType().GetCustomAttributes(typeof(TableTrackingAttribute), true);
-                if (classAttribute.Length == 0)
-                {
-                    continue;
-                }
+                //var classAttribute = entry.Entity.GetType().GetCustomAttributes(typeof(TableTrackingAttribute), true);
+                //if (classAttribute.Length == 0)
+                //{
+                //    continue;
+                //}
 
                 if (entry.Entity is Audit || entry.State == EntityState.Detached || entry.State == EntityState.Unchanged)
                     continue;
@@ -52,13 +64,13 @@ namespace Platinum.Core.Common
                 var auditEntry = new AuditEntry(entry)
                 {
                     TableName = entry.Entity.GetType().Name,
-                     UserId = UserId
+                    UserId = UserId
                 };
 
-                var properties = entry.Properties.Where(x => x.Metadata.IsPrimaryKey() ||
-                x.Metadata.PropertyInfo!.GetCustomAttributes(typeof(ColumnTrackingAttribute), true).Length > 0);
+                //var properties = entry.Properties.Where(x => x.Metadata.IsPrimaryKey() ||
+                //x.Metadata.PropertyInfo!.GetCustomAttributes(typeof(ColumnTrackingAttribute), true).Length > 0);
 
-                foreach (var property in properties)
+                foreach (var property in entry.Properties)
                 {
                     string propertyName = property.Metadata.Name;
 

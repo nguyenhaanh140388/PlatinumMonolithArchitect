@@ -15,7 +15,17 @@ public partial class Cart
 
     public decimal Finalprice { get; set; }
 
-    public DateTime Addedon { get; set; }
+    public Guid? CreatedBy { get; set; }
+
+    public Guid? ModifiedBy { get; set; }
+
+    public bool IsDeleted { get; set; }
+
+    public DateTime? CreatedDate { get; set; }
+
+    public DateTime? ModifiedDate { get; set; }
+
+    public byte[] RowVersion { get; set; } = null!;
 
     public virtual Customer? Customer { get; set; }
 

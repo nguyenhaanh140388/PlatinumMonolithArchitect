@@ -15,10 +15,6 @@ public partial class Product
 
     public decimal Price { get; set; }
 
-    public DateTime Addedon { get; set; }
-
-    public DateTime Modifiedon { get; set; }
-
     public decimal Weight { get; set; }
 
     public byte Status { get; set; }
@@ -26,6 +22,18 @@ public partial class Product
     public Guid? ManufactureId { get; set; }
 
     public Guid? Taxclassid { get; set; }
+
+    public Guid? CreatedBy { get; set; }
+
+    public Guid? ModifiedBy { get; set; }
+
+    public bool IsDeleted { get; set; }
+
+    public DateTime? CreatedDate { get; set; }
+
+    public DateTime? ModifiedDate { get; set; }
+
+    public byte[] RowVersion { get; set; } = null!;
 
     public virtual ICollection<CartAttribute> CartAttributes { get; set; } = new List<CartAttribute>();
 

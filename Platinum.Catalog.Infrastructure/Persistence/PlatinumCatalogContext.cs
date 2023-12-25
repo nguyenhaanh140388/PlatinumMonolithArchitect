@@ -1,11 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Platinum.Catalog.Core.Abstractions.EntityFramework;
 using Platinum.Catalog.Infrastructure.Configurations;
 using Platinum.Core.Common;
 using Platinum.Core.Entities;
 
 namespace Platinum.Catalog.Core.Entities;
 
-public partial class PlatinumCatalogContext : BaseDBContext<PlatinumCatalogContext>
+public partial class PlatinumCatalogContext : BaseDBContext<PlatinumCatalogContext>, IPlatinumCatalogContext
 {
     public PlatinumCatalogContext()
     {
@@ -71,6 +73,7 @@ public partial class PlatinumCatalogContext : BaseDBContext<PlatinumCatalogConte
     public virtual DbSet<ReviewsDetail> ReviewsDetails { get; set; }
 
     public virtual DbSet<WhoIsOnline> WhoIsOnlines { get; set; }
+    public DatabaseFacade DatabaseFacade => this.Database;
     #endregion
 
     private async Task OnBeforeSaveChanges()
@@ -95,9 +98,9 @@ public partial class PlatinumCatalogContext : BaseDBContext<PlatinumCatalogConte
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-    PlatinumCatalogConfig.ConfigureEf(modelBuilder);
-    // OnModelCreatingPartial(modelBuilder);
-}
+        PlatinumCatalogConfig.ConfigureEf(modelBuilder);
+        OnModelCreatingPartial(modelBuilder);
+    }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

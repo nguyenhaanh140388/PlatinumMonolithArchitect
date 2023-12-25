@@ -32,7 +32,7 @@ namespace Platinum.Core.Common
                 PrimaryKey = JsonConvert.SerializeObject(KeyValues),
                 OldValues = OldValues.Count == 0 ? null : JsonConvert.SerializeObject(OldValues)!,
                 NewValues = NewValues.Count == 0 ? null : JsonConvert.SerializeObject(NewValues)!,
-                AffectedColumns = ChangedColumns.Count == 0 ? null : JsonConvert.SerializeObject(ChangedColumns)!
+                AffectedColumns = ChangedColumns.Count == 0 ? "[]" : JsonConvert.SerializeObject(ChangedColumns)!
             };
             return audit;
         }

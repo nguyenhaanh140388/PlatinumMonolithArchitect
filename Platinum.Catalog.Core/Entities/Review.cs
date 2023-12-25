@@ -15,9 +15,17 @@ public partial class Review
 
     public int Rating { get; set; }
 
-    public DateTime Addedon { get; set; }
+    public Guid? CreatedBy { get; set; }
 
-    public DateTime Modifiedon { get; set; }
+    public Guid? ModifiedBy { get; set; }
+
+    public bool IsDeleted { get; set; }
+
+    public DateTime? CreatedDate { get; set; }
+
+    public DateTime? ModifiedDate { get; set; }
+
+    public byte[] RowVersion { get; set; } = null!;
 
     public virtual Product? Product { get; set; }
 
