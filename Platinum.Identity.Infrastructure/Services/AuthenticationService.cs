@@ -227,7 +227,7 @@ namespace Platinum.Identity.Infrastructure.Services
 
                     //var tempplate = await templateService.GetTemplateByCodeAsync(EmailTemplateEnum.ConfirmRegister, new ConfirmRegister() { ConfirmEmailUrl = confirmEmailUrl });
 
-                   // await emailService.SendAsync(new EmailRequest() { To = newUser.Email, Body = tempplate, Subject = "Confirm Registration" });
+                    // await emailService.SendAsync(new EmailRequest() { To = newUser.Email, Body = tempplate, Subject = "Confirm Registration" });
 
                     JwtSecurityToken jwtSecurityToken = await jwtFactory.GenerateJwtToken(newUser);
 
@@ -288,25 +288,25 @@ namespace Platinum.Identity.Infrastructure.Services
 
                 //if (identityResult.Process(actionContextAccessor.ActionContext.ModelState))
                 //{
-                    if (await roleManager.RoleExistsAsync(Roles.User.ToString()))
-                    {
-                        await userManager.AddToRoleAsync(newUser, Roles.User.ToString());
-                    }
+                if (await roleManager.RoleExistsAsync(Roles.User.ToString()))
+                {
+                    await userManager.AddToRoleAsync(newUser, Roles.User.ToString());
+                }
 
-                    //var confirmEmailUrl = await SendVerificationEmail(newUser, origin);
-                    //TODO: Attach Email Service here and configure it via appsettings
+                //var confirmEmailUrl = await SendVerificationEmail(newUser, origin);
+                ////TODO: Attach Email Service here and configure it via appsettings
 
-                    //var tempplate = await templateService.GetTemplateByCodeAsync(EmailTemplateEnum.ConfirmRegister, new ConfirmRegister() { ConfirmEmailUrl = confirmEmailUrl });
+                //var tempplate = await templateService.GetTemplateByCodeAsync(EmailTemplateEnum.ConfirmRegister, new ConfirmRegister() { ConfirmEmailUrl = confirmEmailUrl });
 
-                    // await emailService.SendAsync(new EmailRequest() { To = newUser.Email, Body = tempplate, Subject = "Confirm Registration" });
+                //await emailService.SendAsync(new EmailRequest() { To = newUser.Email, Body = tempplate, Subject = "Confirm Registration" });
 
-                    JwtSecurityToken jwtSecurityToken = await jwtFactory.GenerateJwtToken(newUser);
+                JwtSecurityToken jwtSecurityToken = await jwtFactory.GenerateJwtToken(newUser);
 
-                    return new AuthenticateResponse(newUser, null)
-                    {
-                        Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
-                        RegisterStatus = RegisterStatus.SignUpConfirm,
-                    };
+                return new AuthenticateResponse(newUser, null)
+                {
+                    Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken),
+                    RegisterStatus = RegisterStatus.SignUpConfirm,
+                };
                 //}
                 //else
                 //{

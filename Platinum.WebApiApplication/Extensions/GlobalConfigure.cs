@@ -9,6 +9,7 @@ namespace Platinum.WebApiApplication.Extensions
     {
         public static void AddGlobalExtension(this IServiceCollection services, IConfiguration config)
         {
+
             services.Configure<RazorViewEngineOptions>(options =>
             {
                 // options.FileProviders.Clear();
